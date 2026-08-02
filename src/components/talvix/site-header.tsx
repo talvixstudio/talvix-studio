@@ -61,7 +61,7 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,box-shadow] duration-700 ease-out",
         scrolled || open
-          ? "border-b border-border bg-background/72 shadow-[0_1px_0_0_color-mix(in_oklab,var(--brand)_10%,transparent),0_18px_40px_-32px_rgb(0_0_0/0.9)] backdrop-blur-xl backdrop-saturate-150"
+          ? "border-b border-border bg-background/72 shadow-[var(--shadow-header)] backdrop-blur-xl backdrop-saturate-150"
           : "border-b border-transparent",
       )}
     >
@@ -98,7 +98,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href="#contato"
-            className="btn-premium intro-soft group relative hidden h-9 items-center gap-2 rounded-full border border-border px-4 text-[13px] font-medium [animation-delay:560ms] hover:border-brand/60 hover:bg-brand/10 hover:shadow-[0_10px_30px_-16px_var(--brand)] sm:inline-flex"
+            className="btn-premium intro-soft group relative hidden h-9 items-center gap-2 rounded-full border border-border px-4 text-[13px] font-medium [animation-delay:560ms] hover:border-brand/60 hover:bg-brand/10 hover:shadow-[var(--shadow-brand-soft)] sm:inline-flex"
           >
             Falar com o estúdio
             <span className="h-1.5 w-1.5 rounded-full bg-brand transition-transform duration-500 ease-out group-hover:scale-[1.35]" />

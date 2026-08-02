@@ -266,7 +266,7 @@ export function Work() {
                       <p className="text-balance-tight max-w-[22ch] text-[17px] font-medium leading-snug text-foreground/95">
                         {p.headline}
                       </p>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/45">
+                      <span className="ds-label text-foreground/45">
                         {p.year}
                       </span>
                     </div>
@@ -289,7 +289,7 @@ export function Work() {
                             <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
                               {o.value}
                             </p>
-                            <p className="mt-1.5 max-w-[13ch] font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
+                            <p className="mt-1.5 max-w-[13ch] ds-label">
                               {o.label}
                             </p>
                           </li>
@@ -317,7 +317,7 @@ export function Work() {
                             ],
                           ].map(([label, body]) => (
                             <div key={label} className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4">
-                              <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-brand-soft sm:pt-1">
+                              <dt className="ds-label text-brand-soft sm:pt-1">
                                 {label}
                               </dt>
                               <dd className="max-w-[58ch] text-[14px] leading-[1.65] text-muted-foreground">
@@ -326,14 +326,14 @@ export function Work() {
                             </div>
                           ))}
                           <div className="grid gap-2 sm:grid-cols-[86px_1fr] sm:gap-4">
-                            <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-brand-soft sm:pt-1.5">
+                            <dt className="ds-label text-brand-soft sm:pt-1.5">
                               Stack
                             </dt>
                             <dd className="flex flex-wrap gap-1.5">
                               {p.stack.map((t) => (
                                 <span
                                   key={t}
-                                  className="rounded-full border border-border px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-foreground/60"
+                                  className="rounded-full border border-border px-2.5 py-1 ds-label text-foreground/60"
                                 >
                                   {t}
                                 </span>

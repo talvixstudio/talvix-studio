@@ -51,7 +51,7 @@ export function Hero() {
       <div className="shell relative">
         <div className="mx-auto max-w-3xl text-center">
           <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
-            <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
@@ -94,7 +94,7 @@ export function Hero() {
           >
             <a
               href="#contato"
-              className="btn-premium hover-sheen group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-7 text-[14.5px] font-medium text-primary-foreground hover:shadow-[0_18px_50px_-18px_var(--brand)] sm:w-auto"
+              className="btn-premium hover-sheen group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-7 text-[14.5px] font-medium text-primary-foreground hover:shadow-[var(--shadow-brand)] sm:w-auto"
             >
               Receber uma proposta
               <span
@@ -172,7 +172,7 @@ export function Hero() {
               style={{ animationDelay: `${seq.stats + i * 90}ms` }}
             >
               <dt className="text-[26px] font-semibold tracking-[-0.03em]">{value}</dt>
-              <dd className="mx-auto mt-1.5 max-w-[16ch] font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
+              <dd className="mx-auto mt-1.5 max-w-[16ch] ds-label">
                 {label}
               </dd>
             </div>

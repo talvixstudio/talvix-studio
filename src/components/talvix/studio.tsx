@@ -70,7 +70,7 @@ export function Studio() {
 
               <div className="relative flex items-center justify-between gap-6">
                 <p className="eyebrow">O que dizem</p>
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                <span className="ds-label">
                   {testimonials.length > 0 ? `${testimonials.length} depoimentos` : "Em curadoria"}
                 </span>
               </div>
@@ -83,7 +83,7 @@ export function Studio() {
                         {t.quote}
                       </blockquote>
                       <p className="mt-4 text-[14px] font-medium">{t.name}</p>
-                      <p className="mt-0.5 font-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground">
+                      <p className="mt-0.5 ds-label">
                         {t.role}
                       </p>
                     </li>

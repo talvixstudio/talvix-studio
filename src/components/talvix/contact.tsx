@@ -43,7 +43,7 @@ export function ContactCta() {
             <div className="mt-11 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="mailto:contato@talvix.studio?subject=Projeto%20novo"
-                className="btn-premium hover-sheen inline-flex h-12 w-full items-center justify-center rounded-full bg-brand px-8 text-[14.5px] font-medium text-primary-foreground hover:shadow-[0_18px_50px_-18px_var(--brand)] sm:w-auto"
+                className="btn-premium hover-sheen inline-flex h-12 w-full items-center justify-center rounded-full bg-brand px-8 text-[14.5px] font-medium text-primary-foreground hover:shadow-[var(--shadow-brand)] sm:w-auto"
               >
                 contato@talvix.studio
               </a>
@@ -63,7 +63,7 @@ export function ContactCta() {
           <ol className="mx-auto mt-16 grid max-w-4xl gap-px overflow-hidden rounded-2xl border border-border bg-border text-left sm:grid-cols-3">
             {nextSteps.map(([n, title, body]) => (
               <li key={n} className="bg-background/80 p-7">
-                <span className="font-mono text-[10px] tracking-[0.2em] text-brand">{n}</span>
+                <span className="ds-label text-brand">{n}</span>
                 <p className="mt-4 text-[14.5px] font-medium">{title}</p>
                 <p className="mt-1.5 text-[13.5px] leading-relaxed text-muted-foreground">
                   {body}
@@ -111,7 +111,7 @@ export function SiteFooter() {
 
         {footerNav.map((group) => (
           <nav key={group.title} aria-label={group.title}>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="ds-label">
               {group.title}
             </p>
             <ul className="mt-5 space-y-3">
@@ -131,10 +131,10 @@ export function SiteFooter() {
       </div>
 
       <div className="shell flex flex-col gap-3 border-t border-border py-7 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+        <p className="ds-label">
           © {new Date().getFullYear()} Talvix Studio
         </p>
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+        <p className="ds-label">
           Desenhado e programado internamente
         </p>
       </div>

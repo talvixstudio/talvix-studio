@@ -101,7 +101,7 @@ export function Services() {
                     strokeWidth={1.5}
                   />
                 </span>
-                <span className="font-mono text-[10.5px] tracking-[0.2em] text-muted-foreground transition-colors duration-700 group-hover:text-foreground/60">
+                <span className="ds-label transition-colors duration-700 group-hover:text-foreground/60">
                   {s.id}
                 </span>
               </div>
@@ -119,7 +119,7 @@ export function Services() {
                 {s.meta.map((m) => (
                   <li
                     key={m}
-                    className="rounded-full border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors duration-700 ease-out group-hover:border-brand/30 group-hover:text-foreground/80"
+                    className="rounded-full border border-border px-2.5 py-1 ds-label transition-colors duration-700 ease-out group-hover:border-brand/30 group-hover:text-foreground/80"
                   >
                     {m}
                   </li>
