@@ -36,7 +36,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative overflow-hidden pt-[128px] pb-24 lg:pt-[152px] lg:pb-32"
+      className="relative overflow-hidden pt-[124px] pb-16 lg:pt-[148px] lg:pb-24"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -128,7 +128,7 @@ export function Hero() {
 
 
         {/* Notebook */}
-        <div className="relative mt-16 lg:mt-24">
+        <div className="relative mt-14 lg:mt-16">
           <div
             aria-hidden
             className="brand-glow intro absolute inset-x-[6%] bottom-[2%] h-[70%] opacity-70 blur-[6px] [animation-delay:900ms] [animation-duration:2.2s]"
@@ -159,7 +159,7 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto mt-6 grid max-w-3xl grid-cols-2 gap-y-9 border-t border-border pt-10 sm:grid-cols-4">
+        <dl className="mx-auto -mt-2 grid max-w-3xl grid-cols-2 gap-y-8 border-t border-border pt-9 sm:grid-cols-4">
           {[
             ["3–6", "Semanas por projeto"],
             ["98+", "Lighthouse na entrega"],

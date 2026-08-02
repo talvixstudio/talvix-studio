@@ -349,7 +349,7 @@ export function Work() {
                       onClick={() => setOpenIndex(isOpen ? null : i)}
                       aria-expanded={isOpen}
                       aria-controls={`caso-${i}`}
-                      className="mt-7 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/80 transition-colors duration-500 ease-out hover:text-brand-soft"
+                      className="mt-auto pt-7 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/80 transition-colors duration-500 ease-out hover:text-brand-soft"
                     >
                       {isOpen ? "Fechar caso" : "Ler o caso completo"}
                       <ArrowRight
