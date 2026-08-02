@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import nbAvif980 from "@/assets/hero-notebook-980.avif";
-import nbAvif1600 from "@/assets/hero-notebook-1600.avif";
-import nbWebp980 from "@/assets/hero-notebook-980.webp";
-import nbWebp1600 from "@/assets/hero-notebook-1600.webp";
+const nbAvif980 = "/media/hero-notebook-980.avif";
+const nbAvif1600 = "/media/hero-notebook-1600.avif";
+const nbWebp980 = "/media/hero-notebook-980.webp";
+const nbWebp1600 = "/media/hero-notebook-1600.webp";
 
 /** Entrance choreography — every element lands after the one before it. */
 const seq = {

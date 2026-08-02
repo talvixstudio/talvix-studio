@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import markUrl from "@/assets/talvix-mark.png";
+const markUrl = "/media/talvix-mark.png";
 
 /** Marca oficial da Talvix Studio — aplicada exatamente como fornecida. */
 export function TalvixMark({ className }: { className?: string }) {
