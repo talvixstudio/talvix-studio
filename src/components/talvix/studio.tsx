@@ -97,25 +97,26 @@ export function Studio() {
                     — e sempre com cargo e empresa verificáveis.
                   </p>
 
-                  <ul className="mt-8 space-y-px overflow-hidden rounded-xl border border-dashed border-border/70">
-                    {[0, 1].map((i) => (
-                      <li
-                        key={i}
-                        aria-hidden
-                        className="flex items-start gap-4 bg-background/40 px-5 py-5"
-                      >
-                        <Quote
-                          className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40"
-                          strokeWidth={1.5}
+                  <ul className="mt-9 space-y-5 border-l border-border pl-6">
+                    {[
+                      ["Nome e cargo reais", "Nada de “CEO de uma fintech”."],
+                      ["Autorização por escrito", "O cliente lê e aprova antes de publicar."],
+                      ["Número verificável", "A frase vem acompanhada do resultado."],
+                    ].map(([title, body], i) => (
+                      <li key={title} className="relative">
+                        <span
+                          aria-hidden
+                          className="absolute -left-[27px] top-2 h-1.5 w-1.5 rounded-full bg-brand/70"
                         />
-                        <div className="w-full space-y-2.5">
-                          <div className="h-2 w-full rounded-full bg-foreground/6" />
-                          <div className="h-2 w-4/5 rounded-full bg-foreground/6" />
-                          <div className="h-2 w-1/3 rounded-full bg-foreground/4" />
-                        </div>
+                        <p className="flex items-baseline gap-3 ds-title-xs">
+                          <span className="ds-label text-brand">{`0${i + 1}`}</span>
+                          {title}
+                        </p>
+                        <p className="mt-1 ds-body-sm">{body}</p>
                       </li>
                     ))}
                   </ul>
+
 
                   <p className="mt-8 ds-body-sm">
                     Enquanto isso, os números dos estudos de caso acima foram informados
