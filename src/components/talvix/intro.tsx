@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LogoMark, Wordmark } from "./logo";
+import { TalvixLogo } from "./logo";
 
 const KEY = "talvix:intro-seen";
 
@@ -30,19 +30,19 @@ export function Intro() {
       /* storage unavailable — play anyway */
     }
 
-    document.documentElement.dataset.intro = "playing";
+    document.documentElement.dataset["intro"] = "playing";
     setPhase("playing");
 
     const leave = window.setTimeout(() => setPhase("leaving"), 1550);
     const end = window.setTimeout(() => {
-      delete document.documentElement.dataset.intro;
+      delete document.documentElement.dataset["intro"];
       setPhase("done");
     }, 2600);
 
     return () => {
       window.clearTimeout(leave);
       window.clearTimeout(end);
-      delete document.documentElement.dataset.intro;
+      delete document.documentElement.dataset["intro"];
     };
   }, []);
 
@@ -57,9 +57,8 @@ export function Intro() {
       }
     >
       <div className="intro-glow absolute h-[46vmin] w-[46vmin] rounded-full" />
-      <div className="intro-logo relative flex items-center gap-3">
-        <LogoMark className="h-9 w-9" />
-        <Wordmark />
+      <div className="intro-logo relative">
+        <TalvixLogo />
       </div>
       <span className="intro-hairline absolute bottom-0 left-0 h-px w-full origin-left bg-[linear-gradient(90deg,transparent,color-mix(in_oklab,var(--brand)_60%,transparent),transparent)]" />
     </div>
