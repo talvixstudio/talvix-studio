@@ -95,6 +95,119 @@ const cases: CaseStudy[] = [
   },
 ];
 
+/**
+ * Each case gets its own abstract read of the interface we shipped —
+ * a wealth report, a route board, a three-step onboarding, a plan picker.
+ * Drawn with layout primitives so they stay crisp at any size and cost no bytes.
+ */
+function Motif({ index }: { index: number }) {
+  const shell =
+    "pointer-events-none absolute inset-x-7 top-7 bottom-[38%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
+
+  if (index === 0) {
+    // Meridian — performance report
+    return (
+      <div aria-hidden className={shell}>
+        <div className="flex items-end gap-1.5">
+          {[34, 46, 40, 58, 52, 72, 66, 88].map((h, k) => (
+            <span
+              key={k}
+              style={{ height: `${h}%`, transitionDelay: `${k * 45}ms` }}
+              className="w-2 origin-bottom rounded-[2px] bg-foreground/10 transition-transform duration-700 ease-out group-hover:scale-y-110 last:bg-brand/70"
+            />
+          ))}
+          <div className="ml-auto space-y-1.5 text-right">
+            <div className="ml-auto h-1.5 w-16 rounded-full bg-foreground/12" />
+            <div className="ml-auto h-1.5 w-9 rounded-full bg-brand/55" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 1) {
+    // Órbita — live route board
+    return (
+      <div aria-hidden className={shell}>
+        <div className="space-y-2.5">
+          {[
+            ["68%", "bg-brand/60"],
+            ["42%", "bg-foreground/14"],
+            ["86%", "bg-foreground/14"],
+            ["30%", "bg-foreground/10"],
+          ].map(([w, tint], k) => (
+            <div key={k} className="flex items-center gap-2.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-foreground/25" />
+              <span
+                style={{ width: w, transitionDelay: `${k * 70}ms` }}
+                className={cn(
+                  "h-1.5 origin-left rounded-full transition-transform duration-[900ms] ease-out group-hover:scale-x-[1.04]",
+                  tint,
+                )}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 2) {
+    // Nuvia — three-step onboarding
+    return (
+      <div aria-hidden className={shell}>
+        <div className="flex items-center gap-2">
+          {[0, 1, 2].map((k) => (
+            <div key={k} className="flex flex-1 items-center gap-2">
+              <span
+                className={cn(
+                  "h-5 w-5 shrink-0 rounded-full border",
+                  k === 0
+                    ? "border-brand/70 bg-brand/25"
+                    : "border-foreground/15 bg-foreground/[0.04]",
+                )}
+              />
+              {k < 2 && <span className="h-px flex-1 bg-foreground/12" />}
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 space-y-2">
+          <div className="h-1.5 w-2/5 rounded-full bg-foreground/12" />
+          <div className="h-8 rounded-md border border-foreground/10 bg-foreground/[0.03] transition-colors duration-700 group-hover:border-brand/25" />
+        </div>
+      </div>
+    );
+  }
+
+  // Fero — plan picker
+  return (
+    <div aria-hidden className={shell}>
+      <div className="grid grid-cols-3 gap-2">
+        {[0, 1, 2].map((k) => (
+          <div
+            key={k}
+            className={cn(
+              "rounded-md border p-2.5 transition-transform duration-700 ease-out",
+              k === 1
+                ? "border-brand/45 bg-brand/[0.07] group-hover:-translate-y-1"
+                : "border-foreground/10 bg-foreground/[0.03]",
+            )}
+          >
+            <div className="h-1.5 w-2/3 rounded-full bg-foreground/14" />
+            <div
+              className={cn(
+                "mt-2 h-1.5 w-1/3 rounded-full",
+                k === 1 ? "bg-brand/70" : "bg-foreground/10",
+              )}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
 export function Work() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
