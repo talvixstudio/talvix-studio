@@ -178,13 +178,14 @@ export function Hero() {
                 <img
                   src={nbWebp1600}
                   width={1600}
-                  height={1104}
-                  alt="Notebook exibindo uma interface desenhada pela Talvix Studio"
-                  className="w-full select-none brightness-[1.35] contrast-[1.05] drop-shadow-[0_50px_70px_rgba(0,0,0,0.7)]"
+                  height={1067}
+                  alt="Notebook exibindo uma interface criada pela Talvix Studio"
+                  className="w-full select-none brightness-[1.06] contrast-[1.04] drop-shadow-[0_60px_80px_rgba(0,0,0,0.75)]"
                   fetchPriority="high"
                   decoding="async"
                   draggable={false}
                 />
+
               </picture>
             </div>
           </div>
