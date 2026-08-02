@@ -206,9 +206,13 @@ export function Work() {
                       <div className="overflow-hidden">
                         <dl className="space-y-5 border-t border-border pt-6">
                           {[
-                            ["Objetivo", p.goal],
+                            ["Contexto", p.goal],
                             ["Problema", p.problem],
                             ["Solução", p.solution],
+                            [
+                              "Resultado",
+                              p.outcome.map((o) => `${o.value} · ${o.label.toLowerCase()}`).join("  ·  "),
+                            ],
                           ].map(([label, body]) => (
                             <div key={label} className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4">
                               <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-brand-soft sm:pt-1">
@@ -219,8 +223,24 @@ export function Work() {
                               </dd>
                             </div>
                           ))}
+                          <div className="grid gap-2 sm:grid-cols-[86px_1fr] sm:gap-4">
+                            <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-brand-soft sm:pt-1.5">
+                              Stack
+                            </dt>
+                            <dd className="flex flex-wrap gap-1.5">
+                              {p.stack.map((t) => (
+                                <span
+                                  key={t}
+                                  className="rounded-full border border-border px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-foreground/60"
+                                >
+                                  {t}
+                                </span>
+                              ))}
+                            </dd>
+                          </div>
                         </dl>
                       </div>
+
                     </div>
 
                     <button
