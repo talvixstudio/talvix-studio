@@ -102,7 +102,7 @@ const cases: CaseStudy[] = [
  */
 function Motif({ index }: { index: number }) {
   const shell =
-    "pointer-events-none absolute inset-x-7 top-7 bottom-[38%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
+    "pointer-events-none absolute inset-x-7 top-7 bottom-[42%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
 
   if (index === 0) {
     // Meridian — performance report
@@ -113,7 +113,7 @@ function Motif({ index }: { index: number }) {
             <span
               key={k}
               style={{ height: `${h}%`, transitionDelay: `${k * 45}ms` }}
-              className="w-2 origin-bottom rounded-[2px] bg-foreground/10 transition-transform duration-700 ease-out group-hover:scale-y-110 last:bg-brand/70"
+              className="w-2 origin-bottom rounded-[2px] bg-foreground/20 transition-transform duration-700 ease-out group-hover:scale-y-110 last:bg-brand/70"
             />
           ))}
           <div className="ml-auto space-y-1.5 text-right">
@@ -132,9 +132,9 @@ function Motif({ index }: { index: number }) {
         <div className="space-y-2.5">
           {[
             ["68%", "bg-brand/60"],
-            ["42%", "bg-foreground/14"],
-            ["86%", "bg-foreground/14"],
-            ["30%", "bg-foreground/10"],
+            ["42%", "bg-foreground/22"],
+            ["86%", "bg-foreground/22"],
+            ["30%", "bg-foreground/16"],
           ].map(([w, tint], k) => (
             <div key={k} className="flex items-center gap-2.5">
               <span className="h-1.5 w-1.5 rounded-full bg-foreground/25" />
@@ -251,7 +251,7 @@ export function Work() {
                     className={cn(
                       "relative overflow-hidden bg-gradient-to-br transition-[aspect-ratio] duration-700",
                       p.tone,
-                      isOpen ? "aspect-[16/5]" : "aspect-[16/9]",
+                      isOpen ? "aspect-[16/4.5]" : "aspect-[16/7.2]",
                     )}
                   >
                     <div className="hairline-grid absolute inset-0 opacity-60 transition-transform duration-[1.8s] ease-out group-hover:scale-[1.05]" />
