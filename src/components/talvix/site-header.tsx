@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TalvixLogo } from "./logo";
 import { cn } from "@/lib/utils";
+
 
 const links = [
   { label: "Serviços", href: "#servicos" },
