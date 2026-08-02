@@ -54,7 +54,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative overflow-hidden pt-[124px] pb-16 lg:pt-[148px] lg:pb-24"
+      className="relative overflow-hidden pt-[124px] pb-10 lg:pt-[148px] lg:pb-16"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
