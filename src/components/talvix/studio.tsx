@@ -20,7 +20,7 @@ export function Studio() {
     <section
       id="estudio"
       aria-labelledby="estudio-titulo"
-      className="section-y relative border-t border-border"
+      className="cv-auto section-y relative border-t border-border"
     >
       <div className="shell">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-24">

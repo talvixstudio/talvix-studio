@@ -1,5 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import notebook from "@/assets/hero-notebook.png";
+import { useEffect, useRef } from "react";
+import nbAvif980 from "@/assets/hero-notebook-980.avif";
+import nbAvif1600 from "@/assets/hero-notebook-1600.avif";
+import nbWebp980 from "@/assets/hero-notebook-980.webp";
+import nbWebp1600 from "@/assets/hero-notebook-1600.webp";
 
 /** Entrance choreography — every element lands after the one before it. */
 const seq = {
@@ -13,21 +16,36 @@ const seq = {
 };
 
 export function Hero() {
-  const [offset, setOffset] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
+  const glowRef = useRef<HTMLDivElement | null>(null);
+  const deviceRef = useRef<HTMLDivElement | null>(null);
 
+  // Parallax written straight to the DOM — no re-renders while scrolling.
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        setOffset(Math.min(window.scrollY, 700));
-      });
+    let last = -1;
+    const apply = () => {
+      frame = 0;
+      const offset = Math.min(window.scrollY, 700);
+      if (offset === last) return;
+      last = offset;
+      if (glowRef.current) {
+        glowRef.current.style.transform = `translate(-50%, ${offset * -0.12}px)`;
+      }
+      if (deviceRef.current) {
+        deviceRef.current.style.transform = `translate3d(0, ${offset * -0.05}px, 0)`;
+      }
     };
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(apply);
+    };
+    apply();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(frame);
+      if (frame) cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -42,9 +60,11 @@ export function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="hairline-grid intro absolute inset-0 opacity-[0.5] [mask-image:radial-gradient(70%_55%_at_50%_20%,#000,transparent)] [animation-duration:2.4s]" />
         <div
+          ref={glowRef}
           className="brand-glow intro absolute left-1/2 top-[-14%] h-[620px] w-[1100px] -translate-x-1/2 opacity-40 blur-[2px] [animation-delay:200ms] [animation-duration:2.6s]"
-          style={{ transform: `translate(-50%, ${offset * -0.12}px)` }}
+          style={{ transform: "translate(-50%, 0px)" }}
         />
+
         <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
       </div>
 
@@ -139,17 +159,32 @@ export function Hero() {
           />
           <div className="intro-rise" style={{ animationDelay: `${seq.notebook}ms` }}>
             <div
+              ref={deviceRef}
               className="float-slow relative mx-auto max-w-[980px]"
-              style={{ transform: `translate3d(0, ${offset * -0.05}px, 0)` }}
             >
-              <img
-                src={notebook}
-                width={1600}
-                height={1104}
-                alt="Notebook exibindo uma interface desenhada pela Talvix Studio"
-                className="w-full select-none brightness-[1.35] contrast-[1.05] drop-shadow-[0_50px_70px_rgba(0,0,0,0.7)]"
-                fetchPriority="high"
-              />
+
+              <picture>
+                <source
+                  type="image/avif"
+                  srcSet={`${nbAvif980} 980w, ${nbAvif1600} 1600w`}
+                  sizes="(max-width: 1024px) 92vw, 980px"
+                />
+                <source
+                  type="image/webp"
+                  srcSet={`${nbWebp980} 980w, ${nbWebp1600} 1600w`}
+                  sizes="(max-width: 1024px) 92vw, 980px"
+                />
+                <img
+                  src={nbWebp1600}
+                  width={1600}
+                  height={1104}
+                  alt="Notebook exibindo uma interface desenhada pela Talvix Studio"
+                  className="w-full select-none brightness-[1.35] contrast-[1.05] drop-shadow-[0_50px_70px_rgba(0,0,0,0.7)]"
+                  fetchPriority="high"
+                  decoding="async"
+                  draggable={false}
+                />
+              </picture>
             </div>
           </div>
 

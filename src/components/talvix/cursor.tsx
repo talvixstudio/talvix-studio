@@ -38,12 +38,20 @@ export function Cursor() {
       }
       const el = e.target as HTMLElement | null;
       target = el?.closest("a,button,[data-cursor]") ? 2.1 : 1;
+      idleFrames = 0;
+      start();
     };
 
     const onLeave = () => {
       visible = false;
       if (dotRef.current) dotRef.current.style.opacity = "0";
       if (ringRef.current) ringRef.current.style.opacity = "0";
+    };
+
+    let idleFrames = 0;
+
+    const start = () => {
+      if (!raf) raf = requestAnimationFrame(tick);
     };
 
     const tick = () => {
@@ -57,6 +65,14 @@ export function Cursor() {
         ringRef.current.style.transform = `translate3d(${rx - 16}px, ${ry - 16}px, 0) scale(${scale.toFixed(3)})`;
         ringRef.current.style.opacity = visible ? String(0.55 - (scale - 1) * 0.16) : "0";
       }
+      // Stop the loop once the ring has settled; pointermove wakes it again.
+      const settled =
+        Math.abs(x - rx) < 0.1 && Math.abs(y - ry) < 0.1 && Math.abs(target - scale) < 0.002;
+      idleFrames = settled ? idleFrames + 1 : 0;
+      if (idleFrames > 6) {
+        raf = 0;
+        return;
+      }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -64,7 +80,7 @@ export function Cursor() {
     window.addEventListener("pointermove", onMove, { passive: true });
     document.addEventListener("pointerleave", onLeave);
     return () => {
-      cancelAnimationFrame(raf);
+      if (raf) cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerleave", onLeave);
       document.documentElement.classList.remove("cursor-none-fine");
