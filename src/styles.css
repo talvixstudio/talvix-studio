@@ -50,6 +50,15 @@
 :root {
   --radius: 0.75rem;
 
+  /* elevation scale — single source of truth */
+  --shadow-brand: 0 18px 50px -18px var(--brand);
+  --shadow-brand-soft: 0 10px 30px -16px var(--brand);
+  --shadow-card: 0 26px 60px -34px oklch(0 0 0 / 0.9);
+  --shadow-header:
+    0 1px 0 0 color-mix(in oklab, var(--brand) 10%, transparent),
+    0 18px 40px -32px rgb(0 0 0 / 0.9);
+
+
   --background: oklch(0.145 0.008 260);
   --foreground: oklch(0.975 0.003 260);
 
