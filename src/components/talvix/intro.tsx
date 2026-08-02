@@ -30,6 +30,7 @@ export function Intro() {
       /* storage unavailable — play anyway */
     }
 
+    console.log("INTRO effect start");
     document.documentElement.dataset["intro"] = "playing";
     setPhase("playing");
 
