@@ -88,7 +88,11 @@ export function Hero() {
         <div className="relative mt-16 lg:mt-24">
           <div
             aria-hidden
-            className="brand-glow absolute inset-x-[12%] bottom-[6%] h-[45%] opacity-45 blur-2xl"
+            className="brand-glow absolute inset-x-[6%] bottom-[2%] h-[70%] opacity-70 blur-[6px]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-x-[18%] bottom-[10%] h-[55%] rounded-[50%] bg-[radial-gradient(closest-side,rgba(255,255,255,0.12),transparent)] blur-2xl"
           />
           <Reveal delay={320}>
             <div
@@ -100,11 +104,12 @@ export function Hero() {
                 width={1600}
                 height={1104}
                 alt="Notebook exibindo uma interface desenhada pela Talvix Studio"
-                className="w-full select-none drop-shadow-[0_60px_80px_rgba(0,0,0,0.65)]"
+                className="w-full select-none brightness-[1.35] contrast-[1.05] drop-shadow-[0_50px_70px_rgba(0,0,0,0.7)]"
                 fetchPriority="high"
               />
             </div>
           </Reveal>
+
           <div
             aria-hidden
             className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent"
