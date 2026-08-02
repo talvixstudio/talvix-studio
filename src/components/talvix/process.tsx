@@ -38,13 +38,15 @@ export function Process() {
   const { ref, visible } = useReveal<HTMLDivElement>(0.25);
 
   return (
-    <section id="metodo" className="relative border-t border-border py-24 lg:py-32">
-      <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
+    <section
+      id="metodo"
+      aria-labelledby="metodo-titulo"
+      className="section-y relative border-t border-border"
+    >
+      <div className="shell">
         <Reveal>
-          <p className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-brand-soft">
-            Método
-          </p>
-          <h2 className="text-balance-tight mt-5 max-w-2xl text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]">
+          <p className="eyebrow">Método</p>
+          <h2 id="metodo-titulo" className="text-balance-tight mt-5 max-w-2xl text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]">
             Um processo curto o suficiente para manter o ritmo. Longo o suficiente para
             ficar impecável.
           </h2>

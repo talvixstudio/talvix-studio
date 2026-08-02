@@ -55,14 +55,16 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="relative border-t border-border py-24 lg:py-32">
-      <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
+    <section
+      id="servicos"
+      aria-labelledby="servicos-titulo"
+      className="section-y relative border-t border-border"
+    >
+      <div className="shell">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
           <Reveal>
-            <p className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-brand-soft">
-              O que fazemos
-            </p>
-            <h2 className="text-balance-tight mt-5 text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]">
+            <p className="eyebrow">O que fazemos</p>
+            <h2 id="servicos-titulo" className="text-balance-tight mt-5 text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]">
               Seis disciplinas, uma única obsessão: acabamento.
             </h2>
           </Reveal>
