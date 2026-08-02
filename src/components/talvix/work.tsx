@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./reveal";
 
 const projects = [
@@ -44,7 +45,7 @@ export function Work() {
               Trabalhos recentes
             </h2>
           </Reveal>
-          <Reveal delay={80}>
+          <Reveal delay={120}>
             <p className="max-w-xs text-[14.5px] leading-relaxed text-muted-foreground">
               Quatro projetos que resumem bem como pensamos. Portfólio completo sob
               solicitação.
@@ -54,17 +55,26 @@ export function Work() {
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {projects.map((p, i) => (
-            <Reveal key={p.client} delay={(i % 2) * 110}>
-              <article className="group relative overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:-translate-y-1 hover:border-brand/35">
+            <Reveal key={p.client} delay={i * 130}>
+              <article className="lift group relative overflow-hidden rounded-2xl border border-border">
                 <div
                   className={`relative aspect-[16/10] bg-gradient-to-br ${p.tone} overflow-hidden`}
                 >
-                  <div className="hairline-grid absolute inset-0 opacity-60 transition-transform duration-[1.4s] ease-out group-hover:scale-105" />
-                  <div className="brand-glow absolute -right-16 -top-16 h-64 w-64 opacity-0 transition-opacity duration-700 group-hover:opacity-60" />
-                  <div className="absolute inset-x-8 bottom-8 space-y-3">
+                  <div className="hairline-grid absolute inset-0 opacity-60 transition-transform duration-[1.8s] ease-out group-hover:scale-[1.06]" />
+                  <div className="brand-glow absolute -right-16 -top-16 h-64 w-64 opacity-0 transition-opacity duration-[1.1s] ease-out group-hover:opacity-60" />
+                  <div className="absolute inset-x-8 bottom-8 space-y-3 transition-transform duration-[1.1s] ease-out group-hover:-translate-y-1.5">
                     <div className="h-1.5 w-16 rounded-full bg-brand/70" />
                     <div className="h-2 w-2/3 rounded-full bg-foreground/12" />
                     <div className="h-2 w-1/3 rounded-full bg-foreground/8" />
+                  </div>
+
+                  {/* elegant overlay */}
+                  <div className="absolute inset-0 bg-background/45 opacity-0 backdrop-blur-[2px] transition-opacity duration-[900ms] ease-out group-hover:opacity-100" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="btn-premium inline-flex translate-y-2 items-center gap-2 rounded-full border border-brand/40 bg-background/70 px-5 py-2 text-[13px] font-medium opacity-0 transition-all duration-[900ms] ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                      Ver projeto
+                      <ArrowUpRight className="h-3.5 w-3.5 text-brand-soft" strokeWidth={1.75} />
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between gap-6 p-6">
