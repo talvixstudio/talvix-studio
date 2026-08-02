@@ -108,20 +108,21 @@ function Motif({ index }: { index: number }) {
     // Meridian — performance report
     return (
       <div aria-hidden className={shell}>
-        <div className="flex items-end gap-1.5">
+        <div className="flex h-full items-end gap-1.5">
           {[34, 46, 40, 58, 52, 72, 66, 88].map((h, k) => (
             <span
               key={k}
-              style={{ height: `${h}%`, transitionDelay: `${k * 45}ms` }}
-              className="w-2 origin-bottom rounded-[2px] bg-foreground/20 transition-transform duration-700 ease-out group-hover:scale-y-110 last:bg-brand/70"
+              style={{ height: `${h * 0.8}%`, transitionDelay: `${k * 45}ms` }}
+              className="w-2 origin-bottom rounded-[2px] bg-foreground/20 transition-transform duration-700 ease-out last:bg-brand/70 group-hover:scale-y-105"
             />
           ))}
-          <div className="ml-auto space-y-1.5 text-right">
-            <div className="ml-auto h-1.5 w-16 rounded-full bg-foreground/12" />
+          <div className="ml-auto space-y-1.5 self-start text-right">
+            <div className="ml-auto h-1.5 w-16 rounded-full bg-foreground/20" />
             <div className="ml-auto h-1.5 w-9 rounded-full bg-brand/55" />
           </div>
         </div>
       </div>
+
     );
   }
 
