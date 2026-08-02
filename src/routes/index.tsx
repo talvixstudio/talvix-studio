@@ -33,7 +33,19 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: description },
       { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      {
+        rel: "preload",
+        as: "image",
+        type: "image/avif",
+        href: nbAvif1600,
+        imagesrcset: `${nbAvif980} 980w, ${nbAvif1600} 1600w`,
+        imagesizes: "(max-width: 1024px) 92vw, 980px",
+        fetchpriority: "high",
+      },
+    ],
+
     scripts: [
       {
         type: "application/ld+json",
