@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import notebook from "@/assets/hero-notebook.png";
-import { Reveal } from "./reveal";
 
 /** Entrance choreography — every element lands after the one before it. */
 const seq = {
@@ -156,10 +155,6 @@ export function Hero() {
             </div>
           ))}
         </dl>
-
-        <Reveal className="sr-only">
-          <span>Talvix Studio</span>
-        </Reveal>
       </div>
     </section>
   );
