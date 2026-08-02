@@ -41,7 +41,7 @@ export function Faq() {
     <section
       id="duvidas"
       aria-labelledby="duvidas-titulo"
-      className="section-y relative border-t border-border"
+      className="cv-auto section-y relative border-t border-border"
     >
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:gap-20">

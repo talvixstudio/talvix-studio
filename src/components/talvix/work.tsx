@@ -216,7 +216,7 @@ export function Work() {
     <section
       id="trabalhos"
       aria-labelledby="trabalhos-titulo"
-      className="section-y relative border-t border-border"
+      className="cv-auto section-y relative border-t border-border"
     >
       <div className="shell">
         <div className="flex flex-wrap items-end justify-between gap-8">
