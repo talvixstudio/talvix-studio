@@ -69,7 +69,7 @@ export function Hero() {
       </div>
 
       <div className="shell relative">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-[62rem] text-center">
           <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
             <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
@@ -82,7 +82,7 @@ export function Hero() {
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mx-auto mt-8 max-w-[15ch] text-[clamp(2.5rem,6.4vw,4.75rem)] font-semibold leading-[0.98] lg:max-w-[19ch]"
+            className="text-balance-tight mx-auto mt-8 max-w-[16ch] text-[clamp(2.5rem,6.2vw,4.5rem)] font-semibold leading-[0.98] lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
