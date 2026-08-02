@@ -6,6 +6,8 @@ import { Process } from "@/components/talvix/process";
 import { Work } from "@/components/talvix/work";
 import { Studio } from "@/components/talvix/studio";
 import { ContactCta, SiteFooter } from "@/components/talvix/contact";
+import { Ambient } from "@/components/talvix/ambient";
+import { Cursor } from "@/components/talvix/cursor";
 
 const title = "Talvix Studio — Websites premium, UI/UX e produtos digitais";
 const description =
@@ -27,17 +29,21 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <SiteHeader />
-      <main>
-        <Hero />
-        <Services />
-        <Process />
-        <Work />
-        <Studio />
-        <ContactCta />
-      </main>
-      <SiteFooter />
+    <div className="relative min-h-screen bg-background">
+      <Ambient />
+      <Cursor />
+      <div className="relative z-10">
+        <SiteHeader />
+        <main>
+          <Hero />
+          <Services />
+          <Process />
+          <Work />
+          <Studio />
+          <ContactCta />
+        </main>
+        <SiteFooter />
+      </div>
     </div>
   );
 }

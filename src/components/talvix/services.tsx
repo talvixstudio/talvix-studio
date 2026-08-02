@@ -1,38 +1,52 @@
 import { Reveal } from "./reveal";
+import {
+  Layers,
+  MousePointerClick,
+  PenTool,
+  Sparkles,
+  SquareTerminal,
+  Workflow,
+} from "lucide-react";
 
 const services = [
   {
     id: "01",
+    icon: Layers,
     title: "Websites Premium",
     body: "Sites institucionais construídos como produto: arquitetura de conteúdo, sistema de design próprio e performance medida a cada deploy.",
     meta: ["Design system", "SSR", "CMS"],
   },
   {
     id: "02",
+    icon: MousePointerClick,
     title: "Landing Pages",
     body: "Páginas de alta conversão com narrativa própria, provas de valor bem posicionadas e testes de mensagem desde a primeira semana.",
     meta: ["Copy", "A/B", "Analytics"],
   },
   {
     id: "03",
+    icon: PenTool,
     title: "UI/UX Design",
     body: "Fluxos, protótipos e interfaces desenhadas em detalhe — do espaçamento à microinteração — antes de uma linha de código existir.",
     meta: ["Research", "Protótipo", "Handoff"],
   },
   {
     id: "04",
+    icon: Sparkles,
     title: "Identidade Visual",
     body: "Marcas com sistema completo: símbolo, tipografia, paleta, aplicações e regras claras para escalar sem perder consistência.",
     meta: ["Marca", "Guidelines", "Assets"],
   },
   {
     id: "05",
+    icon: SquareTerminal,
     title: "Aplicações Web",
     body: "Dashboards, portais e plataformas com autenticação, dados em tempo real e uma camada de interface que dá gosto de usar.",
     meta: ["React", "API", "Auth"],
   },
   {
     id: "06",
+    icon: Workflow,
     title: "Soluções Digitais",
     body: "Automação, integrações e ferramentas internas desenhadas para eliminar trabalho repetitivo da sua operação.",
     meta: ["Integrações", "Automação", "Infra"],
@@ -52,7 +66,7 @@ export function Services() {
               Seis disciplinas, uma única obsessão: acabamento.
             </h2>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal delay={140}>
             <p className="max-w-lg text-[15.5px] leading-relaxed text-muted-foreground lg:pt-16">
               Não trabalhamos com pacotes fechados. Cada projeto começa por entender o
               negócio, definir o que precisa ser verdade na tela e só então construir — com
@@ -65,17 +79,25 @@ export function Services() {
           {services.map((s, i) => (
             <Reveal
               key={s.id}
-              delay={(i % 3) * 90}
-              className="group relative border-b border-border p-8 transition-colors duration-500 hover:bg-surface/70 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r"
+              delay={i * 110}
+              className="group relative border-b border-border p-8 transition-colors duration-700 ease-out hover:bg-surface/70 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r"
             >
               <span
                 aria-hidden
-                className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-transparent transition-transform duration-700 group-hover:scale-x-100"
+                className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-transparent transition-transform duration-[900ms] ease-out group-hover:scale-x-100"
               />
-              <span className="font-mono text-[10.5px] tracking-[0.2em] text-muted-foreground">
-                {s.id}
-              </span>
-              <h3 className="mt-6 text-lg font-medium tracking-[-0.02em] transition-transform duration-500 group-hover:translate-x-0.5">
+              <div className="flex items-center justify-between">
+                <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface/60 transition-all duration-700 ease-out group-hover:-translate-y-0.5 group-hover:border-brand/35 group-hover:bg-brand/10">
+                  <s.icon
+                    className="h-[17px] w-[17px] text-muted-foreground transition-colors duration-700 ease-out group-hover:text-brand-soft"
+                    strokeWidth={1.5}
+                  />
+                </span>
+                <span className="font-mono text-[10.5px] tracking-[0.2em] text-muted-foreground transition-colors duration-700 group-hover:text-foreground/60">
+                  {s.id}
+                </span>
+              </div>
+              <h3 className="mt-7 text-lg font-medium tracking-[-0.02em] transition-transform duration-700 ease-out group-hover:translate-x-0.5">
                 {s.title}
               </h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
@@ -85,7 +107,7 @@ export function Services() {
                 {s.meta.map((m) => (
                   <li
                     key={m}
-                    className="rounded-full border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors duration-500 group-hover:border-brand/30 group-hover:text-foreground/80"
+                    className="rounded-full border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors duration-700 ease-out group-hover:border-brand/30 group-hover:text-foreground/80"
                   >
                     {m}
                   </li>

@@ -183,3 +183,173 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ---- Phase 2: entrance choreography ---- */
+
+@keyframes talvix-intro {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.995);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes talvix-intro-soft {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes talvix-intro-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 72px, 0) scale(0.975);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@utility intro {
+  opacity: 0;
+  animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@utility intro-soft {
+  opacity: 0;
+  animation: talvix-intro-soft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@utility intro-rise {
+  opacity: 0;
+  animation: talvix-intro-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* ---- Premium cursor ---- */
+
+@utility cursor-none-fine {
+  @media (pointer: fine) {
+    cursor: none;
+  }
+}
+
+@utility talvix-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  pointer-events: none;
+  border-radius: 9999px;
+  will-change: transform;
+}
+
+/* ---- Ambient depth ---- */
+
+@keyframes talvix-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -26px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@utility drift-slow {
+  animation: talvix-drift 18s ease-in-out infinite;
+}
+
+@keyframes talvix-particle {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  25%,
+  75% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -46px, 0);
+  }
+}
+
+@utility particle {
+  animation: talvix-particle linear infinite;
+  will-change: transform, opacity;
+}
+
+/* ---- Card / button polish ---- */
+
+@utility lift {
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translate3d(0, -4px, 0);
+    border-color: color-mix(in oklab, var(--brand) 38%, transparent);
+    box-shadow:
+      0 26px 60px -34px oklch(0 0 0 / 0.9),
+      0 0 0 1px color-mix(in oklab, var(--brand) 12%, transparent);
+  }
+}
+
+@utility btn-premium {
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translate3d(0, -1px, 0) scale(1.018);
+  }
+
+  &:active {
+    transform: translate3d(0, 0, 0) scale(0.99);
+    transition-duration: 0.14s;
+  }
+}
+
+@media (max-width: 767px) {
+  .intro,
+  .intro-rise {
+    animation-duration: 0.85s;
+  }
+
+  .drift-slow,
+  .float-slow,
+  .particle {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro,
+  .intro-soft,
+  .intro-rise {
+    animation: none;
+    opacity: 1;
+  }
+}

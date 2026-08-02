@@ -1,26 +1,33 @@
+import { Compass, Palette, PenSquare, Rocket } from "lucide-react";
+import { useReveal } from "@/hooks/use-reveal";
 import { Reveal } from "./reveal";
+import { cn } from "@/lib/utils";
 
 const steps = [
   {
     n: "01",
+    icon: Compass,
     title: "Imersão",
     time: "Semana 1",
     body: "Entendemos o negócio, o público e o que a concorrência ainda não resolveu. Saímos com escopo, arquitetura e critérios de sucesso escritos.",
   },
   {
     n: "02",
+    icon: Palette,
     title: "Direção",
     time: "Semana 1–2",
     body: "Definimos a linguagem visual: tipografia, paleta, grid, movimento. Uma direção aprovada antes de qualquer tela final.",
   },
   {
     n: "03",
+    icon: PenSquare,
     title: "Design",
     time: "Semana 2–4",
     body: "Telas em alta fidelidade, sistema de componentes e protótipo navegável. Revisões em ciclos curtos, sempre com você dentro.",
   },
   {
     n: "04",
+    icon: Rocket,
     title: "Construção",
     time: "Semana 4–6",
     body: "Código limpo, acessível e rápido. Entrega com documentação, treinamento e acompanhamento nos primeiros 30 dias.",
@@ -28,6 +35,8 @@ const steps = [
 ];
 
 export function Process() {
+  const { ref, visible } = useReveal<HTMLDivElement>(0.25);
+
   return (
     <section id="metodo" className="relative border-t border-border py-24 lg:py-32">
       <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
@@ -41,33 +50,72 @@ export function Process() {
           </h2>
         </Reveal>
 
-        <ol className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <Reveal
-              as="li"
-              key={s.n}
-              delay={i * 100}
-              className="group relative bg-background p-8 transition-colors duration-500 hover:bg-surface"
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10.5px] tracking-[0.2em] text-brand">
-                  {s.n}
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                  {s.time}
-                </span>
-              </div>
-              <h3 className="mt-8 text-lg font-medium tracking-[-0.02em]">{s.title}</h3>
-              <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
-                {s.body}
-              </p>
-              <span
-                aria-hidden
-                className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-brand/60 transition-transform duration-700 group-hover:scale-x-100"
-              />
-            </Reveal>
-          ))}
-        </ol>
+        <div ref={ref} className="mt-16">
+          {/* progress line */}
+          <div
+            aria-hidden
+            className="relative mb-px hidden h-px w-full overflow-hidden bg-border md:block"
+          >
+            <span
+              className={cn(
+                "absolute inset-y-0 left-0 origin-left bg-gradient-to-r from-brand/20 via-brand to-brand/20 transition-transform duration-[2200ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+                "w-full scale-x-0",
+                visible && "scale-x-100",
+              )}
+            />
+          </div>
+
+          <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
+            {steps.map((s, i) => (
+              <li
+                key={s.n}
+                style={{ transitionDelay: `${i * 180}ms` }}
+                className={cn(
+                  "reveal group relative bg-background p-8 transition-colors",
+                  visible && "is-visible",
+                  "hover:bg-surface",
+                )}
+              >
+                <div className="flex items-center justify-between">
+                  <span
+                    className={cn(
+                      "inline-flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-[1200ms] ease-out",
+                      visible
+                        ? "border-brand/35 bg-brand/10"
+                        : "border-border bg-surface/50",
+                    )}
+                    style={{ transitionDelay: `${400 + i * 220}ms` }}
+                  >
+                    <s.icon
+                      className={cn(
+                        "h-4 w-4 transition-colors duration-[1200ms] ease-out",
+                        visible ? "text-brand-soft" : "text-muted-foreground",
+                      )}
+                      strokeWidth={1.5}
+                      style={{ transitionDelay: `${400 + i * 220}ms` }}
+                    />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                    {s.time}
+                  </span>
+                </div>
+                <div className="mt-8 flex items-baseline gap-3">
+                  <span className="font-mono text-[10.5px] tracking-[0.2em] text-brand">
+                    {s.n}
+                  </span>
+                  <h3 className="text-lg font-medium tracking-[-0.02em]">{s.title}</h3>
+                </div>
+                <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
+                  {s.body}
+                </p>
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-brand/60 transition-transform duration-[900ms] ease-out group-hover:scale-x-100"
+                />
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
