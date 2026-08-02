@@ -152,7 +152,19 @@ export function SiteHeader() {
         </div>
       </div>
 
+      {/* Reading progress */}
+      <span
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r from-brand-deep via-brand to-brand-soft transition-opacity duration-700 ease-out",
+          scrolled ? "opacity-100" : "opacity-0",
+        )}
+        ref={progressRef}
+        style={{ transform: "scaleX(0)" }}
+      />
+
       {/* Mobile sheet */}
+
       <div
         id="menu-mobile"
         className={cn(
