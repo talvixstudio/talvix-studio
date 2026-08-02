@@ -81,7 +81,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="intro mx-auto mt-7 max-w-[46ch] text-[17px] leading-[1.65] text-muted-foreground"
+            className="intro mx-auto mt-7 max-w-[46ch] ds-lead"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
             Estúdio de design e engenharia. Desenhamos, escrevemos e programamos — do
@@ -94,7 +94,7 @@ export function Hero() {
           >
             <a
               href="#contato"
-              className="btn-premium hover-sheen group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-7 text-[14.5px] font-medium text-primary-foreground hover:shadow-[var(--shadow-brand)] sm:w-auto"
+              className="btn-premium hover-sheen group ds-btn ds-btn-primary w-full sm:w-auto"
             >
               Receber uma proposta
               <span
@@ -106,7 +106,7 @@ export function Hero() {
             </a>
             <a
               href="#trabalhos"
-              className="btn-premium group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-border px-7 text-[14.5px] font-medium text-foreground/90 hover:border-foreground/25 hover:bg-surface sm:w-auto"
+              className="btn-premium group ds-btn ds-btn-ghost w-full sm:w-auto"
             >
               Ver estudos de caso
               <span

@@ -98,7 +98,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href="#contato"
-            className="btn-premium intro-soft group relative hidden h-9 items-center gap-2 rounded-full border border-border px-4 text-[13px] font-medium [animation-delay:560ms] hover:border-brand/60 hover:bg-brand/10 hover:shadow-[var(--shadow-brand-soft)] sm:inline-flex"
+            className="btn-premium intro-soft group relative ds-btn ds-btn-sm ds-btn-ghost hidden [animation-delay:560ms] sm:inline-flex"
           >
             Falar com o estúdio
             <span className="h-1.5 w-1.5 rounded-full bg-brand transition-transform duration-500 ease-out group-hover:scale-[1.35]" />
@@ -153,7 +153,7 @@ export function SiteHeader() {
           <a
             href="#contato"
             onClick={() => setOpen(false)}
-            className="my-5 inline-flex h-12 items-center justify-center rounded-full bg-brand text-sm font-medium text-primary-foreground"
+            className="my-5 ds-btn ds-btn-primary"
           >
             Falar com o estúdio
           </a>

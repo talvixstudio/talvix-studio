@@ -107,7 +107,7 @@ export function Process() {
                   </span>
                   <h3 className="text-lg font-medium tracking-[-0.02em]">{s.title}</h3>
                 </div>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
+                <p className="mt-3 ds-body-sm">
                   {s.body}
                 </p>
                 <span

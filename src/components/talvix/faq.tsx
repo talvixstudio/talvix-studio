@@ -54,7 +54,7 @@ export function Faq() {
               >
                 As perguntas que todo cliente faz na primeira reunião.
               </h2>
-              <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-sm ds-body-sm">
                 Respondidas aqui para você não precisar perguntar. Se ficou algo de fora,
                 escreva — respondemos com o mesmo nível de detalhe.
               </p>
@@ -108,7 +108,7 @@ export function Faq() {
                       )}
                     >
                       <div className="overflow-hidden">
-                        <p className="max-w-[62ch] pb-7 pr-12 text-[14.5px] leading-[1.7] text-muted-foreground">
+                        <p className="max-w-[62ch] pb-7 pr-12 ds-body-sm">
                           {f.a}
                         </p>
                       </div>

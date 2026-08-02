@@ -34,7 +34,7 @@ export function ContactCta() {
             </h2>
           </Reveal>
           <Reveal delay={220}>
-            <p className="mx-auto mt-6 max-w-[48ch] text-[16px] leading-[1.65] text-muted-foreground">
+            <p className="mx-auto mt-6 max-w-[48ch] ds-lead">
               Sem formulário de dez campos e sem funil de e-mails. Você escreve, uma pessoa
               do estúdio responde.
             </p>
@@ -43,7 +43,7 @@ export function ContactCta() {
             <div className="mt-11 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="mailto:contato@talvix.studio?subject=Projeto%20novo"
-                className="btn-premium hover-sheen inline-flex h-12 w-full items-center justify-center rounded-full bg-brand px-8 text-[14.5px] font-medium text-primary-foreground hover:shadow-[var(--shadow-brand)] sm:w-auto"
+                className="btn-premium hover-sheen ds-btn ds-btn-primary w-full sm:w-auto"
               >
                 contato@talvix.studio
               </a>
@@ -51,7 +51,7 @@ export function ContactCta() {
                 href="https://wa.me/5500000000000"
                 rel="noreferrer noopener"
                 target="_blank"
-                className="btn-premium inline-flex h-12 w-full items-center justify-center rounded-full border border-border px-8 text-[14.5px] font-medium hover:border-foreground/25 hover:bg-surface sm:w-auto"
+                className="btn-premium ds-btn ds-btn-ghost w-full sm:w-auto"
               >
                 Falar no WhatsApp
               </a>
@@ -65,7 +65,7 @@ export function ContactCta() {
               <li key={n} className="bg-background/80 p-7">
                 <span className="ds-label text-brand">{n}</span>
                 <p className="mt-4 text-[14.5px] font-medium">{title}</p>
-                <p className="mt-1.5 text-[13.5px] leading-relaxed text-muted-foreground">
+                <p className="mt-1.5 ds-body-sm">
                   {body}
                 </p>
               </li>
@@ -103,7 +103,7 @@ export function SiteFooter() {
       <div className="shell grid gap-12 py-14 md:grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,0.6fr))] lg:py-16">
         <div>
           <TalvixLogo />
-          <p className="mt-5 max-w-[34ch] text-[13.5px] leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-[34ch] ds-body-sm">
             Design e engenharia digital para empresas que precisam parecer tão sérias
             quanto são.
           </p>
@@ -119,7 +119,7 @@ export function SiteFooter() {
                 <li key={label}>
                   <a
                     href={href}
-                    className="text-[13.5px] text-foreground/80 transition-colors duration-500 ease-out hover:text-brand-soft"
+                    className="ds-link"
                   >
                     {label}
                   </a>

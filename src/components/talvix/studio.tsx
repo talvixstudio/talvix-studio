@@ -35,7 +35,7 @@ export function Studio() {
               </h2>
             </Reveal>
             <Reveal delay={140}>
-              <p className="mt-7 max-w-[52ch] text-[15.5px] leading-[1.7] text-muted-foreground">
+              <p className="mt-7 max-w-[52ch] ds-body">
                 A Talvix nasceu de uma constatação simples: quase toda empresa boa tem um
                 site que não faz jus ao que ela entrega. Somos designers e engenheiros que
                 trabalham lado a lado — e recusamos volume para conseguir tratar cada
@@ -53,7 +53,7 @@ export function Studio() {
                 >
                   <span className="block h-1.5 w-1.5 rounded-full bg-brand transition-transform duration-700 ease-out group-hover:scale-[1.8]" />
                   <p className="mt-4 text-[14.5px] font-medium">{title}</p>
-                  <p className="mt-1.5 max-w-[34ch] text-[13.5px] leading-relaxed text-muted-foreground">
+                  <p className="mt-1.5 max-w-[34ch] ds-body-sm">
                     {body}
                   </p>
                 </Reveal>
@@ -91,7 +91,7 @@ export function Studio() {
                 </ul>
               ) : (
                 <div className="relative mt-8 flex flex-1 flex-col">
-                  <p className="max-w-[46ch] text-[15px] leading-[1.7] text-muted-foreground">
+                  <p className="max-w-[46ch] ds-body">
                     Preferimos não publicar frase nenhuma a publicar frase escrita por nós.
                     Os depoimentos entram aqui conforme cada cliente autoriza o uso do nome
                     — e sempre com cargo e empresa verificáveis.
@@ -117,14 +117,14 @@ export function Studio() {
                     ))}
                   </ul>
 
-                  <p className="mt-8 text-[13.5px] leading-relaxed text-muted-foreground">
+                  <p className="mt-8 ds-body-sm">
                     Enquanto isso, os números dos estudos de caso acima foram informados
                     pelos próprios clientes e podem ser confirmados em conversa.
                   </p>
 
                   <a
                     href="#trabalhos"
-                    className="mt-6 inline-flex w-fit items-center gap-2 text-[13px] font-medium text-brand-soft transition-opacity duration-500 hover:opacity-75"
+                    className="mt-6 ds-link w-fit text-brand-soft"
                   >
                     Ver estudos de caso
                     <span aria-hidden className="font-mono text-xs">

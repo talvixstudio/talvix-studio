@@ -230,7 +230,7 @@ export function Work() {
             </h2>
           </Reveal>
           <Reveal delay={120}>
-            <p className="max-w-xs text-[14.5px] leading-relaxed text-muted-foreground">
+            <p className="max-w-xs ds-body-sm">
               Abra qualquer um para ver objetivo, problema, solução e resultado. Números
               informados pelos próprios clientes.
             </p>
@@ -279,7 +279,7 @@ export function Work() {
                         <h3 className="text-[16px] font-medium tracking-[-0.02em]">
                           {p.client}
                         </h3>
-                        <p className="mt-1 max-w-[28ch] text-[13px] leading-relaxed text-muted-foreground">
+                        <p className="mt-1 max-w-[28ch] ds-body-sm">
                           {p.sector} · {p.scope}
                         </p>
                       </div>
@@ -320,7 +320,7 @@ export function Work() {
                               <dt className="ds-label text-brand-soft sm:pt-1">
                                 {label}
                               </dt>
-                              <dd className="max-w-[58ch] text-[14px] leading-[1.65] text-muted-foreground">
+                              <dd className="max-w-[58ch] ds-body-sm">
                                 {body}
                               </dd>
                             </div>
@@ -333,7 +333,7 @@ export function Work() {
                               {p.stack.map((t) => (
                                 <span
                                   key={t}
-                                  className="rounded-full border border-border px-2.5 py-1 ds-label text-foreground/60"
+                                  className="ds-pill text-foreground/60"
                                 >
                                   {t}
                                 </span>
@@ -350,7 +350,7 @@ export function Work() {
                       onClick={() => setOpenIndex(isOpen ? null : i)}
                       aria-expanded={isOpen}
                       aria-controls={`caso-${i}`}
-                      className="mt-auto pt-7 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/80 transition-colors duration-500 ease-out hover:text-brand-soft"
+                      className="mt-auto pt-7 ds-link self-start"
                     >
                       {isOpen ? "Fechar caso" : "Ler o caso completo"}
                       <ArrowRight
