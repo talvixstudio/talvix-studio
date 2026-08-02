@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import notebook from "@/assets/hero-notebook.png";
+import nbAvif980 from "@/assets/hero-notebook-980.avif";
+import nbAvif1600 from "@/assets/hero-notebook-1600.avif";
+import nbWebp980 from "@/assets/hero-notebook-980.webp";
+import nbWebp1600 from "@/assets/hero-notebook-1600.webp";
 
 /** Entrance choreography — every element lands after the one before it. */
 const seq = {
@@ -142,14 +145,28 @@ export function Hero() {
               className="float-slow relative mx-auto max-w-[980px]"
               style={{ transform: `translate3d(0, ${offset * -0.05}px, 0)` }}
             >
-              <img
-                src={notebook}
-                width={1600}
-                height={1104}
-                alt="Notebook exibindo uma interface desenhada pela Talvix Studio"
-                className="w-full select-none brightness-[1.35] contrast-[1.05] drop-shadow-[0_50px_70px_rgba(0,0,0,0.7)]"
-                fetchPriority="high"
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcSet={`${nbAvif980} 980w, ${nbAvif1600} 1600w`}
+                  sizes="(max-width: 1024px) 92vw, 980px"
+                />
+                <source
+                  type="image/webp"
+                  srcSet={`${nbWebp980} 980w, ${nbWebp1600} 1600w`}
+                  sizes="(max-width: 1024px) 92vw, 980px"
+                />
+                <img
+                  src={nbWebp1600}
+                  width={1600}
+                  height={1104}
+                  alt="Notebook exibindo uma interface desenhada pela Talvix Studio"
+                  className="w-full select-none brightness-[1.35] contrast-[1.05] drop-shadow-[0_50px_70px_rgba(0,0,0,0.7)]"
+                  fetchPriority="high"
+                  decoding="async"
+                  draggable={false}
+                />
+              </picture>
             </div>
           </div>
 
