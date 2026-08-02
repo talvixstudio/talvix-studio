@@ -138,6 +138,28 @@ export function Work() {
                   >
                     <div className="hairline-grid absolute inset-0 opacity-60 transition-transform duration-[1.8s] ease-out group-hover:scale-[1.05]" />
                     <div className="brand-glow absolute -right-16 -top-16 h-64 w-64 opacity-0 transition-opacity duration-[1.1s] ease-out group-hover:opacity-55" />
+
+                    {/* abstract interface motif — unique per case */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-x-7 top-7 flex gap-3 transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1"
+                    >
+                      <div className="h-14 w-14 shrink-0 rounded-lg border border-foreground/10 bg-foreground/5" />
+                      <div className="flex-1 space-y-2 pt-2">
+                        <div className="h-1.5 w-1/2 rounded-full bg-foreground/12" />
+                        <div className="h-1.5 w-1/4 rounded-full bg-brand/50" />
+                      </div>
+                      <div className="hidden gap-1.5 sm:flex">
+                        {[10, 18, 13, 24, 16].map((h, k) => (
+                          <span
+                            key={k}
+                            style={{ height: `${h * 1.6}px` }}
+                            className="w-1.5 self-end rounded-full bg-foreground/10 last:bg-brand/60"
+                          />
+                        ))}
+                      </div>
+                    </div>
+
                     <div className="absolute inset-x-7 bottom-6 flex items-end justify-between gap-6">
                       <p className="text-balance-tight max-w-[22ch] text-[17px] font-medium leading-snug text-foreground/95">
                         {p.headline}
@@ -148,29 +170,31 @@ export function Work() {
                     </div>
                   </div>
 
+
                   <div className="flex flex-1 flex-col p-7">
-                    <div className="flex items-start justify-between gap-6">
+                    <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-5">
                       <div>
                         <h3 className="text-[16px] font-medium tracking-[-0.02em]">
                           {p.client}
                         </h3>
-                        <p className="mt-1 text-[13px] text-muted-foreground">
+                        <p className="mt-1 max-w-[28ch] text-[13px] leading-relaxed text-muted-foreground">
                           {p.sector} · {p.scope}
                         </p>
                       </div>
-                      <ul className="flex shrink-0 gap-6 text-right">
+                      <ul className="flex shrink-0 gap-7">
                         {p.outcome.map((o) => (
                           <li key={o.label}>
-                            <p className="text-[15px] font-semibold tracking-[-0.02em] text-brand-soft">
+                            <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
                               {o.value}
                             </p>
-                            <p className="mt-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-muted-foreground">
+                            <p className="mt-1.5 max-w-[13ch] font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
                               {o.label}
                             </p>
                           </li>
                         ))}
                       </ul>
                     </div>
+
 
                     <div
                       id={`caso-${i}`}
