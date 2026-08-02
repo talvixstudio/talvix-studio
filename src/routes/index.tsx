@@ -10,8 +10,8 @@ import { ContactCta, SiteFooter } from "@/components/talvix/contact";
 import { Ambient } from "@/components/talvix/ambient";
 import { Cursor } from "@/components/talvix/cursor";
 import { Intro } from "@/components/talvix/intro";
-import nbAvif980 from "@/assets/hero-notebook-980.avif";
-import nbAvif1600 from "@/assets/hero-notebook-1600.avif";
+const nbAvif980 = "/media/hero-notebook-980.avif";
+const nbAvif1600 = "/media/hero-notebook-1600.avif";
 
 const title = "Talvix Studio — Sites e produtos digitais que fecham negócio";
 const description =
