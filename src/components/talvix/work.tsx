@@ -8,104 +8,102 @@ type CaseStudy = {
   sector: string;
   scope: string;
   year: string;
+  status: "entregue" | "em-andamento";
+  statusLabel: string;
   headline: string;
+  context: string;
   goal: string;
-  problem: string;
+  challenge: string;
   solution: string;
+  /** Só existe quando o projeto está no ar e o número é verificável. */
   outcome: { value: string; label: string }[];
+  /** Substitui a régua de resultado enquanto o projeto não foi entregue. */
+  pending?: string;
   stack: string[];
   tone: string;
 };
 
 const cases: CaseStudy[] = [
   {
-    client: "Meridian Capital",
-    stack: ["Next.js", "Sanity CMS", "Vercel", "Cal.com API"],
-    sector: "Gestora de patrimônio",
-    scope: "Website · Identidade",
-    year: "2025",
-    headline: "Um site que faz o trabalho do primeiro café.",
+    client: "Talvix Studio",
+    sector: "Estúdio de design e engenharia",
+    scope: "Marca · Site · Design system",
+    year: "2026",
+    status: "entregue",
+    statusLabel: "No ar",
+    headline: "O primeiro cliente do estúdio foi o próprio estúdio.",
+    context:
+      "Antes de vender site premium para alguém, precisávamos provar o padrão em casa — no nosso próprio domínio, sem tema comprado e sem biblioteca de componentes pronta.",
     goal:
-      "Atrair investidores de ticket alto sem depender de indicação — e qualificar antes da reunião.",
-    problem:
-      "O site antigo abria com um formulário genérico e três parágrafos sobre a história da empresa. Quem chegava não entendia a tese de investimento nem o valor mínimo de entrada, e o time comercial gastava a primeira reunião explicando o básico.",
+      "Construir um site que funcione ao mesmo tempo como portfólio, cartão de visita técnico e demonstração viva do que entregamos.",
+    challenge:
+      "Estúdio novo não tem histórico para exibir. O site tinha que carregar sozinho a percepção de qualidade: cada detalhe de tipografia, motion e performance vira argumento comercial.",
     solution:
-      "Reescrevemos a página em torno da tese, não da empresa: números auditados acima da dobra, critérios de entrada explícitos e um agendamento que pergunta faixa de patrimônio antes de confirmar o horário.",
+      "Desenhamos a identidade, escrevemos toda a copy e programamos do zero em TanStack Start. Um design system em tokens OKLCH controla cor, sombra, espaçamento e tipografia; a imagem principal é AVIF com preload; o motion respeita prefers-reduced-motion.",
     outcome: [
-      { value: "+38%", label: "Reuniões qualificadas" },
-      { value: "−52%", label: "Contatos fora do perfil" },
+      { value: "AVIF", label: "LCP com preload" },
+      { value: "0 dep.", label: "De UI kit externo" },
     ],
+    stack: ["TanStack Start", "React 19", "Tailwind v4", "Vite", "Cloudflare"],
     tone: "from-[oklch(0.28_0.06_258)] to-[oklch(0.17_0.02_260)]",
   },
   {
-    client: "Órbita Logística",
-    stack: ["React", "TypeScript", "PostgreSQL", "WebSockets", "Storybook"],
-    sector: "Transporte rodoviário",
-    scope: "Plataforma web · Design system",
-    year: "2025",
-    headline: "Seis horas por semana devolvidas à operação.",
+    client: "Saycell",
+    sector: "Conectividade móvel",
+    scope: "Produto digital · UI/UX",
+    year: "2026",
+    status: "em-andamento",
+    statusLabel: "Em desenvolvimento",
+    headline: "Contratar conectividade em minutos, não em atendimento.",
+    context:
+      "Projeto em curso no estúdio. A operação existe, o produto digital está sendo desenhado e construído agora — por isso não há número de resultado aqui.",
     goal:
-      "Substituir a planilha compartilhada que controlava 340 rotas semanais por uma ferramenta que o time usasse sem treinamento.",
-    problem:
-      "Cada despachante mantinha a própria versão da planilha. Divergências só apareciam quando o caminhão já estava na estrada, e todo fechamento de mês exigia dois dias de conciliação manual.",
+      "Transformar um processo hoje conduzido por atendimento humano em uma jornada de autosserviço que o cliente conclui sozinho.",
+    challenge:
+      "Planos, cobertura e regras de ativação são difíceis de explicar sem afogar o usuário em texto. A interface precisa dar a resposta certa antes da pergunta aparecer.",
     solution:
-      "Desenhamos um painel de rotas em tempo real com estados visuais claros, histórico de alteração por usuário e uma tela de fechamento que reconcilia sozinha. O design system foi entregue para o time interno continuar evoluindo.",
-    outcome: [
-      { value: "6h", label: "Poupadas por semana" },
-      { value: "2 dias → 3h", label: "Fechamento mensal" },
-    ],
+      "Estamos mapeando a jornada ponta a ponta, reduzindo a decisão a poucas escolhas comparáveis e construindo um design system próprio para o produto escalar sem retrabalho de tela.",
+    outcome: [],
+    pending:
+      "Resultados serão publicados aqui depois do lançamento — com números do cliente, não estimativas nossas.",
+    stack: ["React", "TypeScript", "Design tokens", "Figma"],
     tone: "from-[oklch(0.24_0.03_250)] to-[oklch(0.16_0.01_260)]",
   },
   {
-    client: "Nuvia Health",
-    stack: ["React", "Design tokens", "Figma", "Vitest"],
-    sector: "Saúde digital",
-    scope: "UI/UX · Design system",
-    year: "2024",
-    headline: "Onboarding que para de perder gente no meio.",
+    client: "Leste Telecom",
+    sector: "Provedor de internet",
+    scope: "Website · Copy · SEO",
+    year: "2026",
+    status: "em-andamento",
+    statusLabel: "Em desenvolvimento",
+    headline: "Cobertura, plano e contratação na mesma tela.",
+    context:
+      "Projeto em curso. A estrutura de conteúdo e a arquitetura de páginas já estão definidas; a implementação está em andamento.",
     goal:
-      "Levar mais pacientes do cadastro até a primeira consulta agendada, sem aumentar o time de suporte.",
-    problem:
-      "O cadastro tinha 14 campos numa única tela, incluindo dados que só faziam sentido depois da consulta. Metade dos usuários abandonava antes de terminar e ligava para o suporte no dia seguinte.",
+      "Fazer o site assumir a etapa de qualificação que hoje consome o time comercial no telefone.",
+    challenge:
+      "O visitante quer saber três coisas em segundos: se atende o endereço dele, quanto custa e quando instala. Qualquer clique a mais entre essas respostas é atrito.",
     solution:
-      "Dividimos o fluxo em três passos com progresso visível, adiamos tudo que não era obrigatório para depois do agendamento e reescrevemos cada rótulo em linguagem de paciente, não de prontuário.",
-    outcome: [
-      { value: "2,4×", label: "Mais rápido até a consulta" },
-      { value: "−41%", label: "Chamados de suporte" },
-    ],
-    tone: "from-[oklch(0.26_0.05_262)] to-[oklch(0.16_0.015_260)]",
-  },
-  {
-    client: "Fero Coffee",
-    stack: ["Astro", "Stripe Checkout", "Cloudflare", "Plausible"],
-    sector: "Torrefação artesanal",
-    scope: "Landing page · Copy",
-    year: "2024",
-    headline: "Uma página, um produto, nenhuma distração.",
-    goal: "Lançar a assinatura mensal de grãos com verba de mídia limitada.",
-    problem:
-      "A loja completa oferecia 60 SKUs. Quem vinha do anúncio da assinatura caía no catálogo, se perdia entre origens e torras, e saía sem assinar nada.",
-    solution:
-      "Construímos uma página dedicada que compara apenas três planos, mostra o grão do mês com data de torra real e conclui a assinatura em dois cliques — com checkout na própria página.",
-    outcome: [
-      { value: "7,1%", label: "Conversão média" },
-      { value: "R$ 0", label: "Aumento de verba" },
-    ],
-    tone: "from-[oklch(0.23_0.02_255)] to-[oklch(0.155_0.01_260)]",
+      "Consulta de cobertura logo na primeira dobra, comparação de planos sem letra miúda e páginas de bairro estruturadas para busca local, com schema e conteúdo próprio por região.",
+    outcome: [],
+    pending:
+      "Sem métricas divulgadas até o site entrar no ar. Preferimos deixar o espaço vazio a preencher com número inventado.",
+    stack: ["TanStack Start", "Tailwind v4", "Schema.org", "Cloudflare"],
+    tone: "from-[oklch(0.26_0.05_262)] to-[oklch(0.155_0.01_260)]",
   },
 ];
 
 /**
- * Each case gets its own abstract read of the interface we shipped —
- * a wealth report, a route board, a three-step onboarding, a plan picker.
- * Drawn with layout primitives so they stay crisp at any size and cost no bytes.
+ * Cada case recebe uma leitura abstrata da interface correspondente —
+ * feita com primitivas de layout para ficar nítida em qualquer tamanho
+ * e não custar nenhum byte de imagem.
  */
 function Motif({ index }: { index: number }) {
   const shell =
     "pointer-events-none absolute inset-x-7 top-7 bottom-[42%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
 
   if (index === 0) {
-    // Meridian — performance report
+    // Talvix — sistema de tokens e ritmo tipográfico
     return (
       <div aria-hidden className={shell}>
         <div className="flex h-full items-end gap-1.5">
@@ -122,83 +120,58 @@ function Motif({ index }: { index: number }) {
           </div>
         </div>
       </div>
-
     );
   }
 
   if (index === 1) {
-    // Órbita — live route board
+    // Saycell — seleção de plano em autosserviço
     return (
       <div aria-hidden className={shell}>
-        <div className="space-y-2.5">
-          {[
-            ["68%", "bg-brand/60"],
-            ["42%", "bg-foreground/22"],
-            ["86%", "bg-foreground/22"],
-            ["30%", "bg-foreground/16"],
-          ].map(([w, tint], k) => (
-            <div key={k} className="flex items-center gap-2.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-foreground/25" />
-              <span
-                style={{ width: w, transitionDelay: `${k * 70}ms` }}
-                className={cn(
-                  "h-1.5 origin-left rounded-full transition-transform duration-[900ms] ease-out group-hover:scale-x-[1.04]",
-                  tint,
-                )}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (index === 2) {
-    // Nuvia — three-step onboarding
-    return (
-      <div aria-hidden className={shell}>
-        <div className="flex items-center gap-2">
+        <div className="grid grid-cols-3 gap-2">
           {[0, 1, 2].map((k) => (
-            <div key={k} className="flex flex-1 items-center gap-2">
-              <span
+            <div
+              key={k}
+              className={cn(
+                "rounded-md border p-2.5 transition-transform duration-700 ease-out",
+                k === 1
+                  ? "border-brand/45 bg-brand/[0.07] group-hover:-translate-y-1"
+                  : "border-foreground/10 bg-foreground/[0.03]",
+              )}
+            >
+              <div className="h-1.5 w-2/3 rounded-full bg-foreground/14" />
+              <div
                 className={cn(
-                  "h-5 w-5 shrink-0 rounded-full border",
-                  k === 0
-                    ? "border-brand/70 bg-brand/25"
-                    : "border-foreground/15 bg-foreground/[0.04]",
+                  "mt-2 h-1.5 w-1/3 rounded-full",
+                  k === 1 ? "bg-brand/70" : "bg-foreground/10",
                 )}
               />
-              {k < 2 && <span className="h-px flex-1 bg-foreground/12" />}
             </div>
           ))}
-        </div>
-        <div className="mt-5 space-y-2">
-          <div className="h-1.5 w-2/5 rounded-full bg-foreground/12" />
-          <div className="h-8 rounded-md border border-foreground/10 bg-foreground/[0.03] transition-colors duration-700 group-hover:border-brand/25" />
         </div>
       </div>
     );
   }
 
-  // Fero — plan picker
+  // Leste — consulta de cobertura
   return (
     <div aria-hidden className={shell}>
-      <div className="grid grid-cols-3 gap-2">
-        {[0, 1, 2].map((k) => (
-          <div
-            key={k}
-            className={cn(
-              "rounded-md border p-2.5 transition-transform duration-700 ease-out",
-              k === 1
-                ? "border-brand/45 bg-brand/[0.07] group-hover:-translate-y-1"
-                : "border-foreground/10 bg-foreground/[0.03]",
-            )}
-          >
-            <div className="h-1.5 w-2/3 rounded-full bg-foreground/14" />
-            <div
+      <div className="flex items-center gap-2">
+        <div className="h-8 flex-1 rounded-md border border-foreground/10 bg-foreground/[0.03] transition-colors duration-700 group-hover:border-brand/25" />
+        <div className="h-8 w-16 rounded-md border border-brand/45 bg-brand/[0.09]" />
+      </div>
+      <div className="mt-4 space-y-2.5">
+        {[
+          ["72%", "bg-brand/60"],
+          ["48%", "bg-foreground/22"],
+          ["60%", "bg-foreground/16"],
+        ].map(([w, tint], k) => (
+          <div key={k} className="flex items-center gap-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-foreground/25" />
+            <span
+              style={{ width: w, transitionDelay: `${k * 70}ms` }}
               className={cn(
-                "mt-2 h-1.5 w-1/3 rounded-full",
-                k === 1 ? "bg-brand/70" : "bg-foreground/10",
+                "h-1.5 origin-left rounded-full transition-transform duration-[900ms] ease-out group-hover:scale-x-[1.04]",
+                tint,
               )}
             />
           </div>
@@ -207,7 +180,6 @@ function Motif({ index }: { index: number }) {
     </div>
   );
 }
-
 
 export function Work() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -226,13 +198,14 @@ export function Work() {
               id="trabalhos-titulo"
               className="text-balance-tight mt-5 max-w-xl text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]"
             >
-              Quatro problemas reais e o que mudou depois.
+              Três projetos, contados como realmente estão.
             </h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="max-w-xs ds-body-sm">
-              Abra qualquer um para ver objetivo, problema, solução e resultado. Números
-              informados pelos próprios clientes.
+              Abra qualquer um para ver contexto, objetivo, desafio e solução. Projeto em
+              andamento aparece marcado como tal — resultado só entra quando existe número
+              verificável.
             </p>
           </Reveal>
         </div>
@@ -240,6 +213,7 @@ export function Work() {
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {cases.map((p, i) => {
             const isOpen = openIndex === i;
+            const inProgress = p.status === "em-andamento";
             return (
               <Reveal key={p.client} delay={i * 120}>
                 <article
@@ -258,45 +232,56 @@ export function Work() {
                     <div className="hairline-grid absolute inset-0 opacity-60 transition-transform duration-[1.8s] ease-out group-hover:scale-[1.05]" />
                     <div className="brand-glow absolute -right-16 -top-16 h-64 w-64 opacity-0 transition-opacity duration-[1.1s] ease-out group-hover:opacity-55" />
 
-                    {/* abstract interface motif — one per case */}
+                    {/* leitura abstrata da interface — uma por case */}
                     <Motif index={i} />
-
 
                     <div className="absolute inset-x-7 bottom-6 flex items-end justify-between gap-6">
                       <p className="text-balance-tight max-w-[22ch] text-[17px] font-medium leading-snug text-foreground/95">
                         {p.headline}
                       </p>
-                      <span className="ds-label text-foreground/45">
-                        {p.year}
-                      </span>
+                      <span className="ds-label text-foreground/45">{p.year}</span>
                     </div>
                   </div>
 
-
                   <div className="flex flex-1 flex-col p-7">
                     <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-5">
-                      <div>
-                        <h3 className="ds-title-sm">
-                          {p.client}
-                        </h3>
-                        <p className="mt-1 max-w-[28ch] ds-body-sm">
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <h3 className="ds-title-sm">{p.client}</h3>
+                          <span
+                            className={cn(
+                              "inline-flex items-center gap-1.5 ds-pill",
+                              inProgress ? "text-foreground/55" : "text-brand-soft",
+                            )}
+                          >
+                            <span
+                              aria-hidden
+                              className={cn(
+                                "h-1.5 w-1.5 rounded-full",
+                                inProgress ? "bg-foreground/35" : "bg-brand",
+                              )}
+                            />
+                            {p.statusLabel}
+                          </span>
+                        </div>
+                        <p className="mt-1.5 max-w-[28ch] ds-body-sm">
                           {p.sector} · {p.scope}
                         </p>
                       </div>
-                      <ul className="flex shrink-0 gap-7">
-                        {p.outcome.map((o) => (
-                          <li key={o.label}>
-                            <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
-                              {o.value}
-                            </p>
-                            <p className="mt-1.5 max-w-[13ch] ds-label">
-                              {o.label}
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
 
+                      {p.outcome.length > 0 && (
+                        <ul className="flex shrink-0 gap-7">
+                          {p.outcome.map((o) => (
+                            <li key={o.label}>
+                              <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
+                                {o.value}
+                              </p>
+                              <p className="mt-1.5 max-w-[13ch] ds-label">{o.label}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
 
                     <div
                       id={`caso-${i}`}
@@ -308,33 +293,32 @@ export function Work() {
                       <div className="overflow-hidden">
                         <dl className="space-y-5 border-t border-border pt-6">
                           {[
-                            ["Contexto", p.goal],
-                            ["Problema", p.problem],
+                            ["Contexto", p.context],
+                            ["Objetivo", p.goal],
+                            ["Desafio", p.challenge],
                             ["Solução", p.solution],
                             [
                               "Resultado",
-                              p.outcome.map((o) => `${o.value} · ${o.label.toLowerCase()}`).join("  ·  "),
+                              p.outcome.length
+                                ? p.outcome
+                                    .map((o) => `${o.value} · ${o.label.toLowerCase()}`)
+                                    .join("  ·  ")
+                                : (p.pending ?? "Ainda em desenvolvimento."),
                             ],
                           ].map(([label, body]) => (
-                            <div key={label} className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4">
-                              <dt className="ds-label text-brand-soft sm:pt-1">
-                                {label}
-                              </dt>
-                              <dd className="max-w-[58ch] ds-body-sm">
-                                {body}
-                              </dd>
+                            <div
+                              key={label}
+                              className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4"
+                            >
+                              <dt className="ds-label text-brand-soft sm:pt-1">{label}</dt>
+                              <dd className="max-w-[58ch] ds-body-sm">{body}</dd>
                             </div>
                           ))}
                           <div className="grid gap-2 sm:grid-cols-[86px_1fr] sm:gap-4">
-                            <dt className="ds-label text-brand-soft sm:pt-1.5">
-                              Stack
-                            </dt>
+                            <dt className="ds-label text-brand-soft sm:pt-1.5">Stack</dt>
                             <dd className="flex flex-wrap gap-1.5">
                               {p.stack.map((t) => (
-                                <span
-                                  key={t}
-                                  className="ds-pill text-foreground/60"
-                                >
+                                <span key={t} className="ds-pill text-foreground/60">
                                   {t}
                                 </span>
                               ))}
@@ -342,7 +326,6 @@ export function Work() {
                           </div>
                         </dl>
                       </div>
-
                     </div>
 
                     <button
