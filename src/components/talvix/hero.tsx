@@ -159,9 +159,10 @@ export function Hero() {
           />
           <div className="intro-rise" style={{ animationDelay: `${seq.notebook}ms` }}>
             <div
+              ref={deviceRef}
               className="float-slow relative mx-auto max-w-[980px]"
-              style={{ transform: `translate3d(0, ${offset * -0.05}px, 0)` }}
             >
+
               <picture>
                 <source
                   type="image/avif"
