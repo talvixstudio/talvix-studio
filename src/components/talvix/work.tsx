@@ -230,7 +230,7 @@ export function Work() {
             </h2>
           </Reveal>
           <Reveal delay={120}>
-            <p className="max-w-xs text-[14.5px] leading-relaxed text-muted-foreground">
+            <p className="max-w-xs ds-body-sm">
               Abra qualquer um para ver objetivo, problema, solução e resultado. Números
               informados pelos próprios clientes.
             </p>
@@ -266,7 +266,7 @@ export function Work() {
                       <p className="text-balance-tight max-w-[22ch] text-[17px] font-medium leading-snug text-foreground/95">
                         {p.headline}
                       </p>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/45">
+                      <span className="ds-label text-foreground/45">
                         {p.year}
                       </span>
                     </div>
@@ -276,10 +276,10 @@ export function Work() {
                   <div className="flex flex-1 flex-col p-7">
                     <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-5">
                       <div>
-                        <h3 className="text-[16px] font-medium tracking-[-0.02em]">
+                        <h3 className="ds-title-sm">
                           {p.client}
                         </h3>
-                        <p className="mt-1 max-w-[28ch] text-[13px] leading-relaxed text-muted-foreground">
+                        <p className="mt-1 max-w-[28ch] ds-body-sm">
                           {p.sector} · {p.scope}
                         </p>
                       </div>
@@ -289,7 +289,7 @@ export function Work() {
                             <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
                               {o.value}
                             </p>
-                            <p className="mt-1.5 max-w-[13ch] font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
+                            <p className="mt-1.5 max-w-[13ch] ds-label">
                               {o.label}
                             </p>
                           </li>
@@ -317,23 +317,23 @@ export function Work() {
                             ],
                           ].map(([label, body]) => (
                             <div key={label} className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4">
-                              <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-brand-soft sm:pt-1">
+                              <dt className="ds-label text-brand-soft sm:pt-1">
                                 {label}
                               </dt>
-                              <dd className="max-w-[58ch] text-[14px] leading-[1.65] text-muted-foreground">
+                              <dd className="max-w-[58ch] ds-body-sm">
                                 {body}
                               </dd>
                             </div>
                           ))}
                           <div className="grid gap-2 sm:grid-cols-[86px_1fr] sm:gap-4">
-                            <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-brand-soft sm:pt-1.5">
+                            <dt className="ds-label text-brand-soft sm:pt-1.5">
                               Stack
                             </dt>
                             <dd className="flex flex-wrap gap-1.5">
                               {p.stack.map((t) => (
                                 <span
                                   key={t}
-                                  className="rounded-full border border-border px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.14em] text-foreground/60"
+                                  className="ds-pill text-foreground/60"
                                 >
                                   {t}
                                 </span>
@@ -350,7 +350,7 @@ export function Work() {
                       onClick={() => setOpenIndex(isOpen ? null : i)}
                       aria-expanded={isOpen}
                       aria-controls={`caso-${i}`}
-                      className="mt-auto pt-7 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/80 transition-colors duration-500 ease-out hover:text-brand-soft"
+                      className="mt-auto pt-7 ds-link self-start"
                     >
                       {isOpen ? "Fechar caso" : "Ler o caso completo"}
                       <ArrowRight

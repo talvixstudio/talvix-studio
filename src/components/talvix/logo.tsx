@@ -37,7 +37,7 @@ export function TalvixLogo({ className }: { className?: string }) {
       <TalvixMark className="h-7 w-7 text-foreground" />
       <span className="flex items-baseline gap-1.5">
         <span className="text-[15px] font-semibold tracking-[-0.03em]">Talvix</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+        <span className="ds-label tracking-[0.28em]">
           Studio
         </span>
       </span>

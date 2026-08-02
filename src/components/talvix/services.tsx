@@ -75,7 +75,7 @@ export function Services() {
             </h2>
           </Reveal>
           <Reveal delay={140}>
-            <p className="max-w-lg text-[15.5px] leading-relaxed text-muted-foreground lg:pt-16">
+            <p className="max-w-lg ds-body-sm lg:pt-16">
               Não trabalhamos com pacotes fechados. Cada projeto começa por entender o
               negócio, definir o que precisa ser verdade na tela e só então construir — com
               a mesma equipe do início ao fim.
@@ -101,14 +101,14 @@ export function Services() {
                     strokeWidth={1.5}
                   />
                 </span>
-                <span className="font-mono text-[10.5px] tracking-[0.2em] text-muted-foreground transition-colors duration-700 group-hover:text-foreground/60">
+                <span className="ds-label transition-colors duration-700 group-hover:text-foreground/60">
                   {s.id}
                 </span>
               </div>
               <h3 className="mt-7 text-lg font-medium tracking-[-0.02em] transition-transform duration-700 ease-out group-hover:translate-x-0.5">
                 {s.title}
               </h3>
-              <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
+              <p className="mt-3 ds-body-sm">
                 {s.body}
               </p>
               <p className="mt-4 flex items-start gap-2 text-[13.5px] leading-relaxed text-foreground/70">
@@ -119,7 +119,7 @@ export function Services() {
                 {s.meta.map((m) => (
                   <li
                     key={m}
-                    className="rounded-full border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors duration-700 ease-out group-hover:border-brand/30 group-hover:text-foreground/80"
+                    className="ds-pill transition-colors duration-700 ease-out group-hover:border-brand/30 group-hover:text-foreground/80"
                   >
                     {m}
                   </li>

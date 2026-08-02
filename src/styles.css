@@ -50,6 +50,15 @@
 :root {
   --radius: 0.75rem;
 
+  /* elevation scale — single source of truth */
+  --shadow-brand: 0 18px 50px -18px var(--brand);
+  --shadow-brand-soft: 0 10px 30px -16px var(--brand);
+  --shadow-card: 0 26px 60px -34px oklch(0 0 0 / 0.9);
+  --shadow-header:
+    0 1px 0 0 color-mix(in oklab, var(--brand) 10%, transparent),
+    0 18px 40px -32px rgb(0 0 0 / 0.9);
+
+
   --background: oklch(0.145 0.008 260);
   --foreground: oklch(0.975 0.003 260);
 
@@ -427,6 +436,122 @@
     transform: translateX(100%);
   }
 }
+
+/* ---- Design system: typography scale ---- */
+
+/* mono micro-label — every eyebrow, caption and metadata line */
+@utility ds-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted-foreground);
+}
+
+@utility ds-lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+@utility ds-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+@utility ds-body-sm {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+@utility ds-title-sm {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+/* ---- Design system: components ---- */
+
+@utility ds-title-xs {
+  font-size: 14.5px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+@utility ds-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted-foreground);
+}
+
+@utility ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  border-radius: 9999px;
+  padding-inline: 1.75rem;
+  font-size: 14.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@utility ds-btn-sm {
+  height: 2.25rem;
+  padding-inline: 1rem;
+  font-size: 13px;
+}
+
+@utility ds-btn-primary {
+  background: var(--brand);
+  color: var(--primary-foreground);
+
+  &:hover {
+    box-shadow: var(--shadow-brand);
+  }
+}
+
+@utility ds-btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+
+  &:hover {
+    border-color: color-mix(in oklab, var(--brand) 60%, transparent);
+    background: color-mix(in oklab, var(--brand) 10%, transparent);
+    box-shadow: var(--shadow-brand-soft);
+  }
+}
+
+@utility ds-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: color-mix(in oklab, var(--foreground) 80%, transparent);
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    color: var(--brand-soft);
+  }
+}
+
 
 /* ---- Phase 4: opening sequence, scroll feel, PWA polish ---- */
 

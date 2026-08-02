@@ -97,17 +97,17 @@ export function Process() {
                       style={{ transitionDelay: `${400 + i * 220}ms` }}
                     />
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                  <span className="ds-label">
                     {s.time}
                   </span>
                 </div>
                 <div className="mt-8 flex items-baseline gap-3">
-                  <span className="font-mono text-[10.5px] tracking-[0.2em] text-brand">
+                  <span className="ds-label text-brand">
                     {s.n}
                   </span>
                   <h3 className="text-lg font-medium tracking-[-0.02em]">{s.title}</h3>
                 </div>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
+                <p className="mt-3 ds-body-sm">
                   {s.body}
                 </p>
                 <span
