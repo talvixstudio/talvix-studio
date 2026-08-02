@@ -9,6 +9,7 @@ import { Faq, faqs } from "@/components/talvix/faq";
 import { ContactCta, SiteFooter } from "@/components/talvix/contact";
 import { Ambient } from "@/components/talvix/ambient";
 import { Cursor } from "@/components/talvix/cursor";
+import { Intro } from "@/components/talvix/intro";
 
 const title = "Talvix Studio — Sites e produtos digitais que fecham negócio";
 const description =
@@ -76,6 +77,7 @@ function Index() {
       >
         Pular para o conteúdo
       </a>
+      <Intro />
       <Ambient />
       <Cursor />
       <div className="relative z-10">
