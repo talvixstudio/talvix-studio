@@ -82,7 +82,7 @@ export function Hero() {
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mt-8 text-[clamp(2.5rem,7vw,5rem)] font-semibold leading-[0.98]"
+            className="text-balance-tight mx-auto mt-8 max-w-[15ch] text-[clamp(2.5rem,6.4vw,4.75rem)] font-semibold leading-[0.98] lg:max-w-[19ch]"
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
@@ -99,6 +99,7 @@ export function Hero() {
               </span>
             </span>
           </h1>
+
 
           <p
             className="intro mx-auto mt-7 max-w-[46ch] ds-lead"
