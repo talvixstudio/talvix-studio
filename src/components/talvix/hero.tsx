@@ -159,25 +159,26 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto mt-4 grid max-w-3xl grid-cols-2 gap-y-8 sm:grid-cols-4">
+        <dl className="mx-auto mt-6 grid max-w-3xl grid-cols-2 gap-y-9 border-t border-border pt-10 sm:grid-cols-4">
           {[
-            ["98", "Lighthouse médio"],
             ["3–6", "Semanas por projeto"],
-            ["11", "Países atendidos"],
-            ["100%", "Feito sob medida"],
+            ["98+", "Lighthouse na entrega"],
+            ["3", "Projetos por vez, no máx."],
+            ["24h", "Para responder você"],
           ].map(([value, label], i) => (
             <div
               key={label}
               className="intro text-center"
               style={{ animationDelay: `${seq.stats + i * 90}ms` }}
             >
-              <dt className="text-2xl font-semibold tracking-[-0.03em]">{value}</dt>
-              <dd className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <dt className="text-[26px] font-semibold tracking-[-0.03em]">{value}</dt>
+              <dd className="mx-auto mt-1.5 max-w-[16ch] font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
                 {label}
               </dd>
             </div>
           ))}
         </dl>
+
       </div>
     </section>
   );
