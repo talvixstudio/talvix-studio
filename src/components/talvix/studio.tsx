@@ -52,7 +52,7 @@ export function Studio() {
                   className="group bg-background px-6 py-6 transition-colors duration-700 ease-out hover:bg-surface"
                 >
                   <span className="block h-1.5 w-1.5 rounded-full bg-brand transition-transform duration-700 ease-out group-hover:scale-[1.8]" />
-                  <p className="mt-4 text-[14.5px] font-medium">{title}</p>
+                  <p className="mt-4 ds-title-xs">{title}</p>
                   <p className="mt-1.5 max-w-[34ch] ds-body-sm">
                     {body}
                   </p>
@@ -82,7 +82,7 @@ export function Studio() {
                       <blockquote className="text-[18px] leading-[1.6] tracking-[-0.015em]">
                         {t.quote}
                       </blockquote>
-                      <p className="mt-4 text-[14px] font-medium">{t.name}</p>
+                      <p className="mt-4 ds-title-xs">{t.name}</p>
                       <p className="mt-0.5 ds-label">
                         {t.role}
                       </p>

@@ -276,7 +276,7 @@ export function Work() {
                   <div className="flex flex-1 flex-col p-7">
                     <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-5">
                       <div>
-                        <h3 className="text-[16px] font-medium tracking-[-0.02em]">
+                        <h3 className="ds-title-sm">
                           {p.client}
                         </h3>
                         <p className="mt-1 max-w-[28ch] ds-body-sm">
