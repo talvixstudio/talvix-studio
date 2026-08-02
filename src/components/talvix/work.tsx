@@ -95,6 +95,120 @@ const cases: CaseStudy[] = [
   },
 ];
 
+/**
+ * Each case gets its own abstract read of the interface we shipped —
+ * a wealth report, a route board, a three-step onboarding, a plan picker.
+ * Drawn with layout primitives so they stay crisp at any size and cost no bytes.
+ */
+function Motif({ index }: { index: number }) {
+  const shell =
+    "pointer-events-none absolute inset-x-7 top-7 bottom-[42%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
+
+  if (index === 0) {
+    // Meridian — performance report
+    return (
+      <div aria-hidden className={shell}>
+        <div className="flex h-full items-end gap-1.5">
+          {[34, 46, 40, 58, 52, 72, 66, 88].map((h, k) => (
+            <span
+              key={k}
+              style={{ height: `${h * 0.8}%`, transitionDelay: `${k * 45}ms` }}
+              className="w-2 origin-bottom rounded-[2px] bg-foreground/20 transition-transform duration-700 ease-out last:bg-brand/70 group-hover:scale-y-105"
+            />
+          ))}
+          <div className="ml-auto space-y-1.5 self-start text-right">
+            <div className="ml-auto h-1.5 w-16 rounded-full bg-foreground/20" />
+            <div className="ml-auto h-1.5 w-9 rounded-full bg-brand/55" />
+          </div>
+        </div>
+      </div>
+
+    );
+  }
+
+  if (index === 1) {
+    // Órbita — live route board
+    return (
+      <div aria-hidden className={shell}>
+        <div className="space-y-2.5">
+          {[
+            ["68%", "bg-brand/60"],
+            ["42%", "bg-foreground/22"],
+            ["86%", "bg-foreground/22"],
+            ["30%", "bg-foreground/16"],
+          ].map(([w, tint], k) => (
+            <div key={k} className="flex items-center gap-2.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-foreground/25" />
+              <span
+                style={{ width: w, transitionDelay: `${k * 70}ms` }}
+                className={cn(
+                  "h-1.5 origin-left rounded-full transition-transform duration-[900ms] ease-out group-hover:scale-x-[1.04]",
+                  tint,
+                )}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 2) {
+    // Nuvia — three-step onboarding
+    return (
+      <div aria-hidden className={shell}>
+        <div className="flex items-center gap-2">
+          {[0, 1, 2].map((k) => (
+            <div key={k} className="flex flex-1 items-center gap-2">
+              <span
+                className={cn(
+                  "h-5 w-5 shrink-0 rounded-full border",
+                  k === 0
+                    ? "border-brand/70 bg-brand/25"
+                    : "border-foreground/15 bg-foreground/[0.04]",
+                )}
+              />
+              {k < 2 && <span className="h-px flex-1 bg-foreground/12" />}
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 space-y-2">
+          <div className="h-1.5 w-2/5 rounded-full bg-foreground/12" />
+          <div className="h-8 rounded-md border border-foreground/10 bg-foreground/[0.03] transition-colors duration-700 group-hover:border-brand/25" />
+        </div>
+      </div>
+    );
+  }
+
+  // Fero — plan picker
+  return (
+    <div aria-hidden className={shell}>
+      <div className="grid grid-cols-3 gap-2">
+        {[0, 1, 2].map((k) => (
+          <div
+            key={k}
+            className={cn(
+              "rounded-md border p-2.5 transition-transform duration-700 ease-out",
+              k === 1
+                ? "border-brand/45 bg-brand/[0.07] group-hover:-translate-y-1"
+                : "border-foreground/10 bg-foreground/[0.03]",
+            )}
+          >
+            <div className="h-1.5 w-2/3 rounded-full bg-foreground/14" />
+            <div
+              className={cn(
+                "mt-2 h-1.5 w-1/3 rounded-full",
+                k === 1 ? "bg-brand/70" : "bg-foreground/10",
+              )}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
 export function Work() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -138,32 +252,15 @@ export function Work() {
                     className={cn(
                       "relative overflow-hidden bg-gradient-to-br transition-[aspect-ratio] duration-700",
                       p.tone,
-                      isOpen ? "aspect-[16/5]" : "aspect-[16/9]",
+                      isOpen ? "aspect-[16/4.5]" : "aspect-[16/7.2]",
                     )}
                   >
                     <div className="hairline-grid absolute inset-0 opacity-60 transition-transform duration-[1.8s] ease-out group-hover:scale-[1.05]" />
                     <div className="brand-glow absolute -right-16 -top-16 h-64 w-64 opacity-0 transition-opacity duration-[1.1s] ease-out group-hover:opacity-55" />
 
-                    {/* abstract interface motif — unique per case */}
-                    <div
-                      aria-hidden
-                      className="absolute inset-x-7 top-7 flex gap-3 transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1"
-                    >
-                      <div className="h-14 w-14 shrink-0 rounded-lg border border-foreground/10 bg-foreground/5" />
-                      <div className="flex-1 space-y-2 pt-2">
-                        <div className="h-1.5 w-1/2 rounded-full bg-foreground/12" />
-                        <div className="h-1.5 w-1/4 rounded-full bg-brand/50" />
-                      </div>
-                      <div className="hidden gap-1.5 sm:flex">
-                        {[10, 18, 13, 24, 16].map((h, k) => (
-                          <span
-                            key={k}
-                            style={{ height: `${h * 1.6}px` }}
-                            className="w-1.5 self-end rounded-full bg-foreground/10 last:bg-brand/60"
-                          />
-                        ))}
-                      </div>
-                    </div>
+                    {/* abstract interface motif — one per case */}
+                    <Motif index={i} />
+
 
                     <div className="absolute inset-x-7 bottom-6 flex items-end justify-between gap-6">
                       <p className="text-balance-tight max-w-[22ch] text-[17px] font-medium leading-snug text-foreground/95">
@@ -253,7 +350,7 @@ export function Work() {
                       onClick={() => setOpenIndex(isOpen ? null : i)}
                       aria-expanded={isOpen}
                       aria-controls={`caso-${i}`}
-                      className="mt-7 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/80 transition-colors duration-500 ease-out hover:text-brand-soft"
+                      className="mt-auto pt-7 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/80 transition-colors duration-500 ease-out hover:text-brand-soft"
                     >
                       {isOpen ? "Fechar caso" : "Ler o caso completo"}
                       <ArrowRight

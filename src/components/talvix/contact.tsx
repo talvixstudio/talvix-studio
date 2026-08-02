@@ -20,7 +20,7 @@ export function ContactCta() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
       </div>
 
-      <div className="shell relative py-28 lg:py-36">
+      <div className="shell relative py-24 lg:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <p className="eyebrow">Próximo passo</p>
@@ -60,7 +60,7 @@ export function ContactCta() {
         </div>
 
         <Reveal delay={420}>
-          <ol className="mx-auto mt-20 grid max-w-4xl gap-px overflow-hidden rounded-2xl border border-border bg-border text-left sm:grid-cols-3">
+          <ol className="mx-auto mt-16 grid max-w-4xl gap-px overflow-hidden rounded-2xl border border-border bg-border text-left sm:grid-cols-3">
             {nextSteps.map(([n, title, body]) => (
               <li key={n} className="bg-background/80 p-7">
                 <span className="font-mono text-[10px] tracking-[0.2em] text-brand">{n}</span>
@@ -84,7 +84,7 @@ const footerNav = [
       ["Serviços", "#servicos"],
       ["Método", "#metodo"],
       ["Estudos de caso", "#trabalhos"],
-      ["Sobre nós", "#estudio"],
+      ["O estúdio", "#estudio"],
     ],
   },
   {
