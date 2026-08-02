@@ -1,4 +1,3 @@
-import { Quote } from "lucide-react";
 import { Reveal } from "./reveal";
 
 const principles = [
