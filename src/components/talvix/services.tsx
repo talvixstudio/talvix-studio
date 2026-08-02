@@ -11,6 +11,7 @@ import {
 const services = [
   {
     id: "01",
+    gain: "Você deixa de explicar o que a empresa faz — a página explica.",
     icon: Layers,
     title: "Websites Premium",
     body: "Sites institucionais construídos como produto: arquitetura de conteúdo, sistema de design próprio e performance medida a cada deploy.",
@@ -18,6 +19,7 @@ const services = [
   },
   {
     id: "02",
+    gain: "Cada real de mídia chega numa página que sabe o que pedir.",
     icon: MousePointerClick,
     title: "Landing Pages",
     body: "Páginas de alta conversão com narrativa própria, provas de valor bem posicionadas e testes de mensagem desde a primeira semana.",
@@ -25,6 +27,7 @@ const services = [
   },
   {
     id: "03",
+    gain: "Menos abandono no meio do fluxo, menos chamado no suporte.",
     icon: PenTool,
     title: "UI/UX Design",
     body: "Fluxos, protótipos e interfaces desenhadas em detalhe — do espaçamento à microinteração — antes de uma linha de código existir.",
@@ -32,6 +35,7 @@ const services = [
   },
   {
     id: "04",
+    gain: "A marca continua reconhecível quando outra pessoa aplica.",
     icon: Sparkles,
     title: "Identidade Visual",
     body: "Marcas com sistema completo: símbolo, tipografia, paleta, aplicações e regras claras para escalar sem perder consistência.",
@@ -39,6 +43,7 @@ const services = [
   },
   {
     id: "05",
+    gain: "Sua operação para de viver dentro de planilhas compartilhadas.",
     icon: SquareTerminal,
     title: "Aplicações Web",
     body: "Dashboards, portais e plataformas com autenticação, dados em tempo real e uma camada de interface que dá gosto de usar.",
@@ -46,6 +51,7 @@ const services = [
   },
   {
     id: "06",
+    gain: "Horas repetitivas saem da agenda do time e não voltam.",
     icon: Workflow,
     title: "Soluções Digitais",
     body: "Automação, integrações e ferramentas internas desenhadas para eliminar trabalho repetitivo da sua operação.",
@@ -104,6 +110,10 @@ export function Services() {
               </h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
                 {s.body}
+              </p>
+              <p className="mt-4 flex items-start gap-2 text-[13.5px] leading-relaxed text-foreground/70">
+                <span aria-hidden className="mt-[7px] h-px w-3 shrink-0 bg-brand/70" />
+                {s.gain}
               </p>
               <ul className="mt-7 flex flex-wrap gap-1.5">
                 {s.meta.map((m) => (
