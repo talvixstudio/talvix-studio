@@ -54,7 +54,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative overflow-hidden pt-[124px] pb-16 lg:pt-[148px] lg:pb-24"
+      className="relative overflow-hidden pt-[124px] pb-10 lg:pt-[148px] lg:pb-16"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -69,7 +69,7 @@ export function Hero() {
       </div>
 
       <div className="shell relative">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-[62rem] text-center">
           <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
             <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
@@ -82,7 +82,7 @@ export function Hero() {
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mt-8 text-[clamp(2.5rem,7vw,5rem)] font-semibold leading-[0.98]"
+            className="text-balance-tight mx-auto mt-8 text-[clamp(2.35rem,6.2vw,4.5rem)] font-semibold leading-[0.98] lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
@@ -99,6 +99,7 @@ export function Hero() {
               </span>
             </span>
           </h1>
+
 
           <p
             className="intro mx-auto mt-7 max-w-[46ch] ds-lead"
@@ -194,25 +195,28 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto -mt-2 grid max-w-3xl grid-cols-2 gap-y-8 border-t border-border pt-9 sm:grid-cols-4">
+        <dl className="mx-auto -mt-2 grid max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 sm:grid-cols-4">
           {[
             ["3–6", "Semanas por projeto"],
             ["98+", "Lighthouse na entrega"],
-            ["3", "Projetos por vez, no máx."],
-            ["24h", "Para responder você"],
+            ["3", "Projetos por vez"],
+            ["24h", "Para te responder"],
           ].map(([value, label], i) => (
             <div
               key={label}
-              className="intro text-center"
+              className="intro relative px-4 text-center sm:not-first:before:absolute sm:not-first:before:inset-y-1 sm:not-first:before:left-0 sm:not-first:before:w-px sm:not-first:before:bg-border"
               style={{ animationDelay: `${seq.stats + i * 90}ms` }}
             >
-              <dt className="text-[26px] font-semibold tracking-[-0.03em]">{value}</dt>
-              <dd className="mx-auto mt-1.5 max-w-[16ch] ds-label">
+              <dt className="text-[28px] font-semibold leading-none tracking-[-0.035em]">
+                {value}
+              </dt>
+              <dd className="mx-auto mt-3 max-w-[20ch] ds-label [letter-spacing:0.14em]">
                 {label}
               </dd>
             </div>
           ))}
         </dl>
+
 
       </div>
     </section>
