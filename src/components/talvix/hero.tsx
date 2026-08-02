@@ -86,27 +86,26 @@ export function Hero() {
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
-                Sites e produtos digitais
+                Transformamos ideias em
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line2}ms` }}>
-                que fecham{" "}
                 <span className="relative whitespace-nowrap text-brand-soft">
-                  negócio
+                  experiências
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
-                </span>
+                </span>{" "}
+                digitais
               </span>
             </span>
           </h1>
 
 
           <p
-            className="intro mx-auto mt-7 max-w-[46ch] ds-lead"
+            className="intro mx-auto mt-7 max-w-[34ch] ds-lead"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
-            Estúdio de design e engenharia. Desenhamos, escrevemos e programamos — do
-            primeiro rascunho ao deploy — em 3 a 6 semanas.
+            Design que impressiona. Engenharia que sustenta. Sites que vendem.
           </p>
 
           <div
@@ -129,7 +128,7 @@ export function Hero() {
               href="#trabalhos"
               className="btn-premium group ds-btn ds-btn-ghost w-full sm:w-auto"
             >
-              Ver estudos de caso
+              Ver projetos
               <span
                 aria-hidden
                 className="font-mono text-xs text-muted-foreground transition-transform duration-500 ease-out group-hover:translate-y-0.5"
@@ -143,8 +142,9 @@ export function Hero() {
             className="intro mt-6 text-[12.5px] text-muted-foreground/80"
             style={{ animationDelay: `${seq.cta + 120}ms` }}
           >
-            Escopo e preço fechados por escrito antes de qualquer contrato.
+            Escopo e preço fechados por escrito. Entrega em 3 a 6 semanas.
           </p>
+
         </div>
 
 
