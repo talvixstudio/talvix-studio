@@ -676,3 +676,7 @@ html[data-intro="playing"] .intro-rise {
     animation: none !important;
   }
 }
+
+#lovable-badge {
+  display: none !important;
+}
