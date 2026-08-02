@@ -1,0 +1,18 @@
+{
+  "name": "Talvix Studio",
+  "short_name": "Talvix",
+  "description": "Estúdio de design e engenharia digital.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d10",
+  "theme_color": "#0b0d10",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

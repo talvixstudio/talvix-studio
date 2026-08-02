@@ -32,7 +32,12 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="top" ref={ref} className="relative overflow-hidden pt-[136px] pb-24 lg:pb-32">
+    <section
+      id="top"
+      ref={ref}
+      aria-labelledby="hero-titulo"
+      className="relative overflow-hidden pt-[128px] pb-24 lg:pt-[152px] lg:pb-32"
+    >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="hairline-grid intro absolute inset-0 opacity-[0.5] [mask-image:radial-gradient(70%_55%_at_50%_20%,#000,transparent)] [animation-duration:2.4s]" />
@@ -43,7 +48,7 @@ export function Hero() {
         <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-[1240px] px-6 lg:px-10">
+      <div className="shell relative">
         <div className="mx-auto max-w-3xl text-center">
           <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
             <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
@@ -51,21 +56,24 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
               </span>
-              Duas vagas para novembro
+              Agenda aberta · 2 projetos
             </span>
           </div>
 
-          <h1 className="text-balance-tight mt-8 text-[clamp(2.6rem,7.2vw,5.1rem)] font-semibold leading-[0.98]">
+          <h1
+            id="hero-titulo"
+            className="text-balance-tight mt-8 text-[clamp(2.5rem,7vw,5rem)] font-semibold leading-[0.98]"
+          >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
-                Interfaces que fazem
+                Sites e produtos digitais
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line2}ms` }}>
-                a sua empresa parecer{" "}
+                que fecham{" "}
                 <span className="relative whitespace-nowrap text-brand-soft">
-                  inevitável
+                  negócio
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
                 </span>
               </span>
@@ -73,12 +81,11 @@ export function Hero() {
           </h1>
 
           <p
-            className="intro mx-auto mt-7 max-w-xl text-[16.5px] leading-relaxed text-muted-foreground"
+            className="intro mx-auto mt-7 max-w-[46ch] text-[17px] leading-[1.65] text-muted-foreground"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
-            Somos um estúdio de design e engenharia digital. Desenhamos e construímos
-            websites, produtos e identidades com o acabamento que normalmente só existe
-            dentro das melhores empresas de software do mundo.
+            Estúdio de design e engenharia. Desenhamos, escrevemos e programamos — do
+            primeiro rascunho ao deploy — em 3 a 6 semanas.
           </p>
 
           <div
@@ -87,22 +94,38 @@ export function Hero() {
           >
             <a
               href="#contato"
-              className="btn-premium group relative inline-flex h-11 w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-brand px-6 text-sm font-medium text-primary-foreground hover:shadow-[0_18px_50px_-18px_var(--brand)] sm:w-auto"
+              className="btn-premium hover-sheen group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-7 text-[14.5px] font-medium text-primary-foreground hover:shadow-[0_18px_50px_-18px_var(--brand)] sm:w-auto"
             >
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-[1100ms] ease-out group-hover:translate-x-full" />
-              Iniciar um projeto
+              Receber uma proposta
+              <span
+                aria-hidden
+                className="font-mono text-xs opacity-70 transition-transform duration-500 ease-out group-hover:translate-x-0.5"
+              >
+                →
+              </span>
             </a>
             <a
               href="#trabalhos"
-              className="btn-premium group inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-border px-6 text-sm font-medium text-foreground/90 hover:border-foreground/25 hover:bg-surface sm:w-auto"
+              className="btn-premium group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-border px-7 text-[14.5px] font-medium text-foreground/90 hover:border-foreground/25 hover:bg-surface sm:w-auto"
             >
-              Ver trabalhos
-              <span className="font-mono text-xs text-muted-foreground transition-transform duration-500 ease-out group-hover:translate-y-0.5">
+              Ver estudos de caso
+              <span
+                aria-hidden
+                className="font-mono text-xs text-muted-foreground transition-transform duration-500 ease-out group-hover:translate-y-0.5"
+              >
                 ↓
               </span>
             </a>
           </div>
+
+          <p
+            className="intro mt-6 text-[12.5px] text-muted-foreground/80"
+            style={{ animationDelay: `${seq.cta + 120}ms` }}
+          >
+            Escopo e preço fechados por escrito antes de qualquer contrato.
+          </p>
         </div>
+
 
         {/* Notebook */}
         <div className="relative mt-16 lg:mt-24">
@@ -136,25 +159,26 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto mt-4 grid max-w-3xl grid-cols-2 gap-y-8 sm:grid-cols-4">
+        <dl className="mx-auto mt-6 grid max-w-3xl grid-cols-2 gap-y-9 border-t border-border pt-10 sm:grid-cols-4">
           {[
-            ["98", "Lighthouse médio"],
             ["3–6", "Semanas por projeto"],
-            ["11", "Países atendidos"],
-            ["100%", "Feito sob medida"],
+            ["98+", "Lighthouse na entrega"],
+            ["3", "Projetos por vez, no máx."],
+            ["24h", "Para responder você"],
           ].map(([value, label], i) => (
             <div
               key={label}
               className="intro text-center"
               style={{ animationDelay: `${seq.stats + i * 90}ms` }}
             >
-              <dt className="text-2xl font-semibold tracking-[-0.03em]">{value}</dt>
-              <dd className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <dt className="text-[26px] font-semibold tracking-[-0.03em]">{value}</dt>
+              <dd className="mx-auto mt-1.5 max-w-[16ch] font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
                 {label}
               </dd>
             </div>
           ))}
         </dl>
+
       </div>
     </section>
   );

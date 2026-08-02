@@ -5,13 +5,14 @@ import { Services } from "@/components/talvix/services";
 import { Process } from "@/components/talvix/process";
 import { Work } from "@/components/talvix/work";
 import { Studio } from "@/components/talvix/studio";
+import { Faq, faqs } from "@/components/talvix/faq";
 import { ContactCta, SiteFooter } from "@/components/talvix/contact";
 import { Ambient } from "@/components/talvix/ambient";
 import { Cursor } from "@/components/talvix/cursor";
 
-const title = "Talvix Studio — Websites premium, UI/UX e produtos digitais";
+const title = "Talvix Studio — Sites e produtos digitais que fecham negócio";
 const description =
-  "Estúdio de design e engenharia digital. Websites premium, landing pages, UI/UX, identidade visual e aplicações web com acabamento de produto.";
+  "Estúdio de design e engenharia digital. Sites premium, landing pages, UI/UX e aplicações web entregues em 3 a 6 semanas, com escopo e preço fechados por escrito.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,7 +22,46 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ProfessionalService",
+              name: "Talvix Studio",
+              description,
+              email: "contato@talvix.studio",
+              areaServed: "Global",
+              knowsLanguage: ["pt-BR", "en", "es"],
+              serviceType: [
+                "Web design",
+                "Landing pages",
+                "UI/UX design",
+                "Identidade visual",
+                "Desenvolvimento de aplicações web",
+              ],
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
@@ -29,7 +69,13 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="relative min-h-screen bg-background">
+    <div className="relative min-h-dvh bg-background">
+      <a
+        href="#servicos"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[100] focus:rounded-full focus:bg-brand focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-primary-foreground"
+      >
+        Pular para o conteúdo
+      </a>
       <Ambient />
       <Cursor />
       <div className="relative z-10">
@@ -40,6 +86,7 @@ function Index() {
           <Process />
           <Work />
           <Studio />
+          <Faq />
           <ContactCta />
         </main>
         <SiteFooter />

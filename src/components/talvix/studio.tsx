@@ -1,155 +1,139 @@
-import { useEffect, useState } from "react";
+import { Quote } from "lucide-react";
 import { Reveal } from "./reveal";
-import { cn } from "@/lib/utils";
 
 const principles = [
-  ["Uma equipe só", "Quem desenha é quem constrói. Sem repasses, sem ruído."],
-  ["Escopo honesto", "Prazo e preço fechados antes de começar. Sem surpresa no meio."],
-  ["Detalhe medido", "Cada espaçamento, curva e transição é decisão, não acaso."],
+  ["Uma equipe só", "Quem desenha é quem constrói. Sem repasse, sem telefone sem fio."],
+  ["Escopo por escrito", "Preço e prazo fechados antes da primeira tela. Sem aditivo no meio."],
+  ["Nada por acaso", "Cada espaçamento, curva e transição responde a uma decisão anterior."],
+  ["Poucos por vez", "No máximo três projetos simultâneos. É o que cabe sem baixar o nível."],
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Entregaram em cinco semanas algo que duas agências não conseguiram em seis meses. O mais impressionante não é o visual — é o quanto tudo faz sentido quando você usa.",
-    name: "Helena Braga",
-    role: "Diretora de Marketing · Meridian Capital",
-  },
-  {
-    quote:
-      "A plataforma deixou de ser um custo operacional e virou argumento de venda. Nossa equipe abre o painel todo dia sem reclamar uma única vez.",
-    name: "Rafael Nunes",
-    role: "COO · Órbita Logística",
-  },
-  {
-    quote:
-      "Trabalham no nível de detalhe que a gente só via em produto americano. Cada revisão veio com um porquê — nunca com uma opinião solta.",
-    name: "Camila Duarte",
-    role: "Head de Produto · Nuvia Health",
-  },
-];
+/**
+ * Depoimentos: estrutura pronta, sem citações inventadas.
+ * Substitua os slots abaixo por depoimentos reais assim que autorizados pelo cliente.
+ */
+type Testimonial = { quote: string; name: string; role: string };
+const testimonials: Testimonial[] = [];
 
 export function Studio() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % testimonials.length);
-    }, 9000);
-    return () => window.clearInterval(id);
-  }, []);
-
   return (
-    <section id="estudio" className="relative border-t border-border py-24 lg:py-32">
-      <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-24">
+    <section
+      id="estudio"
+      aria-labelledby="estudio-titulo"
+      className="section-y relative border-t border-border"
+    >
+      <div className="shell">
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-24">
           <div>
             <Reveal>
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-brand-soft">
-                O estúdio
-              </p>
-              <h2 className="text-balance-tight mt-5 text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]">
+              <p className="eyebrow">O estúdio</p>
+              <h2
+                id="estudio-titulo"
+                className="text-balance-tight mt-5 text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]"
+              >
                 Pequenos por escolha. Exigentes por formação.
               </h2>
             </Reveal>
             <Reveal delay={140}>
-              <p className="mt-7 max-w-lg text-[15.5px] leading-relaxed text-muted-foreground">
-                A Talvix Studio nasceu de uma inconformidade simples: quase toda empresa
-                boa tem um site que não faz jus ao que ela entrega. Trabalhamos com poucos
-                clientes por vez para que cada projeto receba a atenção de um produto — não
-                de uma entrega.
+              <p className="mt-7 max-w-[52ch] text-[15.5px] leading-[1.7] text-muted-foreground">
+                A Talvix nasceu de uma constatação simples: quase toda empresa boa tem um
+                site que não faz jus ao que ela entrega. Somos designers e engenheiros que
+                trabalham lado a lado — e recusamos volume para conseguir tratar cada
+                projeto como produto.
               </p>
             </Reveal>
-            <ul className="mt-10 space-y-px overflow-hidden rounded-xl border border-border bg-border">
+
+            <ul className="mt-10 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               {principles.map(([title, body], i) => (
                 <Reveal
                   as="li"
                   key={title}
-                  delay={220 + i * 120}
-                  className="group bg-background px-6 py-5 transition-colors duration-700 ease-out hover:bg-surface"
+                  delay={200 + i * 100}
+                  className="group bg-background px-6 py-6 transition-colors duration-700 ease-out hover:bg-surface"
                 >
-                  <div className="flex items-baseline gap-4">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand transition-transform duration-700 ease-out group-hover:scale-[1.9]" />
-                    <div>
-                      <p className="text-[14.5px] font-medium">{title}</p>
-                      <p className="mt-1 text-[13.5px] text-muted-foreground">{body}</p>
-                    </div>
-                  </div>
+                  <span className="block h-1.5 w-1.5 rounded-full bg-brand transition-transform duration-700 ease-out group-hover:scale-[1.8]" />
+                  <p className="mt-4 text-[14.5px] font-medium">{title}</p>
+                  <p className="mt-1.5 max-w-[34ch] text-[13.5px] leading-relaxed text-muted-foreground">
+                    {body}
+                  </p>
                 </Reveal>
               ))}
             </ul>
           </div>
 
           <Reveal delay={180}>
-            <figure className="relative flex h-full flex-col rounded-2xl border border-border bg-surface/40 p-9 lg:p-12">
+            <div className="relative flex h-full flex-col rounded-2xl border border-border bg-surface/35 p-9 lg:p-11">
               <div
                 aria-hidden
                 className="brand-glow absolute -left-10 -top-10 h-52 w-52 opacity-25"
               />
-              <span className="font-mono text-4xl leading-none text-brand/60">“</span>
 
-              <div className="relative mt-6 min-h-[190px] flex-1">
-                {testimonials.map((t, i) => (
-                  <div
-                    key={t.name}
-                    aria-hidden={i !== index}
-                    className={cn(
-                      "absolute inset-0 transition-all duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-                      i === index
-                        ? "translate-y-0 opacity-100 blur-0"
-                        : "pointer-events-none translate-y-3 opacity-0 blur-[3px]",
-                    )}
-                  >
-                    <blockquote className="text-[19px] leading-[1.55] tracking-[-0.015em]">
-                      {t.quote}
-                    </blockquote>
-                  </div>
-                ))}
+              <div className="relative flex items-center justify-between gap-6">
+                <p className="eyebrow">O que dizem</p>
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                  {testimonials.length > 0 ? `${testimonials.length} depoimentos` : "Em curadoria"}
+                </span>
               </div>
 
-              <figcaption className="rule-top mt-8 pt-6">
-                <div className="relative h-[38px]">
-                  {testimonials.map((t, i) => (
-                    <div
-                      key={t.name}
-                      className={cn(
-                        "absolute inset-0 transition-all duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-                        i === index
-                          ? "translate-y-0 opacity-100"
-                          : "pointer-events-none translate-y-2 opacity-0",
-                      )}
-                    >
-                      <p className="text-[14px] font-medium">{t.name}</p>
+              {testimonials.length > 0 ? (
+                <ul className="relative mt-8 space-y-8">
+                  {testimonials.map((t) => (
+                    <li key={t.name}>
+                      <blockquote className="text-[18px] leading-[1.6] tracking-[-0.015em]">
+                        {t.quote}
+                      </blockquote>
+                      <p className="mt-4 text-[14px] font-medium">{t.name}</p>
                       <p className="mt-0.5 font-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground">
                         {t.role}
                       </p>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
+              ) : (
+                <div className="relative mt-8 flex flex-1 flex-col">
+                  <p className="max-w-[46ch] text-[15px] leading-[1.7] text-muted-foreground">
+                    Preferimos não publicar frase nenhuma a publicar frase escrita por nós.
+                    Os depoimentos entram aqui conforme cada cliente autoriza o uso do nome
+                    — e sempre com cargo e empresa verificáveis.
+                  </p>
 
-                <div className="mt-6 flex gap-2">
-                  {testimonials.map((t, i) => (
-                    <button
-                      key={t.name}
-                      type="button"
-                      onClick={() => setIndex(i)}
-                      aria-label={`Ver depoimento de ${t.name}`}
-                      className="group py-2"
-                    >
-                      <span
-                        className={cn(
-                          "block h-px w-9 transition-all duration-700 ease-out",
-                          i === index
-                            ? "bg-brand"
-                            : "bg-border group-hover:bg-foreground/35",
-                        )}
-                      />
-                    </button>
-                  ))}
+                  <ul className="mt-8 space-y-px overflow-hidden rounded-xl border border-dashed border-border/70">
+                    {[0, 1].map((i) => (
+                      <li
+                        key={i}
+                        aria-hidden
+                        className="flex items-start gap-4 bg-background/40 px-5 py-5"
+                      >
+                        <Quote
+                          className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40"
+                          strokeWidth={1.5}
+                        />
+                        <div className="w-full space-y-2.5">
+                          <div className="h-2 w-full rounded-full bg-foreground/6" />
+                          <div className="h-2 w-4/5 rounded-full bg-foreground/6" />
+                          <div className="h-2 w-1/3 rounded-full bg-foreground/4" />
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="mt-8 text-[13.5px] leading-relaxed text-muted-foreground">
+                    Enquanto isso, os números dos estudos de caso acima foram informados
+                    pelos próprios clientes e podem ser confirmados em conversa.
+                  </p>
+
+                  <a
+                    href="#trabalhos"
+                    className="mt-6 inline-flex w-fit items-center gap-2 text-[13px] font-medium text-brand-soft transition-opacity duration-500 hover:opacity-75"
+                  >
+                    Ver estudos de caso
+                    <span aria-hidden className="font-mono text-xs">
+                      ↗
+                    </span>
+                  </a>
                 </div>
-              </figcaption>
-            </figure>
+              )}
+            </div>
           </Reveal>
         </div>
       </div>
