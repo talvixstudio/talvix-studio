@@ -427,3 +427,120 @@
     transform: translateX(100%);
   }
 }
+
+/* ---- Phase 4: opening sequence, scroll feel, PWA polish ---- */
+
+@layer base {
+  html {
+    /* anchors clear the fixed header instead of hiding under it */
+    scroll-padding-top: 6.5rem;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  /* nothing scrolls behind the opening plate */
+  html[data-intro="playing"] body {
+    overflow: hidden;
+  }
+}
+
+@keyframes intro-logo-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.965);
+    filter: blur(9px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes intro-glow-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  55% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.28;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-hairline-in {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes intro-curtain {
+  0% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 1;
+  }
+}
+
+@utility intro-logo {
+  animation: intro-logo-in 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity, filter;
+}
+
+@utility intro-glow {
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--brand) 34%, transparent) 0%,
+    transparent 68%
+  );
+  filter: blur(46px);
+  animation: intro-glow-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+@utility intro-hairline {
+  animation: intro-hairline-in 1.5s 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+@utility intro-curtain-out {
+  animation: intro-curtain 1.05s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+
+  & .intro-logo,
+  & .intro-glow,
+  & .intro-hairline {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.45s ease-out;
+  }
+}
+
+/* content waits behind the plate so the reveal lands with the curtain */
+html[data-intro="playing"] .intro,
+html[data-intro="playing"] .intro-soft,
+html[data-intro="playing"] .intro-rise {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-logo,
+  .intro-glow,
+  .intro-hairline,
+  .intro-curtain-out {
+    animation: none !important;
+  }
+}
