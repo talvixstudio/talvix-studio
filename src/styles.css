@@ -392,6 +392,13 @@
   }
 }
 
+/* Skip layout/paint work for off-screen sections without affecting layout size */
+@utility cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+
 @utility shell {
   margin-inline: auto;
   width: 100%;
