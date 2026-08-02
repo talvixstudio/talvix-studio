@@ -13,12 +13,14 @@ type CaseStudy = {
   problem: string;
   solution: string;
   outcome: { value: string; label: string }[];
+  stack: string[];
   tone: string;
 };
 
 const cases: CaseStudy[] = [
   {
     client: "Meridian Capital",
+    stack: ["Next.js", "Sanity CMS", "Vercel", "Cal.com API"],
     sector: "Gestora de patrimônio",
     scope: "Website · Identidade",
     year: "2025",
@@ -37,6 +39,7 @@ const cases: CaseStudy[] = [
   },
   {
     client: "Órbita Logística",
+    stack: ["React", "TypeScript", "PostgreSQL", "WebSockets", "Storybook"],
     sector: "Transporte rodoviário",
     scope: "Plataforma web · Design system",
     year: "2025",
@@ -55,6 +58,7 @@ const cases: CaseStudy[] = [
   },
   {
     client: "Nuvia Health",
+    stack: ["React", "Design tokens", "Figma", "Vitest"],
     sector: "Saúde digital",
     scope: "UI/UX · Design system",
     year: "2024",
@@ -73,6 +77,7 @@ const cases: CaseStudy[] = [
   },
   {
     client: "Fero Coffee",
+    stack: ["Astro", "Stripe Checkout", "Cloudflare", "Plausible"],
     sector: "Torrefação artesanal",
     scope: "Landing page · Copy",
     year: "2024",
