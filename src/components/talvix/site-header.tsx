@@ -59,9 +59,9 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-700 ease-out",
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,box-shadow] duration-700 ease-out",
         scrolled || open
-          ? "border-b border-border bg-background/72 backdrop-blur-xl"
+          ? "border-b border-border bg-background/72 shadow-[0_1px_0_0_color-mix(in_oklab,var(--brand)_10%,transparent),0_18px_40px_-32px_rgb(0_0_0/0.9)] backdrop-blur-xl backdrop-saturate-150"
           : "border-b border-transparent",
       )}
     >
@@ -69,10 +69,11 @@ export function SiteHeader() {
         <a
           href="#top"
           aria-label="Talvix Studio — voltar ao início"
-          className="intro-soft group [animation-delay:60ms]"
+          className="intro-soft group [animation-delay:60ms] transition-transform duration-300 ease-out active:scale-[0.97]"
         >
           <TalvixLogo className="transition-opacity duration-500 ease-out group-hover:opacity-75" />
         </a>
+
 
         <nav aria-label="Navegação principal" className="hidden items-center gap-8 md:flex">
           {links.map((l, i) => (
