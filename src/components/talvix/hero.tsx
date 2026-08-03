@@ -84,7 +84,7 @@ export function Hero() {
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mx-auto mt-10 text-[clamp(2.35rem,6.2vw,4.5rem)] font-semibold leading-[0.98] lg:max-w-none"
+            className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
