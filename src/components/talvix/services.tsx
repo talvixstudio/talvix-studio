@@ -3,61 +3,62 @@ import {
   Layers,
   MousePointerClick,
   PenTool,
-  Sparkles,
+  Gauge,
   SquareTerminal,
-  Workflow,
+  Search,
 } from "lucide-react";
 
 const services = [
   {
     id: "01",
-    gain: "Você deixa de explicar o que a empresa faz — a página explica.",
+    gain: "A página explica o negócio por você.",
     icon: Layers,
-    title: "Websites Premium",
-    body: "Sites institucionais construídos como produto: arquitetura de conteúdo, sistema de design próprio e performance medida a cada deploy.",
+    title: "Sites Institucionais",
+    body: "Presença digital construída como produto: arquitetura clara, design próprio e acabamento em cada detalhe.",
     meta: ["Design system", "SSR", "CMS"],
   },
   {
     id: "02",
-    gain: "Cada real de mídia chega numa página que sabe o que pedir.",
+    gain: "Cada visita chega numa página que sabe o que pedir.",
     icon: MousePointerClick,
     title: "Landing Pages",
-    body: "Páginas de alta conversão com narrativa própria, provas de valor bem posicionadas e testes de mensagem desde a primeira semana.",
+    body: "Páginas de conversão com narrativa afiada, provas no lugar certo e mensagem testada desde o início.",
     meta: ["Copy", "A/B", "Analytics"],
   },
   {
     id: "03",
-    gain: "Menos abandono no meio do fluxo, menos chamado no suporte.",
+    gain: "Menos atrito no fluxo, menos chamado no suporte.",
     icon: PenTool,
     title: "UI/UX Design",
-    body: "Fluxos, protótipos e interfaces desenhadas em detalhe — do espaçamento à microinteração — antes de uma linha de código existir.",
+    body: "Fluxos, protótipos e interfaces desenhados no detalhe — antes da primeira linha de código.",
     meta: ["Research", "Protótipo", "Handoff"],
   },
   {
     id: "04",
-    gain: "A marca continua reconhecível quando outra pessoa aplica.",
-    icon: Sparkles,
-    title: "Identidade Visual",
-    body: "Marcas com sistema completo: símbolo, tipografia, paleta, aplicações e regras claras para escalar sem perder consistência.",
-    meta: ["Marca", "Guidelines", "Assets"],
-  },
-  {
-    id: "05",
-    gain: "Sua operação para de viver dentro de planilhas compartilhadas.",
+    gain: "Sua operação sai das planilhas.",
     icon: SquareTerminal,
-    title: "Aplicações Web",
-    body: "Dashboards, portais e plataformas com autenticação, dados em tempo real e uma camada de interface que dá gosto de usar.",
+    title: "Desenvolvimento Web",
+    body: "Portais, painéis e aplicações com código limpo, dados em tempo real e interface que dá gosto de usar.",
     meta: ["React", "API", "Auth"],
   },
   {
+    id: "05",
+    gain: "Site rápido converte mais. Sempre.",
+    icon: Gauge,
+    title: "Performance",
+    body: "Carregamento medido a cada deploy: imagens, fontes e código otimizados para Core Web Vitals no verde.",
+    meta: ["Core Web Vitals", "Cache", "Edge"],
+  },
+  {
     id: "06",
-    gain: "Horas repetitivas saem da agenda do time e não voltam.",
-    icon: Workflow,
-    title: "Soluções Digitais",
-    body: "Automação, integrações e ferramentas internas desenhadas para eliminar trabalho repetitivo da sua operação.",
-    meta: ["Integrações", "Automação", "Infra"],
+    gain: "Ser encontrado deixa de depender de mídia paga.",
+    icon: Search,
+    title: "SEO",
+    body: "Estrutura técnica, conteúdo e dados estruturados pensados para busca desde o primeiro rascunho.",
+    meta: ["Técnico", "Conteúdo", "Schema"],
   },
 ];
+
 
 export function Services() {
   return (
@@ -76,11 +77,11 @@ export function Services() {
           </Reveal>
           <Reveal delay={140}>
             <p className="max-w-lg ds-body-sm lg:pt-16">
-              Não trabalhamos com pacotes fechados. Cada projeto começa por entender o
-              negócio, definir o que precisa ser verdade na tela e só então construir — com
-              a mesma equipe do início ao fim.
+              Nada de pacote pronto. Cada projeto é exclusivo, feito sob medida e
+              conduzido pela mesma equipe do início ao fim.
             </p>
           </Reveal>
+
         </div>
 
         <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-3">
@@ -97,7 +98,7 @@ export function Services() {
               <div className="flex items-center justify-between">
                 <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface/60 transition-all duration-700 ease-out group-hover:-translate-y-0.5 group-hover:border-brand/35 group-hover:bg-brand/10">
                   <s.icon
-                    className="h-[17px] w-[17px] text-muted-foreground transition-colors duration-700 ease-out group-hover:text-brand-soft"
+                    className="h-[18px] w-[18px] text-muted-foreground transition-colors duration-700 ease-out group-hover:text-brand-soft"
                     strokeWidth={1.5}
                   />
                 </span>

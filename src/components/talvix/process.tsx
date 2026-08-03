@@ -90,7 +90,7 @@ export function Process() {
                   >
                     <s.icon
                       className={cn(
-                        "h-4 w-4 transition-colors duration-[1200ms] ease-out",
+                        "h-[18px] w-[18px] transition-colors duration-[1200ms] ease-out",
                         visible ? "text-brand-soft" : "text-muted-foreground",
                       )}
                       strokeWidth={1.5}
