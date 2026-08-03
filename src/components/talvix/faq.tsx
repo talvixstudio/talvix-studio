@@ -56,9 +56,10 @@ export function Faq() {
                 As perguntas que todo cliente faz na primeira reunião.
               </h2>
               <p className="mt-6 max-w-sm ds-body-sm">
-                Respondidas aqui para você não precisar perguntar. Se ficou algo de fora,
-                escreva — respondemos com o mesmo nível de detalhe.
+                Respondidas aqui para você não precisar perguntar. Ficou algo de fora?
+                Escreva — respondemos no mesmo nível de detalhe.
               </p>
+
             </Reveal>
           </div>
 
