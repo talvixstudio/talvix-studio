@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { CountUp } from "./count-up";
+
 const nbAvif980 = "/media/hero-notebook-980.avif";
 const nbAvif1600 = "/media/hero-notebook-1600.avif";
 const nbWebp980 = "/media/hero-notebook-980.webp";
