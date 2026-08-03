@@ -309,19 +309,21 @@
 
 @utility lift {
   transition:
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0) scale(1.015);
     border-color: color-mix(in oklab, var(--brand) 38%, transparent);
     box-shadow:
       0 26px 60px -34px oklch(0 0 0 / 0.9),
-      0 0 0 1px color-mix(in oklab, var(--brand) 12%, transparent);
+      0 0 0 1px color-mix(in oklab, var(--brand) 12%, transparent),
+      0 18px 60px -30px color-mix(in oklab, var(--brand) 30%, transparent);
   }
 }
+
 
 @utility btn-premium {
   transition:
