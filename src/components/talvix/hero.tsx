@@ -4,15 +4,17 @@ const nbAvif1600 = "/media/hero-notebook-1600.avif";
 const nbWebp980 = "/media/hero-notebook-980.webp";
 const nbWebp1600 = "/media/hero-notebook-1600.webp";
 
-/** Entrance choreography — every element lands after the one before it. */
+/** Entrance choreography — Logo → Title → Subtitle → Buttons → Benefits → Notebook → Stats. */
 const seq = {
-  badge: 120,
-  line1: 260,
-  line2: 380,
-  sub: 560,
-  cta: 720,
-  notebook: 820,
-  stats: 1150,
+  badge: 200,
+  line1: 360,
+  line2: 460,
+  sub: 620,
+  cta: 760,
+  benefits: 860,
+  notebook: 980,
+  scroll: 1180,
+  stats: 1420,
 };
 
 export function Hero() {
@@ -69,20 +71,20 @@ export function Hero() {
       </div>
 
       <div className="shell relative">
-        <div className="mx-auto max-w-[62rem] text-center">
+        <div className="mx-auto max-w-[60rem] text-center">
           <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
             <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
               </span>
-              Agenda aberta · 2 projetos
+              Agenda aberta · 2 vagas
             </span>
           </div>
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mx-auto mt-8 text-[clamp(2.35rem,6.2vw,4.5rem)] font-semibold leading-[0.98] lg:max-w-none"
+            className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
@@ -100,23 +102,22 @@ export function Hero() {
             </span>
           </h1>
 
-
           <p
-            className="intro mx-auto mt-7 max-w-[34ch] ds-lead"
+            className="intro mx-auto mt-8 max-w-[36ch] ds-lead"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
-            Design que impressiona. Engenharia que sustenta. Sites que vendem.
+            Sites que vendem. Design que impressiona. Engenharia que sustenta.
           </p>
 
           <div
-            className="intro mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="intro mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row"
             style={{ animationDelay: `${seq.cta}ms` }}
           >
             <a
               href="#contato"
               className="btn-premium hover-sheen group ds-btn ds-btn-primary w-full sm:w-auto"
             >
-              Receber uma proposta
+              Começar projeto
               <span
                 aria-hidden
                 className="font-mono text-xs opacity-70 transition-transform duration-500 ease-out group-hover:translate-x-0.5"
@@ -128,7 +129,7 @@ export function Hero() {
               href="#trabalhos"
               className="btn-premium group ds-btn ds-btn-ghost w-full sm:w-auto"
             >
-              Ver projetos
+              Ver cases
               <span
                 aria-hidden
                 className="font-mono text-xs text-muted-foreground transition-transform duration-500 ease-out group-hover:translate-y-0.5"
@@ -139,17 +140,29 @@ export function Hero() {
           </div>
 
           <p
-            className="intro mt-6 text-[12.5px] text-muted-foreground/80"
-            style={{ animationDelay: `${seq.cta + 120}ms` }}
+            className="intro mx-auto mt-8 max-w-[50ch] text-[11px] font-medium uppercase leading-loose tracking-[0.1em] text-muted-foreground/65 lg:max-w-[80ch] lg:[white-space:nowrap]"
+            style={{ animationDelay: `${seq.benefits}ms` }}
           >
-            Escopo e preço fechados por escrito. Entrega em 3 a 6 semanas.
+            Atendimento personalizado · Projeto exclusivo · Sem templates
           </p>
 
         </div>
 
 
+        {/* Scroll indicator */}
+        <a
+          href="#servicos"
+          aria-label="Rolar para baixo"
+          className="intro mx-auto mt-12 flex flex-col items-center gap-2 text-muted-foreground/50 transition-colors duration-500 hover:text-brand-soft/80"
+          style={{ animationDelay: `${seq.scroll}ms` }}
+        >
+          <span className="flex h-9 w-5 items-start justify-center rounded-full border border-border/60 p-1.5">
+            <span className="block h-1.5 w-1.5 rounded-full bg-brand/70 animate-bounce" />
+          </span>
+        </a>
+
         {/* Notebook */}
-        <div className="relative mt-14 lg:mt-16">
+        <div className="relative mt-16 lg:mt-20">
           {/* soft ambient blue glow — lifts the laptop off the dark canvas */}
           <div
             aria-hidden
