@@ -309,19 +309,21 @@
 
 @utility lift {
   transition:
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0) scale(1.015);
     border-color: color-mix(in oklab, var(--brand) 38%, transparent);
     box-shadow:
       0 26px 60px -34px oklch(0 0 0 / 0.9),
-      0 0 0 1px color-mix(in oklab, var(--brand) 12%, transparent);
+      0 0 0 1px color-mix(in oklab, var(--brand) 12%, transparent),
+      0 18px 60px -30px color-mix(in oklab, var(--brand) 30%, transparent);
   }
 }
+
 
 @utility btn-premium {
   transition:
@@ -517,6 +519,32 @@
   font-size: 14.5px;
   font-weight: 500;
   white-space: nowrap;
+
+  /* micro-interaction baseline: elevation, shadow, press */
+  transition:
+    transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+
+  & svg {
+    transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+
+  /* arrow slides discreetly on hover */
+  &:hover svg:last-child {
+    transform: translate3d(2.5px, 0, 0);
+  }
+
+  &:active {
+    transform: translate3d(0, 0, 0) scale(0.985);
+    transition-duration: 0.12s;
+  }
 }
 
 @utility ds-btn-sm {
@@ -546,18 +574,56 @@
 }
 
 @utility ds-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 13.5px;
   font-weight: 500;
   color: color-mix(in oklab, var(--foreground) 80%, transparent);
-  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* animated underline */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: color-mix(in oklab, var(--brand-soft) 70%, transparent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
   &:hover {
     color: var(--brand-soft);
   }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  & svg {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover svg:last-child {
+    transform: translate3d(2.5px, 0, 0);
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-btn,
+  .ds-btn:hover,
+  .ds-btn:active,
+  .ds-link::after {
+    transform: none !important;
+  }
+}
+
 
 
 /* ---- Phase 4: opening sequence, scroll feel, PWA polish ---- */
