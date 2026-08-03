@@ -98,7 +98,7 @@ export function Services() {
               <div className="flex items-center justify-between">
                 <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface/60 transition-all duration-700 ease-out group-hover:-translate-y-0.5 group-hover:border-brand/35 group-hover:bg-brand/10">
                   <s.icon
-                    className="h-[17px] w-[17px] text-muted-foreground transition-colors duration-700 ease-out group-hover:text-brand-soft"
+                    className="h-[18px] w-[18px] text-muted-foreground transition-colors duration-700 ease-out group-hover:text-brand-soft"
                     strokeWidth={1.5}
                   />
                 </span>
