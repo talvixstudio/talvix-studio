@@ -91,16 +91,15 @@ export function Studio() {
               ) : (
                 <div className="relative mt-8 flex flex-1 flex-col">
                   <p className="max-w-[46ch] ds-body">
-                    Preferimos não publicar frase nenhuma a publicar frase escrita por nós.
-                    Os depoimentos entram aqui conforme cada cliente autoriza o uso do nome
-                    — e sempre com cargo e empresa verificáveis.
+                    Preferimos silêncio a frase inventada. Depoimentos entram aqui conforme
+                    cada cliente autoriza o uso do nome.
                   </p>
 
                   <ul className="mt-9 space-y-5 border-l border-border pl-6">
                     {[
                       ["Nome e cargo reais", "Nada de “CEO de uma fintech”."],
-                      ["Autorização por escrito", "O cliente lê e aprova antes de publicar."],
-                      ["Número verificável", "A frase vem acompanhada do resultado."],
+                      ["Autorização por escrito", "O cliente aprova antes de publicar."],
+                      ["Número verificável", "A frase vem com o resultado."],
                     ].map(([title, body], i) => (
                       <li key={title} className="relative">
                         <span
@@ -118,9 +117,9 @@ export function Studio() {
 
 
                   <p className="mt-8 ds-body-sm">
-                    Enquanto isso, os números dos estudos de caso acima foram informados
-                    pelos próprios clientes e podem ser confirmados em conversa.
+                    Até lá, os números dos casos acima podem ser confirmados em conversa.
                   </p>
+
 
                   <a
                     href="#trabalhos"
