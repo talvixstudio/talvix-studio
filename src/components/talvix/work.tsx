@@ -10,7 +10,11 @@ type CaseStudy = {
   year: string;
   status: "entregue" | "em-andamento";
   statusLabel: string;
+  /** Rótulo do botão principal do card. */
+  cta: string;
   headline: string;
+  /** Descrição curta exibida no showcase. */
+  summary: string;
   context: string;
   goal: string;
   challenge: string;
@@ -30,8 +34,11 @@ const cases: CaseStudy[] = [
     scope: "Marca · Site · Design system",
     year: "2026",
     status: "entregue",
-    statusLabel: "No ar",
+    statusLabel: "Concluído",
+    cta: "Ver projeto",
     headline: "O primeiro cliente do estúdio foi o próprio estúdio.",
+    summary:
+      "Identidade, copy e código do zero: um site que é, ao mesmo tempo, portfólio e demonstração do padrão que entregamos.",
     context:
       "Antes de vender site premium para alguém, precisávamos provar o padrão em casa — no nosso próprio domínio, sem tema comprado e sem biblioteca de componentes pronta.",
     goal:
@@ -54,7 +61,10 @@ const cases: CaseStudy[] = [
     year: "2026",
     status: "em-andamento",
     statusLabel: "Em desenvolvimento",
+    cta: "Acompanhar evolução",
     headline: "Contratar conectividade em minutos, não em atendimento.",
+    summary:
+      "Projeto em construção agora: jornada de autosserviço e design system próprio para o produto escalar sem retrabalho.",
     context:
       "Projeto em curso no estúdio. A operação existe, o produto digital está sendo desenhado e construído agora — por isso não há número de resultado aqui.",
     goal:
@@ -76,7 +86,10 @@ const cases: CaseStudy[] = [
     year: "2026",
     status: "em-andamento",
     statusLabel: "Em desenvolvimento",
+    cta: "Acompanhar evolução",
     headline: "Cobertura, plano e contratação na mesma tela.",
+    summary:
+      "Em implementação: consulta de cobertura na primeira dobra e páginas de bairro estruturadas para busca local.",
     context:
       "Projeto em curso. A estrutura de conteúdo e a arquitetura de páginas já estão definidas; a implementação está em andamento.",
     goal:
@@ -100,18 +113,18 @@ const cases: CaseStudy[] = [
  */
 function Motif({ index }: { index: number }) {
   const shell =
-    "pointer-events-none absolute inset-x-7 top-7 bottom-[42%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
+    "pointer-events-none absolute inset-x-[8%] top-[14%] bottom-[34%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
 
   if (index === 0) {
     // Talvix — sistema de tokens e ritmo tipográfico
     return (
       <div aria-hidden className={shell}>
-        <div className="flex h-full items-end gap-1.5">
+        <div className="flex h-full items-end gap-1.5 sm:gap-2">
           {[34, 46, 40, 58, 52, 72, 66, 88].map((h, k) => (
             <span
               key={k}
               style={{ height: `${h * 0.8}%`, transitionDelay: `${k * 45}ms` }}
-              className="w-2 origin-bottom rounded-[2px] bg-foreground/20 transition-transform duration-700 ease-out last:bg-brand/70 group-hover:scale-y-105"
+              className="w-2 origin-bottom rounded-[2px] bg-foreground/20 transition-transform duration-700 ease-out last:bg-brand/70 group-hover:scale-y-105 sm:w-2.5"
             />
           ))}
           <div className="ml-auto space-y-1.5 self-start text-right">
@@ -127,12 +140,12 @@ function Motif({ index }: { index: number }) {
     // Saycell — seleção de plano em autosserviço
     return (
       <div aria-hidden className={shell}>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
           {[0, 1, 2].map((k) => (
             <div
               key={k}
               className={cn(
-                "rounded-md border p-2.5 transition-transform duration-700 ease-out",
+                "rounded-md border p-2.5 transition-transform duration-700 ease-out sm:p-3.5",
                 k === 1
                   ? "border-brand/45 bg-brand/[0.07] group-hover:-translate-y-1"
                   : "border-foreground/10 bg-foreground/[0.03]",
@@ -145,6 +158,8 @@ function Motif({ index }: { index: number }) {
                   k === 1 ? "bg-brand/70" : "bg-foreground/10",
                 )}
               />
+              <div className="mt-4 h-1 w-full rounded-full bg-foreground/8" />
+              <div className="mt-2 h-1 w-4/5 rounded-full bg-foreground/8" />
             </div>
           ))}
         </div>
@@ -159,7 +174,7 @@ function Motif({ index }: { index: number }) {
         <div className="h-8 flex-1 rounded-md border border-foreground/10 bg-foreground/[0.03] transition-colors duration-700 group-hover:border-brand/25" />
         <div className="h-8 w-16 rounded-md border border-brand/45 bg-brand/[0.09]" />
       </div>
-      <div className="mt-4 space-y-2.5">
+      <div className="mt-5 space-y-3">
         {[
           ["72%", "bg-brand/60"],
           ["48%", "bg-foreground/22"],
@@ -181,23 +196,36 @@ function Motif({ index }: { index: number }) {
   );
 }
 
+/** Moldura de mockup: janela com barra de título e reflexo suave. */
+function Mockup({ index, tone }: { index: number; tone: string }) {
+  return (
+    <div className="relative overflow-hidden rounded-xl border border-border/80 bg-background/40 shadow-[0_30px_70px_-45px_oklch(0_0_0/0.95)]">
+      <div
+        className={cn(
+          "relative aspect-[16/10] overflow-hidden bg-gradient-to-br transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]",
+          tone,
+        )}
+      >
+        <div className="hairline-grid absolute inset-0 opacity-60" />
+        <div className="brand-glow absolute -right-16 -top-16 h-64 w-64 opacity-0 transition-opacity duration-[1.1s] ease-out group-hover:opacity-55" />
+
+        <div className="absolute inset-x-0 top-0 flex h-9 items-center gap-1.5 border-b border-foreground/8 px-4">
+          {[0, 1, 2].map((k) => (
+            <span key={k} className="h-1.5 w-1.5 rounded-full bg-foreground/18" />
+          ))}
+          <span className="ml-3 h-1.5 w-24 rounded-full bg-foreground/10" />
+        </div>
+
+        <Motif index={index} />
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/45 to-transparent" />
+      </div>
+    </div>
+  );
+}
+
 export function Work() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const groups: { key: string; title: string; note: string; items: number[] }[] = [
-    {
-      key: "concluidos",
-      title: "Projetos concluídos",
-      note: "No ar, com tudo verificável.",
-      items: cases.map((c, i) => (c.status === "entregue" ? i : -1)).filter((i) => i >= 0),
-    },
-    {
-      key: "andamento",
-      title: "Em desenvolvimento",
-      note: "Em produção agora. Sem números inventados.",
-      items: cases.map((c, i) => (c.status === "em-andamento" ? i : -1)).filter((i) => i >= 0),
-    },
-  ];
 
   return (
     <section
@@ -205,192 +233,168 @@ export function Work() {
       aria-labelledby="trabalhos-titulo"
       className="cv-auto section-y relative border-t border-border"
     >
-      <div className="shell">
+      {/* profundidade sutil apenas nesta seção */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-surface/35 via-transparent to-surface/25"
+      />
+
+      <div className="shell relative">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <Reveal>
             <p className="eyebrow">Portfólio</p>
             <h2
               id="trabalhos-titulo"
-              className="text-balance-tight mt-5 max-w-xl text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]"
+              className="text-balance-tight mt-5 max-w-2xl text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]"
             >
-              O trabalho, exatamente como ele está.
+              Menos promessa. Mais projeto no ar.
             </h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="max-w-xs ds-body-sm">
-              Entregue é entregue. Em desenvolvimento fica marcado como tal.
+              O processo acima só vale pelo que ele produz. Abaixo, o que já saiu dele — e o
+              que está sendo construído agora, sem maquiagem.
             </p>
           </Reveal>
         </div>
 
-        {groups.map((group, gi) => (
-          <div key={group.key} className={gi === 0 ? "mt-14" : "mt-16"}>
-            <Reveal>
-              <div className="flex flex-wrap items-baseline justify-between gap-4 border-t border-border pt-6">
-                <h3 className="ds-label text-brand-soft">{group.title}</h3>
-                <p className="ds-body-sm">{group.note}</p>
-              </div>
-            </Reveal>
+        <div className="mt-16 space-y-6 md:space-y-8">
+          {cases.map((p, i) => {
+            const isOpen = openIndex === i;
+            const inProgress = p.status === "em-andamento";
+            return (
+              <Reveal key={p.client} delay={i * 120}>
+                <article
+                  className={cn(
+                    "lift group relative overflow-hidden rounded-2xl border border-border bg-surface/25 p-5 sm:p-7 lg:p-9",
+                    isOpen && "border-brand/30 bg-surface/45",
+                  )}
+                >
+                  <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+                    <div className={cn(i % 2 === 1 && "lg:order-2")}>
+                      <Mockup index={i} tone={p.tone} />
+                    </div>
 
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
-              {group.items.map((i, k) => {
-                const p = cases[i]!;
-                const isOpen = openIndex === i;
-                const inProgress = p.status === "em-andamento";
-                return (
-                  <Reveal key={p.client} delay={k * 120}>
-                    <article
-                      className={cn(
-                        "lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface/25",
-                        isOpen && "border-brand/30 bg-surface/45",
-                      )}
-                    >
-                      <div
-                        className={cn(
-                          "relative overflow-hidden bg-gradient-to-br transition-[aspect-ratio] duration-700",
-                          p.tone,
-                          isOpen ? "aspect-[16/4.5]" : "aspect-[16/7.2]",
-                        )}
-                      >
-                        <div className="hairline-grid absolute inset-0 opacity-60 transition-transform duration-[1.8s] ease-out group-hover:scale-[1.05]" />
-                        <div className="brand-glow absolute -right-16 -top-16 h-64 w-64 opacity-0 transition-opacity duration-[1.1s] ease-out group-hover:opacity-55" />
-
-                        <Motif index={i} />
-
-                        <div className="absolute inset-x-7 bottom-6 flex items-end justify-between gap-6">
-                          <p className="text-balance-tight max-w-[22ch] text-[17px] font-medium leading-snug text-foreground/95">
-                            {p.headline}
-                          </p>
-                          <span className="ds-label text-foreground/45">{p.year}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-1 flex-col p-7">
-                        <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-5">
-                          <div className="min-w-0">
-                            <div className="flex flex-wrap items-center gap-3">
-                              <h4 className="ds-title-sm">{p.client}</h4>
-                              <span
-                                className={cn(
-                                  "inline-flex items-center gap-1.5 ds-pill",
-                                  inProgress ? "text-foreground/55" : "text-brand-soft",
-                                )}
-                              >
-                                <span
-                                  aria-hidden
-                                  className={cn(
-                                    "h-1.5 w-1.5 rounded-full",
-                                    inProgress ? "bg-foreground/35" : "bg-brand",
-                                  )}
-                                />
-                                {p.statusLabel}
-                              </span>
-                            </div>
-                            <p className="mt-1.5 max-w-[28ch] ds-body-sm">
-                              {p.sector} · {p.scope}
-                            </p>
-                          </div>
-
-                          {p.outcome.length > 0 && (
-                            <ul className="flex shrink-0 gap-7">
-                              {p.outcome.map((o) => (
-                                <li key={o.label}>
-                                  <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
-                                    {o.value}
-                                  </p>
-                                  <p className="mt-1.5 max-w-[13ch] ds-label">{o.label}</p>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-
-                        <div
-                          id={`caso-${i}`}
+                    <div className={cn("min-w-0", i % 2 === 1 && "lg:order-1")}>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="ds-label text-brand-soft">{p.scope}</span>
+                        <span
                           className={cn(
-                            "grid transition-[grid-template-rows,opacity] duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-                            isOpen
-                              ? "mt-6 grid-rows-[1fr] opacity-100"
-                              : "grid-rows-[0fr] opacity-0",
+                            "inline-flex items-center gap-1.5 ds-pill",
+                            inProgress ? "text-foreground/55" : "text-brand-soft",
                           )}
                         >
-                          <div className="overflow-hidden">
-                            <dl className="space-y-5 border-t border-border pt-6">
-                              {[
-                                ["Contexto", p.context],
-                                ["Objetivo", p.goal],
-                                ["Desafio", p.challenge],
-                                ["Solução", p.solution],
-                                [
-                                  "Resultado",
-                                  p.outcome.length
-                                    ? p.outcome
-                                        .map((o) => `${o.value} · ${o.label.toLowerCase()}`)
-                                        .join("  ·  ")
-                                    : (p.pending ?? "Ainda em desenvolvimento."),
-                                ],
-                              ].map(([label, body]) => (
-                                <div
-                                  key={label}
-                                  className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4"
-                                >
-                                  <dt className="ds-label text-brand-soft sm:pt-1">{label}</dt>
-                                  <dd className="max-w-[58ch] ds-body-sm">{body}</dd>
-                                </div>
-                              ))}
-                              <div className="grid gap-2 sm:grid-cols-[86px_1fr] sm:gap-4">
-                                <dt className="ds-label text-brand-soft sm:pt-1.5">Stack</dt>
-                                <dd className="flex flex-wrap gap-1.5">
-                                  {p.stack.map((t) => (
-                                    <span key={t} className="ds-pill text-foreground/60">
-                                      {t}
-                                    </span>
-                                  ))}
-                                </dd>
-                              </div>
-                            </dl>
-                          </div>
-                        </div>
-
-                        <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-7">
-                          <button
-                            type="button"
-                            onClick={() => setOpenIndex(isOpen ? null : i)}
-                            aria-expanded={isOpen}
-                            aria-controls={`caso-${i}`}
-                            className="ds-link"
-                          >
-                            {isOpen ? "Fechar caso" : "Ler o caso"}
-                            <ArrowRight
-                              className={cn(
-                                "h-3.5 w-3.5 transition-transform duration-500 ease-out",
-                                isOpen ? "-rotate-90" : "group-hover:translate-x-1",
-                              )}
-                              strokeWidth={1.75}
-                            />
-                          </button>
-
-                          <a
-                            href={inProgress ? "#contato" : "#top"}
-                            className="ds-link text-muted-foreground hover:text-foreground"
-                          >
-                            {inProgress ? "Acompanhar evolução" : "Ver projeto"}
-                            <ArrowRight
-                              className="h-3.5 w-3.5 transition-transform duration-500 ease-out group-hover:translate-x-1"
-                              strokeWidth={1.75}
-                            />
-                          </a>
-                        </div>
+                          <span
+                            aria-hidden
+                            className={cn(
+                              "h-1.5 w-1.5 rounded-full",
+                              inProgress ? "bg-foreground/35" : "bg-brand",
+                            )}
+                          />
+                          {p.statusLabel}
+                        </span>
                       </div>
-                    </article>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+
+                      <h3 className="mt-4 text-[clamp(1.5rem,2.2vw,2rem)] font-semibold leading-[1.1] tracking-[-0.02em]">
+                        {p.client}
+                      </h3>
+                      <p className="mt-2 ds-body-sm">
+                        {p.sector} · {p.year}
+                      </p>
+
+                      <p className="text-balance-tight mt-5 max-w-[46ch] text-[15.5px] leading-relaxed text-foreground/80">
+                        {p.summary}
+                      </p>
+
+                      {p.outcome.length > 0 && (
+                        <ul className="mt-7 flex gap-9 border-t border-border pt-6">
+                          {p.outcome.map((o) => (
+                            <li key={o.label}>
+                              <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
+                                {o.value}
+                              </p>
+                              <p className="mt-1.5 max-w-[13ch] ds-label">{o.label}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                        <button
+                          type="button"
+                          onClick={() => setOpenIndex(isOpen ? null : i)}
+                          aria-expanded={isOpen}
+                          aria-controls={`caso-${i}`}
+                          className={cn(
+                            "ds-btn ds-btn-sm btn-premium",
+                            inProgress ? "ds-btn-ghost" : "ds-btn-primary",
+                          )}
+                        >
+                          {isOpen ? "Fechar caso" : p.cta}
+                          <ArrowRight
+                            className={cn(
+                              "h-3.5 w-3.5 transition-transform duration-500 ease-out",
+                              isOpen ? "-rotate-90" : "group-hover:translate-x-1",
+                            )}
+                            strokeWidth={1.75}
+                          />
+                        </button>
+
+                        <p className="ds-label">{p.headline}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    id={`caso-${i}`}
+                    className={cn(
+                      "grid transition-[grid-template-rows,opacity] duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+                      isOpen ? "mt-9 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                    )}
+                  >
+                    <div className="overflow-hidden">
+                      <dl className="space-y-5 border-t border-border pt-7">
+                        {[
+                          ["Contexto", p.context],
+                          ["Objetivo", p.goal],
+                          ["Desafio", p.challenge],
+                          ["Solução", p.solution],
+                          [
+                            "Resultado",
+                            p.outcome.length
+                              ? p.outcome
+                                  .map((o) => `${o.value} · ${o.label.toLowerCase()}`)
+                                  .join("  ·  ")
+                              : (p.pending ?? "Ainda em desenvolvimento."),
+                          ],
+                        ].map(([label, body]) => (
+                          <div
+                            key={label}
+                            className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4"
+                          >
+                            <dt className="ds-label text-brand-soft sm:pt-1">{label}</dt>
+                            <dd className="max-w-[70ch] ds-body-sm">{body}</dd>
+                          </div>
+                        ))}
+                        <div className="grid gap-2 sm:grid-cols-[86px_1fr] sm:gap-4">
+                          <dt className="ds-label text-brand-soft sm:pt-1.5">Stack</dt>
+                          <dd className="flex flex-wrap gap-1.5">
+                            {p.stack.map((t) => (
+                              <span key={t} className="ds-pill text-foreground/60">
+                                {t}
+                              </span>
+                            ))}
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
-
