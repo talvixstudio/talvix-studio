@@ -189,7 +189,7 @@ export function Hero() {
                   width={1600}
                   height={1067}
                   alt="Notebook exibindo uma interface criada pela Talvix Studio"
-                  className="w-full select-none brightness-[1.12] contrast-[1.12] drop-shadow-[0_55px_75px_-10px_rgba(0,0,0,0.55)]"
+                  className="w-full select-none brightness-[1.10] contrast-[1.10] drop-shadow-[0_55px_75px_-12px_rgba(0,0,0,0.42)]"
                   fetchPriority="high"
                   decoding="async"
                   draggable={false}
