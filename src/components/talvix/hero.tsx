@@ -150,9 +150,18 @@ export function Hero() {
 
         {/* Notebook */}
         <div className="relative mt-14 lg:mt-16">
+          {/* soft ambient blue glow — lifts the laptop off the dark canvas */}
           <div
             aria-hidden
-            className="brand-glow intro absolute inset-x-[6%] bottom-[2%] h-[70%] opacity-70 blur-[6px] [animation-delay:900ms] [animation-duration:2.2s]"
+            className="intro absolute inset-x-0 bottom-[0%] h-[95%] rounded-[40%] bg-[radial-gradient(closest-side,rgba(59,130,246,0.14),transparent_70%)] opacity-80 blur-[60px] [animation-delay:900ms] [animation-duration:2.2s]"
+          />
+          <div
+            aria-hidden
+            className="intro absolute inset-x-[10%] bottom-[8%] h-[72%] rounded-[45%] bg-[radial-gradient(closest-side,rgba(59,130,246,0.10),transparent_65%)] opacity-70 blur-[42px] [animation-delay:900ms] [animation-duration:2.2s]"
+          />
+          <div
+            aria-hidden
+            className="intro absolute inset-x-[6%] bottom-[2%] h-[70%] opacity-70 blur-[6px] [animation-delay:900ms] [animation-duration:2.2s]"
           />
           <div
             aria-hidden
@@ -180,7 +189,7 @@ export function Hero() {
                   width={1600}
                   height={1067}
                   alt="Notebook exibindo uma interface criada pela Talvix Studio"
-                  className="w-full select-none brightness-[1.06] contrast-[1.04] drop-shadow-[0_60px_80px_rgba(0,0,0,0.75)]"
+                  className="w-full select-none brightness-[1.12] contrast-[1.12] drop-shadow-[0_55px_75px_-10px_rgba(0,0,0,0.55)]"
                   fetchPriority="high"
                   decoding="async"
                   draggable={false}
