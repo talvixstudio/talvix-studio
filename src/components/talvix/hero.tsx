@@ -149,8 +149,20 @@ export function Hero() {
         </div>
 
 
+        {/* Scroll indicator */}
+        <a
+          href="#servicos"
+          aria-label="Rolar para baixo"
+          className="intro mx-auto mt-12 flex flex-col items-center gap-2 text-muted-foreground/50 transition-colors duration-500 hover:text-brand-soft/80"
+          style={{ animationDelay: `${seq.scroll}ms` }}
+        >
+          <span className="flex h-9 w-5 items-start justify-center rounded-full border border-border/60 p-1.5">
+            <span className="block h-1.5 w-1.5 rounded-full bg-brand/70 animate-bounce" />
+          </span>
+        </a>
+
         {/* Notebook */}
-        <div className="relative mt-14 lg:mt-16">
+        <div className="relative mt-16 lg:mt-20">
           {/* soft ambient blue glow — lifts the laptop off the dark canvas */}
           <div
             aria-hidden
