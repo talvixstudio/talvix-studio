@@ -206,26 +206,46 @@ export function SiteHeader() {
       <div
         id="menu-mobile"
         className={cn(
-          "overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl transition-[max-height,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden",
-          open ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0",
+          "overflow-hidden border-t bg-background/70 backdrop-blur-2xl backdrop-saturate-150 transition-[max-height,opacity,border-color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden",
+          open ? "max-h-[420px] border-border/60 opacity-100" : "max-h-0 border-transparent opacity-0",
         )}
       >
         <nav aria-label="Navegação móvel" className="shell flex flex-col py-2">
-          {links.map((l) => (
+          {links.map((l, i) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between border-b border-border/70 py-4 text-[15px] text-foreground/90 last:border-b-0"
+              tabIndex={open ? 0 : -1}
+              style={{ transitionDelay: `${open ? 120 + i * 70 : 0}ms` }}
+              className={cn(
+                "flex items-center justify-between border-b border-border/70 py-4 text-[15px] transition-[opacity,transform,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] last:border-b-0",
+                active === l.href ? "text-foreground" : "text-foreground/90",
+                open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
+              )}
             >
-              {l.label}
+              <span className="inline-flex items-center gap-2.5">
+                <span
+                  aria-hidden
+                  className={cn(
+                    "h-1 w-1 rounded-full bg-brand transition-opacity duration-500",
+                    active === l.href ? "opacity-100" : "opacity-0",
+                  )}
+                />
+                {l.label}
+              </span>
               <span className="font-mono text-xs text-muted-foreground">↗</span>
             </a>
           ))}
           <a
             href="#contato"
             onClick={() => setOpen(false)}
-            className="my-5 ds-btn ds-btn-primary"
+            tabIndex={open ? 0 : -1}
+            style={{ transitionDelay: `${open ? 120 + links.length * 70 : 0}ms` }}
+            className={cn(
+              "btn-premium my-5 ds-btn ds-btn-primary transition-[opacity,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+              open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
+            )}
           >
             Falar com o estúdio
           </a>
