@@ -81,19 +81,29 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,box-shadow] duration-700 ease-out",
+        "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-700 ease-out",
         scrolled || open
-          ? "border-b border-border bg-background/72 shadow-[var(--shadow-header)] backdrop-blur-xl backdrop-saturate-150"
-          : "border-b border-transparent",
+          ? "border-border/60 bg-background/60 shadow-[var(--shadow-header)] backdrop-blur-2xl backdrop-saturate-150"
+          : "border-transparent bg-transparent",
       )}
     >
-      <div className="shell flex h-[72px] items-center justify-between">
+      <div
+        className={cn(
+          "shell flex items-center justify-between transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          scrolled && !open ? "h-[60px]" : "h-[72px]",
+        )}
+      >
         <a
           href="#top"
           aria-label="Talvix Studio — voltar ao início"
-          className="intro-soft group [animation-delay:60ms] transition-transform duration-300 ease-out active:scale-[0.97]"
+          className="intro-soft group [animation-delay:60ms] transition-transform duration-500 ease-out active:scale-[0.97]"
         >
-          <TalvixLogo className="transition-opacity duration-500 ease-out group-hover:opacity-75" />
+          <TalvixLogo
+            className={cn(
+              "transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-75",
+              scrolled && !open ? "scale-[0.94]" : "scale-100",
+            )}
+          />
         </a>
 
 
@@ -105,14 +115,29 @@ export function SiteHeader() {
               aria-current={active === l.href ? "true" : undefined}
               style={{ animationDelay: `${240 + i * 80}ms` }}
               className={cn(
-                "intro-soft relative text-[13.5px] transition-colors duration-500 ease-out",
-                "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-brand after:transition-transform after:duration-[700ms] after:ease-out hover:after:origin-left hover:after:scale-x-100",
+                "intro-soft group relative text-[13.5px] transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 active === l.href
-                  ? "text-foreground after:origin-left after:scale-x-100"
+                  ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
               {l.label}
+              <span
+                aria-hidden
+                className={cn(
+                  "pointer-events-none absolute -bottom-1.5 left-0 h-px w-full bg-gradient-to-r from-brand-deep via-brand to-brand-soft transition-transform duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+                  active === l.href
+                    ? "origin-left scale-x-100"
+                    : "origin-right scale-x-0 group-hover:origin-left group-hover:scale-x-100",
+                )}
+              />
+              <span
+                aria-hidden
+                className={cn(
+                  "pointer-events-none absolute -bottom-[7px] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-brand blur-[2px] transition-opacity duration-500 ease-out",
+                  active === l.href ? "opacity-90" : "opacity-0",
+                )}
+              />
             </a>
           ))}
         </nav>
@@ -120,10 +145,23 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href="#contato"
-            className="btn-premium intro-soft group relative ds-btn ds-btn-sm ds-btn-ghost hidden [animation-delay:560ms] sm:inline-flex"
+            className="btn-premium intro-soft group relative ds-btn ds-btn-sm ds-btn-ghost hidden overflow-hidden [animation-delay:560ms] hover:scale-[1.02] hover:shadow-[var(--shadow-brand-soft)] active:scale-[0.985] sm:inline-flex"
           >
-            Falar com o estúdio
-            <span className="h-1.5 w-1.5 rounded-full bg-brand transition-transform duration-500 ease-out group-hover:scale-[1.35]" />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+              style={{
+                background:
+                  "radial-gradient(70% 140% at 50% 120%, color-mix(in oklab, var(--brand) 26%, transparent), transparent 70%)",
+              }}
+            />
+            <span className="relative">Falar com o estúdio</span>
+            <span
+              aria-hidden
+              className="relative font-mono text-xs opacity-70 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
+            >
+              →
+            </span>
           </a>
 
           <button
