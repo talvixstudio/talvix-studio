@@ -233,7 +233,7 @@ export function Hero() {
               style={{ animationDelay: `${seq.stats + i * 90}ms` }}
             >
               <dt className="text-[28px] font-semibold leading-none tracking-[-0.035em]">
-                <CountUp value={value} />
+                <CountUp value={value ?? ""} />
               </dt>
 
               <dd className="mx-auto mt-3 max-w-[20ch] ds-label [letter-spacing:0.14em]">
