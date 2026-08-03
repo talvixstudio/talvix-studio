@@ -4,15 +4,17 @@ const nbAvif1600 = "/media/hero-notebook-1600.avif";
 const nbWebp980 = "/media/hero-notebook-980.webp";
 const nbWebp1600 = "/media/hero-notebook-1600.webp";
 
-/** Entrance choreography — every element lands after the one before it. */
+/** Entrance choreography — Logo → Title → Subtitle → Buttons → Benefits → Notebook → Stats. */
 const seq = {
-  badge: 120,
-  line1: 260,
-  line2: 380,
-  sub: 560,
-  cta: 720,
-  notebook: 820,
-  stats: 1150,
+  badge: 200,
+  line1: 360,
+  line2: 460,
+  sub: 620,
+  cta: 760,
+  benefits: 860,
+  notebook: 980,
+  scroll: 1180,
+  stats: 1420,
 };
 
 export function Hero() {
