@@ -35,10 +35,10 @@ export function Studio() {
             </Reveal>
             <Reveal delay={140}>
               <p className="mt-7 max-w-[52ch] ds-body">
-                A Talvix nasceu de uma constatação simples: quase toda empresa boa tem um
-                site que não faz jus ao que ela entrega. Somos designers e engenheiros que
-                trabalham lado a lado — e recusamos volume para conseguir tratar cada
-                projeto como produto.
+                Quase toda empresa boa tem um site que não faz jus ao que ela entrega.
+                Somos designers e engenheiros lado a lado — e recusamos volume para tratar
+                cada projeto como produto.
+
               </p>
             </Reveal>
 
