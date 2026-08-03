@@ -140,7 +140,7 @@ export function Hero() {
           </div>
 
           <p
-            className="intro mx-auto mt-8 max-w-[50ch] text-[11px] font-medium uppercase leading-loose tracking-[0.1em] text-muted-foreground/65 lg:max-w-[70ch] lg:text-nowrap"
+            className="intro mx-auto mt-8 max-w-[50ch] text-[11px] font-medium uppercase leading-loose tracking-[0.1em] text-muted-foreground/65 lg:max-w-[80ch] lg:[white-space:nowrap]"
             style={{ animationDelay: `${seq.benefits}ms` }}
           >
             Atendimento personalizado · Projeto exclusivo · Sem templates
