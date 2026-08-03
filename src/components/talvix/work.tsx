@@ -38,15 +38,14 @@ const cases: CaseStudy[] = [
     cta: "Ver projeto",
     headline: "O primeiro cliente do estúdio foi o próprio estúdio.",
     summary:
-      "Identidade, copy e código do zero: um site que é, ao mesmo tempo, portfólio e demonstração do padrão que entregamos.",
+      "Identidade, texto e código feitos do zero. O site é o nosso portfólio e a prova do padrão que entregamos.",
     context:
-      "Antes de vender site premium para alguém, precisávamos provar o padrão em casa — no nosso próprio domínio, sem tema comprado e sem biblioteca de componentes pronta.",
-    goal:
-      "Construir um site que funcione ao mesmo tempo como portfólio, cartão de visita técnico e demonstração viva do que entregamos.",
+      "Antes de vender site premium, precisávamos provar o padrão em casa — sem tema comprado, sem biblioteca pronta.",
+    goal: "Um site que funcione como portfólio, cartão de visita técnico e demonstração viva do nosso trabalho.",
     challenge:
-      "Estúdio novo não tem histórico para exibir. O site tinha que carregar sozinho a percepção de qualidade: cada detalhe de tipografia, motion e performance vira argumento comercial.",
+      "Sem histórico para exibir, cada detalhe de tipografia, motion e performance vira argumento comercial.",
     solution:
-      "Desenhamos a identidade, escrevemos toda a copy e programamos do zero em TanStack Start. Um design system em tokens OKLCH controla cor, sombra, espaçamento e tipografia; a imagem principal é AVIF com preload; o motion respeita prefers-reduced-motion.",
+      "Design system em tokens OKLCH, imagem principal em AVIF com preload e motion que respeita preferências de acessibilidade.",
     outcome: [
       { value: "AVIF", label: "LCP com preload" },
       { value: "0 dep.", label: "De UI kit externo" },
@@ -64,47 +63,20 @@ const cases: CaseStudy[] = [
     cta: "Acompanhar evolução",
     headline: "Contratar conectividade em minutos, não em atendimento.",
     summary:
-      "Projeto em construção agora: jornada de autosserviço e design system próprio para o produto escalar sem retrabalho.",
-    context:
-      "Projeto em curso no estúdio. A operação existe, o produto digital está sendo desenhado e construído agora — por isso não há número de resultado aqui.",
-    goal:
-      "Transformar um processo hoje conduzido por atendimento humano em uma jornada de autosserviço que o cliente conclui sozinho.",
+      "Em construção: jornada de autosserviço e design system próprio para o produto crescer sem retrabalho.",
+    context: "Projeto em curso. A operação existe; o produto digital está sendo desenhado agora.",
+    goal: "Transformar um processo hoje humano em uma jornada que o cliente conclui sozinho.",
     challenge:
-      "Planos, cobertura e regras de ativação são difíceis de explicar sem afogar o usuário em texto. A interface precisa dar a resposta certa antes da pergunta aparecer.",
+      "Planos, cobertura e regras de ativação são difíceis de explicar. A tela precisa responder antes da pergunta.",
     solution:
-      "Estamos mapeando a jornada ponta a ponta, reduzindo a decisão a poucas escolhas comparáveis e construindo um design system próprio para o produto escalar sem retrabalho de tela.",
+      "Jornada mapeada ponta a ponta, decisão reduzida a poucas escolhas comparáveis e design system próprio do produto.",
     outcome: [],
-    pending:
-      "Resultados serão publicados aqui depois do lançamento — com números do cliente, não estimativas nossas.",
+    pending: "Resultados entram aqui após o lançamento — com números do cliente, não estimativas.",
     stack: ["React", "TypeScript", "Design tokens", "Figma"],
     tone: "from-[oklch(0.24_0.03_250)] to-[oklch(0.16_0.01_260)]",
   },
-  {
-    client: "Leste Telecom",
-    sector: "Provedor de internet",
-    scope: "Website · Copy · SEO",
-    year: "2026",
-    status: "em-andamento",
-    statusLabel: "Em desenvolvimento",
-    cta: "Acompanhar evolução",
-    headline: "Cobertura, plano e contratação na mesma tela.",
-    summary:
-      "Em implementação: consulta de cobertura na primeira dobra e páginas de bairro estruturadas para busca local.",
-    context:
-      "Projeto em curso. A estrutura de conteúdo e a arquitetura de páginas já estão definidas; a implementação está em andamento.",
-    goal:
-      "Fazer o site assumir a etapa de qualificação que hoje consome o time comercial no telefone.",
-    challenge:
-      "O visitante quer saber três coisas em segundos: se atende o endereço dele, quanto custa e quando instala. Qualquer clique a mais entre essas respostas é atrito.",
-    solution:
-      "Consulta de cobertura logo na primeira dobra, comparação de planos sem letra miúda e páginas de bairro estruturadas para busca local, com schema e conteúdo próprio por região.",
-    outcome: [],
-    pending:
-      "Sem métricas divulgadas até o site entrar no ar. Preferimos deixar o espaço vazio a preencher com número inventado.",
-    stack: ["TanStack Start", "Tailwind v4", "Schema.org", "Cloudflare"],
-    tone: "from-[oklch(0.26_0.05_262)] to-[oklch(0.155_0.01_260)]",
-  },
 ];
+
 
 /**
  * Cada case recebe uma leitura abstrata da interface correspondente —
