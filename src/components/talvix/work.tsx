@@ -224,9 +224,9 @@ export function Work() {
           </Reveal>
           <Reveal delay={120}>
             <p className="max-w-xs ds-body-sm">
-              O processo acima só vale pelo que ele produz. Abaixo, o que já saiu dele — e o
-              que está sendo construído agora, sem maquiagem.
+              O que já saiu do processo — e o que está sendo construído agora.
             </p>
+
           </Reveal>
         </div>
 
