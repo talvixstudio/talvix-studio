@@ -6,33 +6,34 @@ import { cn } from "@/lib/utils";
 export const faqs = [
   {
     q: "Quanto custa um projeto e como o orçamento é fechado?",
-    a: "Trabalhamos com preço fechado por escopo, nunca por hora. Uma landing page bem construída começa em torno de R$ 9 mil; um site institucional com sistema de design fica entre R$ 18 mil e R$ 45 mil; plataformas web são orçadas depois da imersão. O valor sai por escrito antes de qualquer contrato, com entregáveis e datas listados item a item.",
+    a: "Preço fechado por escopo, nunca por hora. Landing page a partir de R$ 9 mil; site institucional com design system entre R$ 18 mil e R$ 45 mil; plataformas web após a imersão. Tudo por escrito antes do contrato.",
   },
   {
     q: "Em quanto tempo o site fica no ar?",
-    a: "Entre 3 e 6 semanas na maioria dos casos, contados a partir da reunião de imersão. O que costuma alongar prazo não é o design: é conteúdo pendente do lado do cliente. Por isso definimos, na semana 1, quem entrega cada texto, foto e acesso — e em que data.",
+    a: "De 3 a 6 semanas a partir da imersão. O que costuma atrasar não é o design, é o conteúdo — por isso definimos na semana 1 quem entrega o quê e quando.",
   },
   {
     q: "Vocês escrevem os textos ou eu preciso enviar?",
-    a: "Escrevemos. A estrutura de conteúdo faz parte do projeto: definimos o argumento de cada seção, escrevemos uma primeira versão e ajustamos com você. Se a sua empresa já tem um time de conteúdo, entramos como revisão editorial em vez de autoria.",
+    a: "Escrevemos. Definimos o argumento de cada seção, entregamos uma primeira versão e ajustamos com você. Se já existe time de conteúdo, entramos como revisão editorial.",
   },
   {
     q: "Depois da entrega, consigo editar sozinho?",
-    a: "Sim. Textos, imagens, posts e páginas ficam num painel de conteúdo, e você recebe uma gravação de treinamento junto com a documentação. Mudanças estruturais — nova seção, novo tipo de página — passam por nós para o sistema não se desfazer com o tempo.",
+    a: "Sim. Textos, imagens e páginas ficam num painel simples, com treinamento gravado e documentação. Mudanças estruturais passam por nós para o sistema seguir consistente.",
   },
   {
     q: "O que acontece nos 30 dias seguintes ao lançamento?",
-    a: "Acompanhamos. Corrigimos qualquer defeito sem custo, monitoramos performance real de carregamento e ajustamos pontos de atrito que só aparecem com tráfego de verdade. Depois disso, você pode seguir sozinho ou contratar manutenção mensal.",
+    a: "Acompanhamos: correção de defeitos sem custo, monitoramento de performance real e ajuste dos atritos que só aparecem com tráfego. Depois, você segue sozinho ou contrata manutenção.",
   },
   {
     q: "Vocês trabalham com empresas fora do Brasil?",
-    a: "Sim, em português, inglês ou espanhol, com reuniões assíncronas quando o fuso não ajuda. Contratos internacionais são faturados em dólar ou euro.",
+    a: "Sim — em português, inglês ou espanhol, com reuniões assíncronas quando o fuso não ajuda. Contratos internacionais em dólar ou euro.",
   },
   {
     q: "Meu site atual é ruim, mas tem tráfego. Perco posicionamento?",
-    a: "Não, se a migração for feita direito — e é parte do escopo. Mapeamos as URLs existentes, aplicamos redirecionamentos 301, preservamos títulos e descrições que já ranqueiam e comparamos os números 30 dias depois do lançamento.",
+    a: "Não. A migração faz parte do escopo: mapeamento de URLs, redirecionamentos 301, preservação do que já ranqueia e comparação dos números 30 dias depois.",
   },
 ];
+
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
