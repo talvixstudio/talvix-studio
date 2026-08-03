@@ -71,20 +71,20 @@ export function Hero() {
       </div>
 
       <div className="shell relative">
-        <div className="mx-auto max-w-[62rem] text-center">
+        <div className="mx-auto max-w-[60rem] text-center">
           <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
             <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
               </span>
-              Agenda aberta · 2 projetos
+              Agenda aberta · 2 vagas
             </span>
           </div>
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mx-auto mt-8 text-[clamp(2.35rem,6.2vw,4.5rem)] font-semibold leading-[0.98] lg:max-w-none"
+            className="text-balance-tight mx-auto mt-10 text-[clamp(2.35rem,6.2vw,4.5rem)] font-semibold leading-[0.98] lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
@@ -102,23 +102,22 @@ export function Hero() {
             </span>
           </h1>
 
-
           <p
-            className="intro mx-auto mt-7 max-w-[34ch] ds-lead"
+            className="intro mx-auto mt-8 max-w-[36ch] ds-lead"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
-            Design que impressiona. Engenharia que sustenta. Sites que vendem.
+            Sites que vendem. Design que impressiona. Engenharia que sustenta.
           </p>
 
           <div
-            className="intro mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="intro mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row"
             style={{ animationDelay: `${seq.cta}ms` }}
           >
             <a
               href="#contato"
               className="btn-premium hover-sheen group ds-btn ds-btn-primary w-full sm:w-auto"
             >
-              Receber uma proposta
+              Começar projeto
               <span
                 aria-hidden
                 className="font-mono text-xs opacity-70 transition-transform duration-500 ease-out group-hover:translate-x-0.5"
@@ -130,7 +129,7 @@ export function Hero() {
               href="#trabalhos"
               className="btn-premium group ds-btn ds-btn-ghost w-full sm:w-auto"
             >
-              Ver projetos
+              Ver cases
               <span
                 aria-hidden
                 className="font-mono text-xs text-muted-foreground transition-transform duration-500 ease-out group-hover:translate-y-0.5"
@@ -141,10 +140,10 @@ export function Hero() {
           </div>
 
           <p
-            className="intro mt-6 text-[12.5px] text-muted-foreground/80"
-            style={{ animationDelay: `${seq.cta + 120}ms` }}
+            className="intro mx-auto mt-8 max-w-[42ch] text-[11.5px] font-medium uppercase leading-relaxed tracking-[0.14em] text-muted-foreground/70"
+            style={{ animationDelay: `${seq.benefits}ms` }}
           >
-            Escopo e preço fechados por escrito. Entrega em 3 a 6 semanas.
+            Atendimento personalizado · Projeto exclusivo · Sem templates
           </p>
 
         </div>
