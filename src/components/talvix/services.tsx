@@ -77,11 +77,11 @@ export function Services() {
           </Reveal>
           <Reveal delay={140}>
             <p className="max-w-lg ds-body-sm lg:pt-16">
-              Não trabalhamos com pacotes fechados. Cada projeto começa por entender o
-              negócio, definir o que precisa ser verdade na tela e só então construir — com
-              a mesma equipe do início ao fim.
+              Nada de pacote pronto. Cada projeto é exclusivo, feito sob medida e
+              conduzido pela mesma equipe do início ao fim.
             </p>
           </Reveal>
+
         </div>
 
         <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-3">
