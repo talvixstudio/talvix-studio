@@ -245,28 +245,47 @@
 }
 
 @utility intro {
-  opacity: 0;
-  animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
   will-change: transform, opacity;
   backface-visibility: hidden;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 @utility intro-soft {
-  opacity: 0;
-  animation: talvix-intro-soft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 1;
+  transform: none;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: talvix-intro-soft 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 @utility intro-rise {
-  opacity: 0;
-  animation: talvix-intro-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
   will-change: transform, opacity;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: talvix-intro-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 @utility intro-lcp {
   opacity: 1;
-  animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
   will-change: transform, opacity;
   backface-visibility: hidden;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 /* ---- Premium cursor ---- */
