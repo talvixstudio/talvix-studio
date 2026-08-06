@@ -93,12 +93,12 @@ export function Hero() {
             className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
-              <span className="intro block min-h-[1.1em]" style={{ animationDelay: `${seq.line1}ms` }}>
+              <span className="intro block min-h-[60px] lg:min-h-[64px]" style={{ animationDelay: `${seq.line1}ms` }}>
                 Transformamos ideias em
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.06em]">
-              <span className="intro block min-h-[1.1em]" style={{ animationDelay: `${seq.line2}ms` }}>
+              <span className="intro block min-h-[60px] lg:min-h-[64px]" style={{ animationDelay: `${seq.line2}ms` }}>
                 <span className="relative whitespace-nowrap text-brand-soft">
                   experiências
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
