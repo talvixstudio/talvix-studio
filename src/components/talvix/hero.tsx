@@ -92,13 +92,13 @@ export function Hero() {
             id="hero-titulo"
             className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
-            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em]">
-              <span className="block min-h-[60px] lg:min-h-0 intro-lcp" style={{ animationDelay: `${seq.line1}ms` }}>
+            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em] lg:min-h-[1.1em]">
+              <span className="block intro-lcp" style={{ animationDelay: `${seq.line1}ms` }}>
                 Transformamos ideias em
               </span>
             </span>
-            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em]">
-              <span className="block min-h-[60px] lg:min-h-0 intro-lcp" style={{ animationDelay: `${seq.line2}ms` }}>
+            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em] lg:min-h-[1.1em]">
+              <span className="block intro-lcp" style={{ animationDelay: `${seq.line2}ms` }}>
                 <span className="relative whitespace-nowrap text-brand-soft">
                   experiências
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
@@ -171,7 +171,7 @@ export function Hero() {
         </a>
 
         {/* Notebook */}
-        <div className="relative mt-auto lg:mt-0 pt-16 lg:pt-20 lg:h-[653px]">
+        <div className="relative pt-16 lg:pt-20 lg:h-[653px]">
           {/* soft ambient blue glow — lifts the laptop off the dark canvas */}
           <div
             aria-hidden
@@ -228,7 +228,7 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto mt-auto lg:mt-0 grid w-full max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 min-h-[220px] sm:grid-cols-4 lg:min-h-[140px] lg:h-[140px]">
+        <dl className="mx-auto grid w-full max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 min-h-[220px] sm:grid-cols-4 lg:min-h-[140px] lg:h-[140px]">
           {[
             ["3–6", "Semanas por projeto"],
             ["98+", "Lighthouse na entrega"],
