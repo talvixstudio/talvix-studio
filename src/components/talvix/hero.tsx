@@ -109,7 +109,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px]"
+            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px] lg:min-h-[56px]"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
             Sites que vendem. Design que impressiona. Engenharia que sustenta.
