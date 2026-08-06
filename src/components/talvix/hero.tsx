@@ -60,7 +60,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1621px] lg:pt-[148px] lg:pb-16 flex flex-col items-center justify-between"
+      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1621px] lg:pt-[148px] lg:pb-16 flex flex-col items-center justify-start lg:justify-between"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -74,7 +74,7 @@ export function Hero() {
         <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
       </div>
 
-      <div className="shell relative flex-1 flex flex-col items-center justify-between">
+      <div className="shell relative flex-1 flex flex-col items-center justify-start lg:justify-between">
         <div className="mx-auto max-w-[60rem] text-center">
           <div className="intro-soft lg:h-[38px]" style={{ animationDelay: `${seq.badge}ms` }}>
             <div className="min-h-[38px] lg:min-h-0 flex items-center justify-center">
