@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://cozy-insight-tool.lovable.app/sitemap.xml
