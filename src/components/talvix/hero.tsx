@@ -26,32 +26,90 @@ export function Hero() {
   const glowRef = useRef<HTMLDivElement | null>(null);
   const deviceRef = useRef<HTMLDivElement | null>(null);
 
-  // Parallax written straight to the DOM — no re-renders while scrolling.
+  // Parallax & 3D Tilt written straight to the DOM — no re-renders while scrolling or moving mouse.
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let frame = 0;
-    let last = -1;
-    const apply = () => {
-      frame = 0;
+    const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
+    let scrollFrame = 0;
+    let mouseFrame = 0;
+    let lastScrollY = -1;
+    
+    // Mouse tracking for 3D tilt
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetRotateX = 0;
+    let targetRotateY = 0;
+    let currentRotateX = 0;
+    let currentRotateY = 0;
+
+    const applyScroll = () => {
+      scrollFrame = 0;
       const offset = Math.min(window.scrollY, 700);
-      if (offset === last) return;
-      last = offset;
+      if (offset === lastScrollY) return;
+      lastScrollY = offset;
+      
       if (glowRef.current) {
         glowRef.current.style.transform = `translate(-50%, ${offset * -0.12}px)`;
       }
-      if (deviceRef.current) {
+      if (deviceRef.current && isMobile) {
         deviceRef.current.style.transform = `translate3d(0, ${offset * -0.05}px, 0)`;
       }
     };
-    const onScroll = () => {
-      if (frame) return;
-      frame = requestAnimationFrame(apply);
+
+    const applyMouse = () => {
+      mouseFrame = 0;
+      if (isMobile || reducedMotion || !deviceRef.current) return;
+
+      // Smooth interpolation (lerp) for the tilt
+      currentRotateX += (targetRotateX - currentRotateX) * 0.08;
+      currentRotateY += (targetRotateY - currentRotateY) * 0.08;
+
+      const scrollOffset = Math.min(window.scrollY, 700) * -0.05;
+      deviceRef.current.style.transform = `perspective(1000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) translate3d(0, ${scrollOffset}px, 0)`;
+
+      if (Math.abs(targetRotateX - currentRotateX) > 0.01 || Math.abs(targetRotateY - currentRotateY) > 0.01) {
+        mouseFrame = requestAnimationFrame(applyMouse);
+      }
     };
-    apply();
+
+    const onScroll = () => {
+      if (!scrollFrame) scrollFrame = requestAnimationFrame(applyScroll);
+      // Also update tilt on scroll because the relative position of mouse changes
+      if (!isMobile && !reducedMotion && !mouseFrame) mouseFrame = requestAnimationFrame(applyMouse);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (isMobile || reducedMotion) return;
+      
+      const { innerWidth, innerHeight } = window;
+      mouseX = e.clientX / innerWidth - 0.5;
+      mouseY = e.clientY / innerHeight - 0.5;
+
+      // Max rotation: 2.5 degrees
+      targetRotateY = mouseX * 5;
+      targetRotateX = mouseY * -5;
+
+      if (!mouseFrame) mouseFrame = requestAnimationFrame(applyMouse);
+    };
+
+    const onMouseLeave = () => {
+      targetRotateX = 0;
+      targetRotateY = 0;
+      if (!mouseFrame) mouseFrame = requestAnimationFrame(applyMouse);
+    };
+
+    applyScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseleave", onMouseLeave);
+    
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseleave", onMouseLeave);
+      if (scrollFrame) cancelAnimationFrame(scrollFrame);
+      if (mouseFrame) cancelAnimationFrame(mouseFrame);
     };
   }, []);
 
@@ -94,25 +152,25 @@ export function Hero() {
           >
             <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em] lg:min-h-[1.1em]">
               <span className="block intro-lcp" style={{ animationDelay: `${seq.line1}ms` }}>
-                Transformamos ideias em
+                Sites que fazem sua empresa
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em] lg:min-h-[1.1em]">
               <span className="block intro-lcp" style={{ animationDelay: `${seq.line2}ms` }}>
+                parecer do tamanho que{" "}
                 <span className="relative whitespace-nowrap text-brand-soft">
-                  experiências
+                  ela é
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
-                </span>{" "}
-                digitais
+                </span>
               </span>
             </span>
           </h1>
 
           <p
-            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px] lg:min-h-0 lg:h-[56px]"
+            className="intro mx-auto mt-8 max-w-[46ch] ds-lead min-h-[56px] lg:min-h-0 lg:h-[56px]"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
-            Sites que vendem. Design que impressiona. Engenharia que sustenta.
+            Design, estratégia e desenvolvimento para transformar presença digital em negócio.
           </p>
 
           <div

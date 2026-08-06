@@ -9,20 +9,24 @@ export function CountUp({ value, duration = 900 }: { value: string; duration?: n
   const ref = useRef<HTMLSpanElement | null>(null);
   const match = value.match(/\d+/);
   const target = match ? Number(match[0]) : null;
-  const [display, setDisplay] = useState(() => (target === null ? value : value.replace(/\d+/, "0")));
+  const [display, setDisplay] = useState(value);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
     if (!node || target === null) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setDisplay(value);
-      return;
+    if (reduce) return;
+
+    // Start with 0 for the animation
+    if (!hasStarted) {
+      setDisplay(value.replace(/\d+/, "0"));
     }
 
     let raf = 0;
     const run = () => {
+      setHasStarted(true);
       const start = performance.now();
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / duration);
