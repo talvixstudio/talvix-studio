@@ -45,8 +45,7 @@ export function ContactCta() {
           </Reveal>
           <Reveal delay={220}>
             <p className="mx-auto mt-6 max-w-[48ch] ds-lead">
-              Sem formulário de dez campos e sem funil de e-mails. Você escreve, uma pessoa
-              do estúdio responde.
+              Sem formulário de dez campos. Você escreve, uma pessoa do estúdio responde.
             </p>
           </Reveal>
           <Reveal delay={320}>
