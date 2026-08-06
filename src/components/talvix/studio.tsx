@@ -36,9 +36,8 @@ export function Studio() {
             <Reveal delay={140}>
               <p className="mt-7 max-w-[52ch] ds-body">
                 Quase toda empresa boa tem um site que não faz jus ao que ela entrega.
-                Somos designers e engenheiros lado a lado — e recusamos volume para tratar
-                cada projeto como produto.
-
+                Designers e engenheiros lado a lado, poucos projetos por vez, cada um
+                tratado como produto.
               </p>
             </Reveal>
 
@@ -91,8 +90,8 @@ export function Studio() {
               ) : (
                 <div className="relative mt-8 flex flex-1 flex-col">
                   <p className="max-w-[46ch] ds-body">
-                    Preferimos silêncio a frase inventada. Depoimentos entram aqui conforme
-                    cada cliente autoriza o uso do nome.
+                    Preferimos silêncio a frase inventada. Depoimentos entram aqui quando
+                    o cliente autoriza o nome.
                   </p>
 
                   <ul className="mt-9 space-y-5 border-l border-border pl-6">
@@ -117,7 +116,7 @@ export function Studio() {
 
 
                   <p className="mt-8 ds-body-sm">
-                    Até lá, os números dos casos acima podem ser confirmados em conversa.
+                    Até lá, os números do portfólio podem ser confirmados em conversa.
                   </p>
 
 

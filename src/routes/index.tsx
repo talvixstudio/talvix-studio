@@ -13,9 +13,10 @@ import { Intro } from "@/components/talvix/intro";
 const nbAvif980 = "/media/hero-notebook-980.avif";
 const nbAvif1600 = "/media/hero-notebook-1600.avif";
 
+const SITE_URL = "https://cozy-insight-tool.lovable.app";
 const title = "Talvix Studio — Sites e produtos digitais que fecham negócio";
 const description =
-  "Estúdio de design e engenharia digital. Sites premium, landing pages, UI/UX e aplicações web entregues em 3 a 6 semanas, com escopo e preço fechados por escrito.";
+  "Estúdio premium de design e engenharia digital: sites institucionais, landing pages, UI/UX, desenvolvimento web, performance, SEO e branding digital.";
 
 
 export const Route = createFileRoute("/")({
@@ -23,10 +24,15 @@ export const Route = createFileRoute("/")({
     meta: [
       { title },
       { name: "description", content: description },
+      {
+        name: "keywords",
+        content:
+          "estúdio de design digital, criação de sites premium, landing page, UI/UX, desenvolvimento web, SEO técnico, branding digital",
+      },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
@@ -34,7 +40,7 @@ export const Route = createFileRoute("/")({
       { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: `${SITE_URL}/` },
       {
         rel: "preload",
         as: "image",
@@ -46,6 +52,7 @@ export const Route = createFileRoute("/")({
       },
     ],
 
+
     scripts: [
       {
         type: "application/ld+json",
@@ -53,18 +60,32 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "ProfessionalService",
+              "@type": "WebSite",
+              "@id": `${SITE_URL}/#website`,
+              url: `${SITE_URL}/`,
               name: "Talvix Studio",
+              inLanguage: "pt-BR",
+              publisher: { "@id": `${SITE_URL}/#studio` },
+            },
+            {
+              "@type": "ProfessionalService",
+              "@id": `${SITE_URL}/#studio`,
+              name: "Talvix Studio",
+              url: `${SITE_URL}/`,
               description,
               email: "contato@talvix.studio",
+              logo: `${SITE_URL}/icon-512.png`,
+              image: `${SITE_URL}/icon-512.png`,
               areaServed: "Global",
               knowsLanguage: ["pt-BR", "en", "es"],
               serviceType: [
-                "Web design",
+                "Websites institucionais",
                 "Landing pages",
                 "UI/UX design",
-                "Identidade visual",
-                "Desenvolvimento de aplicações web",
+                "Desenvolvimento web",
+                "Performance web",
+                "SEO",
+                "Branding digital",
               ],
             },
             {
@@ -76,6 +97,7 @@ export const Route = createFileRoute("/")({
               })),
             },
           ],
+
         }),
       },
     ],

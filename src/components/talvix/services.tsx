@@ -1,4 +1,6 @@
 import { Reveal } from "./reveal";
+import { cn } from "@/lib/utils";
+
 import {
   Layers,
   MousePointerClick,
@@ -6,7 +8,9 @@ import {
   Gauge,
   SquareTerminal,
   Search,
+  Sparkles,
 } from "lucide-react";
+
 
 const services = [
   {
@@ -57,7 +61,16 @@ const services = [
     body: "Estrutura técnica, conteúdo e dados estruturados pensados para busca desde o primeiro rascunho.",
     meta: ["Técnico", "Conteúdo", "Schema"],
   },
+  {
+    id: "07",
+    gain: "Sua marca fica reconhecível em qualquer tela.",
+    icon: Sparkles,
+    title: "Branding Digital",
+    body: "Marca aplicada ao digital: tipografia, cor, tom de voz e um sistema que mantém tudo coerente.",
+    meta: ["Identidade", "Tom de voz", "Guidelines"],
+  },
 ];
+
 
 
 export function Services() {
@@ -89,8 +102,12 @@ export function Services() {
             <Reveal
               key={s.id}
               delay={i * 110}
-              className="group relative border-b border-border p-8 transition-colors duration-700 ease-out hover:bg-surface/70 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r"
+              className={cn(
+                "group relative border-b border-border p-8 transition-colors duration-700 ease-out hover:bg-surface/70 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r",
+                i === services.length - 1 && "sm:col-span-2 sm:border-r-0 lg:col-span-3 lg:border-r-0",
+              )}
             >
+
               <span
                 aria-hidden
                 className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-transparent transition-transform duration-[900ms] ease-out group-hover:scale-x-100"
