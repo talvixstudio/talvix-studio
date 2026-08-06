@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { CountUp } from "./count-up";
+import { CONTACT } from "@/lib/contact";
+
 
 const nbAvif980 = "/media/hero-notebook-980.avif";
 const nbAvif1600 = "/media/hero-notebook-1600.avif";
