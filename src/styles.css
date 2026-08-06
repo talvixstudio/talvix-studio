@@ -43,7 +43,7 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-hairline: var(--hairline);
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", "Instrument Sans Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
@@ -105,7 +105,16 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
-    font-display: block;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Instrument Sans Fallback';
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+    size-adjust: 104%;
   }
 
   ::selection {
