@@ -198,7 +198,7 @@ export function Work() {
           </Reveal>
         </div>
 
-        <div className="mt-16 space-y-6 min-h-[800px] md:space-y-8">
+        <div className="mt-16 space-y-6 min-h-[800px] md:space-y-8 md:min-h-0">
           {cases.map((p, i) => {
             const isOpen = openIndex === i;
             const isConcept = p.status === "conceito";
