@@ -13,9 +13,10 @@ import { Intro } from "@/components/talvix/intro";
 const nbAvif980 = "/media/hero-notebook-980.avif";
 const nbAvif1600 = "/media/hero-notebook-1600.avif";
 
+const SITE_URL = "https://cozy-insight-tool.lovable.app";
 const title = "Talvix Studio — Sites e produtos digitais que fecham negócio";
 const description =
-  "Estúdio de design e engenharia digital. Sites premium, landing pages, UI/UX e aplicações web entregues em 3 a 6 semanas, com escopo e preço fechados por escrito.";
+  "Estúdio premium de design e engenharia digital: sites institucionais, landing pages, UI/UX, desenvolvimento web, performance, SEO e branding digital.";
 
 
 export const Route = createFileRoute("/")({
@@ -23,10 +24,15 @@ export const Route = createFileRoute("/")({
     meta: [
       { title },
       { name: "description", content: description },
+      {
+        name: "keywords",
+        content:
+          "estúdio de design digital, criação de sites premium, landing page, UI/UX, desenvolvimento web, SEO técnico, branding digital",
+      },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
@@ -34,7 +40,7 @@ export const Route = createFileRoute("/")({
       { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: `${SITE_URL}/` },
       {
         rel: "preload",
         as: "image",
@@ -45,6 +51,7 @@ export const Route = createFileRoute("/")({
         fetchPriority: "high",
       },
     ],
+
 
     scripts: [
       {
