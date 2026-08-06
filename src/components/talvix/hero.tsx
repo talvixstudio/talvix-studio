@@ -60,7 +60,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1377px] lg:pt-[148px] lg:pb-16"
+      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1450px] lg:pt-[148px] lg:pb-16"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -76,8 +76,8 @@ export function Hero() {
 
       <div className="shell relative">
         <div className="mx-auto max-w-[60rem] text-center">
-          <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
-            <div className="min-h-[38px] flex items-center justify-center">
+          <div className="intro-soft lg:h-[38px]" style={{ animationDelay: `${seq.badge}ms` }}>
+            <div className="min-h-[38px] lg:min-h-0 flex items-center justify-center">
               <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
@@ -92,13 +92,13 @@ export function Hero() {
             id="hero-titulo"
             className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
-            <span className="block overflow-hidden pb-[0.06em]">
-              <span className="intro block min-h-[60px] lg:min-h-[64px]" style={{ animationDelay: `${seq.line1}ms` }}>
+            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em]">
+              <span className="intro block min-h-[60px] lg:min-h-0" style={{ animationDelay: `${seq.line1}ms` }}>
                 Transformamos ideias em
               </span>
             </span>
-            <span className="block overflow-hidden pb-[0.06em]">
-              <span className="intro block min-h-[60px] lg:min-h-[64px]" style={{ animationDelay: `${seq.line2}ms` }}>
+            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em]">
+              <span className="intro block min-h-[60px] lg:min-h-0" style={{ animationDelay: `${seq.line2}ms` }}>
                 <span className="relative whitespace-nowrap text-brand-soft">
                   experiências
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
@@ -109,14 +109,14 @@ export function Hero() {
           </h1>
 
           <p
-            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px] lg:min-h-[56px]"
+            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px] lg:min-h-0 lg:h-[56px]"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
             Sites que vendem. Design que impressiona. Engenharia que sustenta.
           </p>
 
           <div
-            className="intro mt-12 flex flex-col items-center justify-center gap-3 min-h-[108px] sm:flex-row sm:min-h-[48px]"
+            className="intro mt-12 flex flex-col items-center justify-center gap-3 min-h-[108px] sm:flex-row sm:min-h-[48px] lg:min-h-0 lg:h-[48px]"
             style={{ animationDelay: `${seq.cta}ms` }}
           >
             <a
@@ -149,7 +149,7 @@ export function Hero() {
           </div>
 
           <p
-            className="intro mx-auto mt-8 max-w-[50ch] text-[11px] font-medium uppercase leading-loose tracking-[0.1em] text-muted-foreground/65 min-h-[44px] lg:max-w-[80ch] lg:[white-space:nowrap] lg:min-h-0"
+            className="intro mx-auto mt-8 max-w-[50ch] text-[11px] font-medium uppercase leading-loose tracking-[0.1em] text-muted-foreground/65 min-h-[44px] lg:max-w-[80ch] lg:[white-space:nowrap] lg:min-h-0 lg:h-[44px]"
             style={{ animationDelay: `${seq.benefits}ms` }}
           >
             Atendimento personalizado · Projeto exclusivo · Sem templates
