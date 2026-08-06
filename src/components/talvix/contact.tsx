@@ -92,7 +92,7 @@ const footerNav = [
     links: [
       ["Serviços", "#servicos"],
       ["Método", "#metodo"],
-      ["Estudos de caso", "#trabalhos"],
+      ["Portfólio", "#trabalhos"],
       ["O estúdio", "#estudio"],
     ],
   },
