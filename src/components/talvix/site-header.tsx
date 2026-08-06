@@ -107,7 +107,7 @@ export function SiteHeader() {
         </a>
 
 
-        <nav aria-label="Navegação principal" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Navegação principal" className="hidden min-h-[20px] items-center gap-8 md:flex">
           {links.map((l, i) => (
             <a
               key={l.href}

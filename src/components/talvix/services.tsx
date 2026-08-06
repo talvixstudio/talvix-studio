@@ -97,7 +97,7 @@ export function Services() {
 
         </div>
 
-        <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid border-t border-border min-h-[600px] sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal
               key={s.id}

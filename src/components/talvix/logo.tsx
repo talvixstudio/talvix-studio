@@ -19,7 +19,7 @@ export function TalvixMark({ className }: { className?: string }) {
 
 export function TalvixLogo({ className }: { className?: string }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
+    <span className={cn("inline-flex items-center gap-2.5 min-w-[140px]", className)}>
       <TalvixMark className="h-7 w-7" />
       <span className="flex items-baseline gap-1.5">
         <span className="text-[15px] font-semibold tracking-[-0.03em]">Talvix</span>

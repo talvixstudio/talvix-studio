@@ -56,7 +56,7 @@ export function Process() {
           {/* progress line */}
           <div
             aria-hidden
-            className="relative mb-px hidden h-px w-full overflow-hidden bg-border md:block"
+            className="relative mb-px hidden h-px w-full overflow-hidden bg-border md:block min-h-[1px]"
           >
             <span
               className={cn(
@@ -67,7 +67,7 @@ export function Process() {
             />
           </div>
 
-          <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border min-h-[220px] md:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
               <li
                 key={s.n}
