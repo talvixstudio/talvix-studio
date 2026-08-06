@@ -150,22 +150,19 @@
   border-top: 1px solid var(--hairline);
 }
 
-/* Scroll reveal */
+/* Scroll reveal — elegant and predictable */
 @utility reveal {
   opacity: 0;
-  transform: translateY(22px);
-  filter: blur(6px);
+  transform: translate3d(0, 24px, 0);
   transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 @utility is-visible {
   opacity: 1;
-  transform: none;
-  filter: none;
+  transform: translate3d(0, 0, 0);
 }
 
 @utility marquee-track {
@@ -210,81 +207,85 @@
 @keyframes talvix-intro {
   from {
     opacity: 0;
-    transform: translate3d(0, 18px, 0) scale(0.995);
-    filter: blur(8px);
+    transform: translate3d(0, 16px, 0);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes talvix-intro-soft {
   from {
     opacity: 0;
-    transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -8px, 0);
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes talvix-intro-rise {
   from {
     opacity: 0;
-    transform: translate3d(0, 72px, 0) scale(0.975);
-    filter: blur(10px);
+    transform: translate3d(0, 48px, 0);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes talvix-mask-reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translate3d(0, 24px, 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0% 0 0 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }
 
 @utility intro {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-  filter: blur(0);
+  transform: translate3d(0, 0, 0);
   will-change: transform, opacity;
-  backface-visibility: hidden;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: talvix-intro 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
 @utility intro-soft {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
   
   @media (prefers-reduced-motion: no-preference) {
-    animation: talvix-intro-soft 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: talvix-intro-soft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
 @utility intro-rise {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-  filter: blur(0);
+  transform: translate3d(0, 0, 0);
   will-change: transform, opacity;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: talvix-intro-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: talvix-intro-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
 @utility intro-lcp {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-  filter: blur(0);
+  transform: translate3d(0, 0, 0);
   will-change: transform, opacity;
-  backface-visibility: hidden;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: talvix-mask-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 

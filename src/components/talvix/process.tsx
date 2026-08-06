@@ -60,7 +60,7 @@ export function Process() {
           >
             <span
               className={cn(
-                "absolute inset-y-0 left-0 origin-left bg-gradient-to-r from-brand/20 via-brand to-brand/20 transition-transform duration-[2200ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+                "absolute inset-y-0 left-0 origin-left bg-gradient-to-r from-brand/10 via-brand to-brand/10 transition-transform duration-[2400ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
                 "w-full scale-x-0",
                 visible && "scale-x-100",
               )}

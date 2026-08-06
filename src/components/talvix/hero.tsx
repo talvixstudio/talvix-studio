@@ -10,15 +10,15 @@ const nbWebp1600 = "/media/hero-notebook-1600.webp";
 
 /** Entrance choreography — Logo → Title → Subtitle → Buttons → Benefits → Notebook → Stats. */
 const seq = {
-  badge: 200,
-  line1: 360,
-  line2: 460,
-  sub: 620,
-  cta: 760,
-  benefits: 860,
-  notebook: 980,
-  scroll: 1180,
-  stats: 1420,
+  badge: 100,
+  line1: 220,
+  line2: 320,
+  sub: 480,
+  cta: 600,
+  benefits: 700,
+  notebook: 820,
+  scroll: 1020,
+  stats: 1260,
 };
 
 export function Hero() {
@@ -67,6 +67,13 @@ export function Hero() {
 
       const scrollOffset = Math.min(window.scrollY, 700) * -0.05;
       deviceRef.current.style.transform = `perspective(1000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) translate3d(0, ${scrollOffset}px, 0)`;
+      
+      // Update glow to follow mouse slightly
+      if (glowRef.current) {
+        const glowTargetX = mouseX * 40;
+        const glowTargetY = (mouseY * 40) + (Math.min(window.scrollY, 700) * -0.12);
+        glowRef.current.style.transform = `translate(calc(-50% + ${glowTargetX}px), ${glowTargetY}px)`;
+      }
 
       if (Math.abs(targetRotateX - currentRotateX) > 0.01 || Math.abs(targetRotateY - currentRotateY) > 0.01) {
         mouseFrame = requestAnimationFrame(applyMouse);
@@ -86,9 +93,9 @@ export function Hero() {
       mouseX = e.clientX / innerWidth - 0.5;
       mouseY = e.clientY / innerHeight - 0.5;
 
-      // Max rotation: 2.5 degrees
-      targetRotateY = mouseX * 5;
-      targetRotateX = mouseY * -5;
+      // Max rotation: 4 degrees for more presence but still subtle
+      targetRotateY = mouseX * 8;
+      targetRotateX = mouseY * -8;
 
       if (!mouseFrame) mouseFrame = requestAnimationFrame(applyMouse);
     };
@@ -150,17 +157,17 @@ export function Hero() {
             id="hero-titulo"
             className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
-            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em] lg:min-h-[1.1em]">
+            <span className="block overflow-hidden lg:h-[1.1em] lg:min-h-[1.1em]">
               <span className="block intro-lcp" style={{ animationDelay: `${seq.line1}ms` }}>
                 Sites que fazem sua empresa
               </span>
             </span>
-            <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em] lg:min-h-[1.1em]">
+            <span className="block overflow-hidden lg:h-[1.1em] lg:min-h-[1.1em]">
               <span className="block intro-lcp" style={{ animationDelay: `${seq.line2}ms` }}>
                 parecer do tamanho que{" "}
-                <span className="relative whitespace-nowrap text-brand-soft">
+                <span className="relative inline-block text-brand-soft">
                   ela é
-                  <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
+                  <span className="absolute inset-x-0 bottom-[0.1em] h-px origin-left scale-x-0 bg-brand/60 intro" style={{ animationDelay: `${seq.line2 + 400}ms` }} />
                 </span>
               </span>
             </span>

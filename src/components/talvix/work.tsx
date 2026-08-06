@@ -140,10 +140,10 @@ function Motif({ index }: { index: number }) {
 /** Moldura de mockup: janela com barra de título e reflexo suave. */
 function Mockup({ index, tone }: { index: number; tone: string }) {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-border/80 bg-background/40 shadow-[0_30px_70px_-45px_oklch(0_0_0/0.95)]">
+    <div className="relative overflow-hidden rounded-xl border border-border/80 bg-background/40 shadow-[0_30px_70px_-45px_oklch(0_0_0/0.95)] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand/20 group-hover:shadow-[0_40px_80px_-40px_oklch(0_0_0/0.98)]">
       <div
         className={cn(
-          "relative aspect-[16/10] overflow-hidden bg-gradient-to-br transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]",
+          "relative aspect-[16/10] overflow-hidden bg-gradient-to-br transition-transform duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]",
           tone,
         )}
       >
