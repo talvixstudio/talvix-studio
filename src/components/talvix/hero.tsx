@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { CountUp } from "./count-up";
+import { CONTACT } from "@/lib/contact";
+
 
 const nbAvif980 = "/media/hero-notebook-980.avif";
 const nbAvif1600 = "/media/hero-notebook-1600.avif";
@@ -116,10 +118,12 @@ export function Hero() {
             style={{ animationDelay: `${seq.cta}ms` }}
           >
             <a
-              href="#contato"
+              href={CONTACT.whatsapp}
+              target="_blank"
+              rel="noreferrer noopener"
               className="btn-premium hover-sheen group ds-btn ds-btn-primary w-full sm:w-auto"
             >
-              Começar projeto
+              Solicitar Orçamento
               <span
                 aria-hidden
                 className="font-mono text-xs opacity-70 transition-transform duration-500 ease-out group-hover:translate-x-0.5"
@@ -131,7 +135,7 @@ export function Hero() {
               href="#trabalhos"
               className="btn-premium group ds-btn ds-btn-ghost w-full sm:w-auto"
             >
-              Ver cases
+              Ver Projetos
               <span
                 aria-hidden
                 className="font-mono text-xs text-muted-foreground transition-transform duration-500 ease-out group-hover:translate-y-0.5"
@@ -139,6 +143,7 @@ export function Hero() {
                 ↓
               </span>
             </a>
+
           </div>
 
           <p

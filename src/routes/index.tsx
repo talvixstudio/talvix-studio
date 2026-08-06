@@ -73,10 +73,14 @@ export const Route = createFileRoute("/")({
               name: "Talvix Studio",
               url: `${SITE_URL}/`,
               description,
-              email: "contato@talvix.studio",
+              email: "talvixstudio@gmail.com",
               logo: `${SITE_URL}/icon-512.png`,
               image: `${SITE_URL}/icon-512.png`,
               areaServed: "Global",
+              sameAs: [
+                "https://github.com/talvixstudio",
+                "https://instagram.com/talvixstudio",
+              ],
               knowsLanguage: ["pt-BR", "en", "es"],
               serviceType: [
                 "Websites institucionais",
