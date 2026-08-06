@@ -198,13 +198,11 @@
 @keyframes talvix-intro {
   from {
     opacity: 0;
-    transform: translate3d(0, 18px, 0) scale(0.995);
-    filter: blur(8px);
+    transform: translate3d(0, 18px, 0);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -398,6 +396,8 @@
 @utility cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: auto 720px;
+  /* Prevent layout shift when sections become visible */
+  contain: size layout paint;
 }
 
 

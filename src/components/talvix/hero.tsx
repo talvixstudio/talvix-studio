@@ -60,7 +60,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative overflow-hidden pt-[124px] pb-10 lg:pt-[148px] lg:pb-16"
+      className="relative overflow-hidden pt-[124px] pb-10 lg:pt-[148px] lg:pb-16 min-h-[85vh] lg:min-h-[100vh]"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -190,7 +190,7 @@ export function Hero() {
           <div className="intro-rise" style={{ animationDelay: `${seq.notebook}ms` }}>
             <div
               ref={deviceRef}
-              className="float-slow relative mx-auto max-w-[980px]"
+              className="float-slow relative mx-auto max-w-[980px] aspect-[1600/1067]"
             >
 
               <picture>
@@ -209,9 +209,10 @@ export function Hero() {
                   width={1600}
                   height={1067}
                   alt="Notebook exibindo uma interface criada pela Talvix Studio"
-                  className="w-full select-none brightness-[1.10] contrast-[1.10] drop-shadow-[0_55px_75px_-12px_rgba(0,0,0,0.42)]"
+                  className="w-full h-auto select-none brightness-[1.10] contrast-[1.10] drop-shadow-[0_55px_75px_-12px_rgba(0,0,0,0.42)]"
                   fetchPriority="high"
-                  decoding="async"
+                  loading="eager"
+                  decoding="sync"
                   draggable={false}
                 />
 
