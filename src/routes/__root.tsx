@@ -105,6 +105,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500&display=swap",
       },
       {
+        rel: "preload",
+        as: "image",
+        href: "/media/hero-notebook-980.avif",
+        type: "image/avif",
+        imagesizes: "(max-width: 1024px) 92vw, 980px",
+        fetchpriority: "high",
+      },
+      {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=JetBrains+Mono:wght@400;500&display=swap",
         media: "all",

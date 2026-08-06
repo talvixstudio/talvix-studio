@@ -60,7 +60,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1450px] lg:pt-[148px] lg:pb-16 flex flex-col"
+      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1621px] lg:pt-[148px] lg:pb-16 flex flex-col"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -93,12 +93,12 @@ export function Hero() {
             className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em]">
-              <span className="intro block min-h-[60px] lg:min-h-0" style={{ animationDelay: `${seq.line1}ms` }}>
+              <span className="block min-h-[60px] lg:min-h-0 intro-lcp" style={{ animationDelay: `${seq.line1}ms` }}>
                 Transformamos ideias em
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.06em] lg:h-[1.1em]">
-              <span className="intro block min-h-[60px] lg:min-h-0" style={{ animationDelay: `${seq.line2}ms` }}>
+              <span className="block min-h-[60px] lg:min-h-0 intro-lcp" style={{ animationDelay: `${seq.line2}ms` }}>
                 <span className="relative whitespace-nowrap text-brand-soft">
                   experiências
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
@@ -189,7 +189,7 @@ export function Hero() {
             aria-hidden
             className="intro absolute inset-x-[18%] bottom-[10%] h-[55%] rounded-[50%] bg-[radial-gradient(closest-side,rgba(255,255,255,0.12),transparent)] blur-2xl [animation-delay:900ms] [animation-duration:2.2s]"
           />
-          <div className="intro-rise" style={{ animationDelay: `${seq.notebook}ms` }}>
+          <div className="intro-lcp" style={{ animationDelay: `${seq.notebook}ms` }}>
             <div
               ref={deviceRef}
               className="float-slow relative mx-auto max-w-[980px] aspect-[1600/1067]"
