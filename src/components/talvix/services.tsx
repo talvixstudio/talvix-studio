@@ -6,7 +6,9 @@ import {
   Gauge,
   SquareTerminal,
   Search,
+  Sparkles,
 } from "lucide-react";
+
 
 const services = [
   {
