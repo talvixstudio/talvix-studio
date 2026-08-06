@@ -60,7 +60,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1450px] lg:pt-[148px] lg:pb-16"
+      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1450px] lg:pt-[148px] lg:pb-16 flex flex-col"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -74,7 +74,7 @@ export function Hero() {
         <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
       </div>
 
-      <div className="shell relative">
+      <div className="shell relative flex-1 flex flex-col">
         <div className="mx-auto max-w-[60rem] text-center">
           <div className="intro-soft lg:h-[38px]" style={{ animationDelay: `${seq.badge}ms` }}>
             <div className="min-h-[38px] lg:min-h-0 flex items-center justify-center">
@@ -171,7 +171,7 @@ export function Hero() {
         </a>
 
         {/* Notebook */}
-        <div className="relative mt-16 lg:mt-20">
+        <div className="relative mt-auto pt-16 lg:pt-20">
           {/* soft ambient blue glow — lifts the laptop off the dark canvas */}
           <div
             aria-hidden
@@ -228,7 +228,7 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto -mt-2 grid max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 min-h-[220px] sm:grid-cols-4 lg:min-h-[140px]">
+        <dl className="mx-auto mt-auto grid w-full max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 min-h-[220px] sm:grid-cols-4 lg:min-h-[140px]">
           {[
             ["3–6", "Semanas por projeto"],
             ["98+", "Lighthouse na entrega"],

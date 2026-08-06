@@ -249,6 +249,7 @@
   animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
   backface-visibility: hidden;
+  contain: layout paint;
 }
 
 @utility intro-soft {
