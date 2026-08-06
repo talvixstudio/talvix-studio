@@ -140,7 +140,7 @@ function Motif({ index }: { index: number }) {
 /** Moldura de mockup: janela com barra de título e reflexo suave. */
 function Mockup({ index, tone }: { index: number; tone: string }) {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-border/80 bg-background/40 shadow-[0_30px_70px_-45px_oklch(0_0_0/0.95)] aspect-[16/10]">
+    <div className="relative overflow-hidden rounded-xl border border-border/80 bg-background/40 shadow-[0_30px_70px_-45px_oklch(0_0_0/0.95)]">
       <div
         className={cn(
           "relative aspect-[16/10] overflow-hidden bg-gradient-to-br transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]",
