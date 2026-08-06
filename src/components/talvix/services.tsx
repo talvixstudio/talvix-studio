@@ -1,4 +1,6 @@
 import { Reveal } from "./reveal";
+import { cn } from "@/lib/utils";
+
 import {
   Layers,
   MousePointerClick,
