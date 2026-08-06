@@ -113,9 +113,9 @@ export function Services() {
                 className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-transparent transition-transform duration-[900ms] ease-out group-hover:scale-x-100"
               />
               <div className="flex items-center justify-between">
-                <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface/60 transition-all duration-700 ease-out group-hover:-translate-y-0.5 group-hover:border-brand/35 group-hover:bg-brand/10">
+                <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface/60 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:shadow-[0_8px_20px_-8px_var(--brand)]">
                   <s.icon
-                    className="h-[18px] w-[18px] text-muted-foreground transition-colors duration-700 ease-out group-hover:text-brand-soft"
+                    className="h-[18px] w-[18px] text-muted-foreground transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:text-brand-soft"
                     strokeWidth={1.5}
                   />
                 </span>
@@ -123,7 +123,7 @@ export function Services() {
                   {s.id}
                 </span>
               </div>
-              <h3 className="mt-7 text-lg font-medium tracking-[-0.02em] transition-transform duration-700 ease-out group-hover:translate-x-0.5">
+              <h3 className="mt-7 text-lg font-medium tracking-[-0.02em] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                 {s.title}
               </h3>
               <p className="mt-3 ds-body-sm">
