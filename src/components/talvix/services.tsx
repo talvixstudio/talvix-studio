@@ -85,7 +85,7 @@ export function Services() {
           <Reveal>
             <p className="eyebrow">O que fazemos</p>
             <h2 id="servicos-titulo" className="text-balance-tight mt-5 text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.04]">
-              Seis disciplinas, uma única obsessão: acabamento.
+              Da estratégia ao código, uma única obsessão: acabamento.
             </h2>
           </Reveal>
           <Reveal delay={140}>
