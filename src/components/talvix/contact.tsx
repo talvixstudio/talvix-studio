@@ -1,11 +1,21 @@
+import { Github, Instagram, Mail, MessageCircle } from "lucide-react";
 import { TalvixLogo } from "./logo";
 import { Reveal } from "./reveal";
 
 const nextSteps = [
-  ["01", "Você escreve", "Duas linhas sobre o projeto já bastam. Prazo e verba ajudam."],
-  ["02", "Respondemos em 24h", "Com perguntas objetivas ou um convite para 30 minutos."],
-  ["03", "Proposta por escrito", "Escopo, entregáveis, datas e preço fechado. Sem pegadinha."],
+  ["01", "Você escreve", "Duas linhas sobre o projeto já bastam."],
+  ["02", "Respondemos em 24h", "Com perguntas objetivas ou 30 minutos de conversa."],
+  ["03", "Proposta por escrito", "Escopo, datas e preço fechado. Sem pegadinha."],
 ];
+
+/** Canais do estúdio — prontos para atualização quando os perfis mudarem. */
+const socials = [
+  { label: "GitHub", href: "https://github.com/talvixstudio", icon: Github },
+  { label: "Instagram", href: "https://instagram.com/talvixstudio", icon: Instagram },
+  { label: "E-mail", href: "mailto:contato@talvix.studio", icon: Mail },
+  { label: "WhatsApp", href: "https://wa.me/5500000000000", icon: MessageCircle },
+];
+
 
 export function ContactCta() {
   return (
