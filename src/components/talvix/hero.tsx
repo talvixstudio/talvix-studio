@@ -76,27 +76,29 @@ export function Hero() {
 
       <div className="shell relative">
         <div className="mx-auto max-w-[60rem] text-center">
-          <div className="intro-soft min-h-[38px] lg:min-h-0" style={{ animationDelay: `${seq.badge}ms` }}>
-            <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+          <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
+            <div className="min-h-[38px] flex items-center justify-center">
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+                </span>
+                Agenda aberta · 2 vagas
               </span>
-              Agenda aberta · 2 vagas
-            </span>
+            </div>
           </div>
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mx-auto mt-10 max-w-[15ch] min-h-[120px] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none sm:min-h-0 lg:max-w-none"
+            className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
-              <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
+              <span className="intro block min-h-[1.1em]" style={{ animationDelay: `${seq.line1}ms` }}>
                 Transformamos ideias em
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.06em]">
-              <span className="intro block" style={{ animationDelay: `${seq.line2}ms` }}>
+              <span className="intro block min-h-[1.1em]" style={{ animationDelay: `${seq.line2}ms` }}>
                 <span className="relative whitespace-nowrap text-brand-soft">
                   experiências
                   <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
@@ -107,14 +109,14 @@ export function Hero() {
           </h1>
 
           <p
-            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px] sm:min-h-0"
+            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px]"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
             Sites que vendem. Design que impressiona. Engenharia que sustenta.
           </p>
 
           <div
-            className="intro mt-12 flex flex-col items-center justify-center gap-3 min-h-[48px] sm:flex-row sm:min-h-0"
+            className="intro mt-12 flex flex-col items-center justify-center gap-3 min-h-[108px] sm:flex-row sm:min-h-[48px]"
             style={{ animationDelay: `${seq.cta}ms` }}
           >
             <a
@@ -147,7 +149,7 @@ export function Hero() {
           </div>
 
           <p
-            className="intro mx-auto mt-8 max-w-[50ch] text-[11px] font-medium uppercase leading-loose tracking-[0.1em] text-muted-foreground/65 lg:max-w-[80ch] lg:[white-space:nowrap]"
+            className="intro mx-auto mt-8 max-w-[50ch] text-[11px] font-medium uppercase leading-loose tracking-[0.1em] text-muted-foreground/65 min-h-[44px] lg:max-w-[80ch] lg:[white-space:nowrap] lg:min-h-0"
             style={{ animationDelay: `${seq.benefits}ms` }}
           >
             Atendimento personalizado · Projeto exclusivo · Sem templates
@@ -209,9 +211,10 @@ export function Hero() {
                   width={1600}
                   height={1067}
                   alt="Notebook exibindo uma interface criada pela Talvix Studio"
-                  className="w-full select-none brightness-[1.10] contrast-[1.10] drop-shadow-[0_55px_75px_-12px_rgba(0,0,0,0.42)]"
+                  className="w-full h-auto select-none brightness-[1.10] contrast-[1.10] drop-shadow-[0_55px_75px_-12px_rgba(0,0,0,0.42)]"
                   fetchPriority="high"
-                  decoding="async"
+                  loading="eager"
+                  decoding="sync"
                   draggable={false}
                 />
 
@@ -225,7 +228,7 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto -mt-2 grid max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 min-h-[140px] sm:grid-cols-4 sm:min-h-0">
+        <dl className="mx-auto -mt-2 grid max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 min-h-[220px] sm:grid-cols-4 sm:min-h-[140px]">
           {[
             ["3–6", "Semanas por projeto"],
             ["98+", "Lighthouse na entrega"],
