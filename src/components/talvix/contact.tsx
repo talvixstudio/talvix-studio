@@ -117,7 +117,25 @@ export function SiteFooter() {
             Design e engenharia digital para empresas que precisam parecer tão sérias
             quanto são.
           </p>
+          <ul className="mt-7 flex flex-wrap items-center gap-2.5">
+            {socials.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  aria-label={s.label}
+                  title={s.label}
+                  {...(s.href.startsWith("http")
+                    ? { target: "_blank", rel: "noreferrer noopener" }
+                    : {})}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface/40 text-muted-foreground transition-colors duration-500 ease-out hover:border-brand/35 hover:bg-brand/10 hover:text-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+                >
+                  <s.icon className="h-[18px] w-[18px]" strokeWidth={1.5} aria-hidden />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+
 
         {footerNav.map((group) => (
           <nav key={group.title} aria-label={group.title}>
