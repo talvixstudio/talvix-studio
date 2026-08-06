@@ -67,7 +67,7 @@ export function Process() {
             />
           </div>
 
-          <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border min-h-[220px] md:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border min-h-[220px] md:grid-cols-2 md:min-h-0 lg:grid-cols-4">
             {steps.map((s, i) => (
               <li
                 key={s.n}

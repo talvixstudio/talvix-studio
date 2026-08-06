@@ -81,7 +81,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-700 ease-out",
+        "fixed inset-x-0 top-0 z-50 min-h-[72px] border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-700 ease-out lg:min-h-[80px]",
         scrolled || open
           ? "border-border/60 bg-background/60 shadow-[var(--shadow-header)] backdrop-blur-2xl backdrop-saturate-150"
           : "border-transparent bg-transparent",
@@ -90,7 +90,7 @@ export function SiteHeader() {
       <div
         className={cn(
           "shell flex items-center justify-between transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          scrolled && !open ? "h-[60px]" : "h-[72px]",
+          scrolled && !open ? "h-[60px]" : "h-[72px] lg:h-[80px]",
         )}
       >
         <a
