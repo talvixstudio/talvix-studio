@@ -53,7 +53,7 @@ const cases: CaseStudy[] = [
   {
     client: "Loja Premium de Smartphones",
     sector: "Varejo de tecnologia",
-    scope: "Projeto conceitual · UI/UX",
+    scope: "Conceito · E-commerce · UI/UX",
     year: "2026",
     status: "conceito",
     statusLabel: "Projeto Conceitual",
