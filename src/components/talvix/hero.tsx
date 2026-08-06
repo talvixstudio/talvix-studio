@@ -60,7 +60,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1450px] lg:pt-[148px] lg:pb-16 flex flex-col"
+      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 sm:min-h-0 lg:min-h-[1621px] lg:pt-[148px] lg:pb-16 flex flex-col"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
