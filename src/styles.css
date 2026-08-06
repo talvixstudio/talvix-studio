@@ -263,6 +263,14 @@
   will-change: transform, opacity;
 }
 
+@utility intro-lcp {
+  opacity: 1;
+  animation: talvix-intro 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
 /* ---- Premium cursor ---- */
 
 @utility cursor-none-fine {
