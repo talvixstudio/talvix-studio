@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 import { Reveal } from "./reveal";
 import { cn } from "@/lib/utils";
 
@@ -8,21 +8,19 @@ type CaseStudy = {
   sector: string;
   scope: string;
   year: string;
-  status: "entregue" | "em-andamento";
+  status: "entregue" | "conceito";
   statusLabel: string;
   /** Rótulo do botão principal do card. */
   cta: string;
   headline: string;
   /** Descrição curta exibida no showcase. */
   summary: string;
-  context: string;
-  goal: string;
-  challenge: string;
-  solution: string;
-  /** Só existe quando o projeto está no ar e o número é verificável. */
+  /** Mini case: objetivo, desenvolvimento e resultado. */
+  objective: string;
+  development: string;
+  result: string;
+  /** Só existe quando o número é verificável. */
   outcome: { value: string; label: string }[];
-  /** Substitui a régua de resultado enquanto o projeto não foi entregue. */
-  pending?: string;
   stack: string[];
   tone: string;
 };
@@ -35,17 +33,16 @@ const cases: CaseStudy[] = [
     year: "2026",
     status: "entregue",
     statusLabel: "Concluído",
-    cta: "Ver projeto",
+    cta: "Ver Projeto",
     headline: "O primeiro cliente do estúdio foi o próprio estúdio.",
     summary:
-      "Identidade, texto e código feitos do zero. O site é o nosso portfólio e a prova do padrão que entregamos.",
-    context:
-      "Antes de vender site premium, precisávamos provar o padrão em casa — sem tema comprado, sem biblioteca pronta.",
-    goal: "Um site que funcione como portfólio, cartão de visita técnico e demonstração viva do nosso trabalho.",
-    challenge:
-      "Sem histórico para exibir, cada detalhe de tipografia, motion e performance vira argumento comercial.",
-    solution:
-      "Design system em tokens OKLCH, imagem principal em AVIF com preload e motion que respeita preferências de acessibilidade.",
+      "Identidade, texto e código do zero. O site é o portfólio — e a prova do padrão que entregamos.",
+    objective:
+      "Um site que funcionasse como portfólio, cartão de visita técnico e demonstração viva do nosso padrão.",
+    development:
+      "Design system em tokens OKLCH, tipografia própria, motion coreografado e imagem principal em AVIF com preload.",
+    result:
+      "Site em produção na borda, LCP otimizado e zero dependência de UI kit externo.",
     outcome: [
       { value: "AVIF", label: "LCP com preload" },
       { value: "0 dep.", label: "De UI kit externo" },
@@ -54,29 +51,27 @@ const cases: CaseStudy[] = [
     tone: "from-[oklch(0.28_0.06_258)] to-[oklch(0.17_0.02_260)]",
   },
   {
-    client: "Saycell",
-    sector: "Conectividade móvel",
-    scope: "Produto digital · UI/UX",
+    client: "Loja Premium de Smartphones",
+    sector: "Varejo de tecnologia",
+    scope: "Projeto conceitual · UI/UX",
     year: "2026",
-    status: "em-andamento",
-    statusLabel: "Em desenvolvimento",
-    cta: "Acompanhar evolução",
-    headline: "Contratar conectividade em minutos, não em atendimento.",
+    status: "conceito",
+    statusLabel: "Projeto Conceitual",
+    cta: "Explorar Projeto",
+    headline: "Conceito de e-commerce premium para lojas de tecnologia.",
     summary:
-      "Em construção: jornada de autosserviço e design system próprio para o produto crescer sem retrabalho.",
-    context: "Projeto em curso. A operação existe; o produto digital está sendo desenhado agora.",
-    goal: "Transformar um processo hoje humano em uma jornada que o cliente conclui sozinho.",
-    challenge:
-      "Planos, cobertura e regras de ativação são difíceis de explicar. A tela precisa responder antes da pergunta.",
-    solution:
-      "Jornada mapeada ponta a ponta, decisão reduzida a poucas escolhas comparáveis e design system próprio do produto.",
+      "Projeto desenvolvido pela Talvix Studio para demonstrar um conceito moderno de site para lojas de tecnologia, com foco em experiência do usuário, design premium e alta conversão.",
+    objective:
+      "Demonstrar como uma loja de tecnologia pode vender aparelhos premium sem parecer um catálogo genérico.",
+    development:
+      "Comparação de modelos em poucas escolhas, ficha técnica legível, checkout curto e componentes prontos para catálogo real.",
+    result:
+      "Conceito completo de interface, pronto para virar produto quando aplicado a um cliente.",
     outcome: [],
-    pending: "Resultados entram aqui após o lançamento — com números do cliente, não estimativas.",
     stack: ["React", "TypeScript", "Design tokens", "Figma"],
     tone: "from-[oklch(0.24_0.03_250)] to-[oklch(0.16_0.01_260)]",
   },
 ];
-
 
 /**
  * Cada case recebe uma leitura abstrata da interface correspondente —
@@ -108,57 +103,31 @@ function Motif({ index }: { index: number }) {
     );
   }
 
-  if (index === 1) {
-    // Saycell — seleção de plano em autosserviço
-    return (
-      <div aria-hidden className={shell}>
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
-          {[0, 1, 2].map((k) => (
-            <div
-              key={k}
-              className={cn(
-                "rounded-md border p-2.5 transition-transform duration-700 ease-out sm:p-3.5",
-                k === 1
-                  ? "border-brand/45 bg-brand/[0.07] group-hover:-translate-y-1"
-                  : "border-foreground/10 bg-foreground/[0.03]",
-              )}
-            >
-              <div className="h-1.5 w-2/3 rounded-full bg-foreground/14" />
-              <div
-                className={cn(
-                  "mt-2 h-1.5 w-1/3 rounded-full",
-                  k === 1 ? "bg-brand/70" : "bg-foreground/10",
-                )}
-              />
-              <div className="mt-4 h-1 w-full rounded-full bg-foreground/8" />
-              <div className="mt-2 h-1 w-4/5 rounded-full bg-foreground/8" />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  // Leste — consulta de cobertura
+  // Conceito de loja — vitrine de aparelhos com destaque de modelo
   return (
     <div aria-hidden className={shell}>
-      <div className="flex items-center gap-2">
-        <div className="h-8 flex-1 rounded-md border border-foreground/10 bg-foreground/[0.03] transition-colors duration-700 group-hover:border-brand/25" />
-        <div className="h-8 w-16 rounded-md border border-brand/45 bg-brand/[0.09]" />
-      </div>
-      <div className="mt-5 space-y-3">
-        {[
-          ["72%", "bg-brand/60"],
-          ["48%", "bg-foreground/22"],
-          ["60%", "bg-foreground/16"],
-        ].map(([w, tint], k) => (
-          <div key={k} className="flex items-center gap-2.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-foreground/25" />
-            <span
-              style={{ width: w, transitionDelay: `${k * 70}ms` }}
+      <div className="grid h-full grid-cols-3 gap-2 sm:gap-3">
+        {[0, 1, 2].map((k) => (
+          <div
+            key={k}
+            className={cn(
+              "flex flex-col rounded-md border p-2.5 transition-transform duration-700 ease-out sm:p-3.5",
+              k === 1
+                ? "border-brand/45 bg-brand/[0.07] group-hover:-translate-y-1"
+                : "border-foreground/10 bg-foreground/[0.03]",
+            )}
+          >
+            <div
               className={cn(
-                "h-1.5 origin-left rounded-full transition-transform duration-[900ms] ease-out group-hover:scale-x-[1.04]",
-                tint,
+                "mx-auto h-[46%] w-[42%] rounded-[6px] border",
+                k === 1 ? "border-brand/45 bg-brand/10" : "border-foreground/12 bg-foreground/5",
+              )}
+            />
+            <div className="mt-3 h-1.5 w-2/3 rounded-full bg-foreground/14" />
+            <div
+              className={cn(
+                "mt-2 h-1.5 w-1/3 rounded-full",
+                k === 1 ? "bg-brand/70" : "bg-foreground/10",
               )}
             />
           </div>
@@ -224,16 +193,15 @@ export function Work() {
           </Reveal>
           <Reveal delay={120}>
             <p className="max-w-xs ds-body-sm">
-              O que já saiu do processo — e o que está sendo construído agora.
+              O que já entregamos e o conceito que mostra até onde levamos uma interface.
             </p>
-
           </Reveal>
         </div>
 
         <div className="mt-16 space-y-6 md:space-y-8">
           {cases.map((p, i) => {
             const isOpen = openIndex === i;
-            const inProgress = p.status === "em-andamento";
+            const isConcept = p.status === "conceito";
             return (
               <Reveal key={p.client} delay={i * 120}>
                 <article
@@ -253,14 +221,14 @@ export function Work() {
                         <span
                           className={cn(
                             "inline-flex items-center gap-1.5 ds-pill",
-                            inProgress ? "text-foreground/55" : "text-brand-soft",
+                            isConcept ? "text-foreground/55" : "text-brand-soft",
                           )}
                         >
                           <span
                             aria-hidden
                             className={cn(
                               "h-1.5 w-1.5 rounded-full",
-                              inProgress ? "bg-foreground/35" : "bg-brand",
+                              isConcept ? "bg-foreground/35" : "bg-brand",
                             )}
                           />
                           {p.statusLabel}
@@ -299,7 +267,7 @@ export function Work() {
                           aria-controls={`caso-${i}`}
                           className={cn(
                             "ds-btn ds-btn-sm btn-premium",
-                            inProgress ? "ds-btn-ghost" : "ds-btn-primary",
+                            isConcept ? "ds-btn-ghost" : "ds-btn-primary",
                           )}
                         >
                           {isOpen ? "Fechar caso" : p.cta}
@@ -327,28 +295,19 @@ export function Work() {
                     <div className="overflow-hidden">
                       <dl className="space-y-5 border-t border-border pt-7">
                         {[
-                          ["Contexto", p.context],
-                          ["Objetivo", p.goal],
-                          ["Desafio", p.challenge],
-                          ["Solução", p.solution],
-                          [
-                            "Resultado",
-                            p.outcome.length
-                              ? p.outcome
-                                  .map((o) => `${o.value} · ${o.label.toLowerCase()}`)
-                                  .join("  ·  ")
-                              : (p.pending ?? "Ainda em desenvolvimento."),
-                          ],
+                          ["Objetivo", p.objective],
+                          ["Desenvolvimento", p.development],
+                          ["Resultado", p.result],
                         ].map(([label, body]) => (
                           <div
                             key={label}
-                            className="grid gap-1.5 sm:grid-cols-[86px_1fr] sm:gap-4"
+                            className="grid gap-1.5 sm:grid-cols-[132px_1fr] sm:gap-4"
                           >
                             <dt className="ds-label text-brand-soft sm:pt-1">{label}</dt>
                             <dd className="max-w-[70ch] ds-body-sm">{body}</dd>
                           </div>
                         ))}
-                        <div className="grid gap-2 sm:grid-cols-[86px_1fr] sm:gap-4">
+                        <div className="grid gap-2 sm:grid-cols-[132px_1fr] sm:gap-4">
                           <dt className="ds-label text-brand-soft sm:pt-1.5">Stack</dt>
                           <dd className="flex flex-wrap gap-1.5">
                             {p.stack.map((t) => (
@@ -365,6 +324,27 @@ export function Work() {
               </Reveal>
             );
           })}
+
+          {/* Slot preparado para o próximo trabalho */}
+          <Reveal delay={240}>
+            <article className="group relative overflow-hidden rounded-2xl border border-dashed border-border bg-surface/10 p-8 transition-colors duration-700 ease-out hover:border-brand/30 hover:bg-surface/25 sm:p-9">
+              <div className="flex flex-wrap items-center justify-between gap-6">
+                <div>
+                  <span className="ds-pill text-foreground/55">Em breve</span>
+                  <h3 className="mt-4 text-[clamp(1.25rem,1.8vw,1.6rem)] font-semibold tracking-[-0.02em]">
+                    Próximo Projeto
+                  </h3>
+                  <p className="mt-2 max-w-[44ch] ds-body-sm">
+                    O espaço do próximo trabalho já está reservado. Pode ser o seu.
+                  </p>
+                </div>
+                <a href="#contato" className="ds-btn ds-btn-sm ds-btn-ghost btn-premium">
+                  Começar projeto
+                  <Plus className="h-3.5 w-3.5" strokeWidth={1.75} />
+                </a>
+              </div>
+            </article>
+          </Reveal>
         </div>
       </div>
     </section>
