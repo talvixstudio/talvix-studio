@@ -60,7 +60,7 @@ export function Hero() {
       id="top"
       ref={ref}
       aria-labelledby="hero-titulo"
-      className="relative overflow-hidden pt-[124px] pb-10 lg:pt-[148px] lg:pb-16"
+      className="relative min-h-[900px] overflow-hidden pt-[124px] pb-10 lg:pt-[148px] lg:pb-16"
     >
       {/* background architecture */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -76,7 +76,7 @@ export function Hero() {
 
       <div className="shell relative">
         <div className="mx-auto max-w-[60rem] text-center">
-          <div className="intro-soft" style={{ animationDelay: `${seq.badge}ms` }}>
+          <div className="intro-soft min-h-[38px]" style={{ animationDelay: `${seq.badge}ms` }}>
             <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 ds-label backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
@@ -88,7 +88,7 @@ export function Hero() {
 
           <h1
             id="hero-titulo"
-            className="text-balance-tight mx-auto mt-10 max-w-[15ch] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
+            className="text-balance-tight mx-auto mt-10 max-w-[15ch] min-h-[120px] text-[clamp(2.1rem,5.8vw,4.5rem)] font-semibold leading-[0.98] sm:max-w-none lg:max-w-none"
           >
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="intro block" style={{ animationDelay: `${seq.line1}ms` }}>
@@ -107,14 +107,14 @@ export function Hero() {
           </h1>
 
           <p
-            className="intro mx-auto mt-8 max-w-[36ch] ds-lead"
+            className="intro mx-auto mt-8 max-w-[36ch] ds-lead min-h-[56px]"
             style={{ animationDelay: `${seq.sub}ms` }}
           >
             Sites que vendem. Design que impressiona. Engenharia que sustenta.
           </p>
 
           <div
-            className="intro mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="intro mt-12 flex flex-col items-center justify-center gap-3 min-h-[48px] sm:flex-row"
             style={{ animationDelay: `${seq.cta}ms` }}
           >
             <a
@@ -190,7 +190,7 @@ export function Hero() {
           <div className="intro-rise" style={{ animationDelay: `${seq.notebook}ms` }}>
             <div
               ref={deviceRef}
-              className="float-slow relative mx-auto max-w-[980px]"
+              className="float-slow relative mx-auto max-w-[980px] aspect-[1600/1067]"
             >
 
               <picture>
@@ -225,7 +225,7 @@ export function Hero() {
           />
         </div>
 
-        <dl className="mx-auto -mt-2 grid max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 sm:grid-cols-4">
+        <dl className="mx-auto -mt-2 grid max-w-4xl grid-cols-2 gap-y-9 border-t border-border pt-10 min-h-[140px] sm:grid-cols-4">
           {[
             ["3–6", "Semanas por projeto"],
             ["98+", "Lighthouse na entrega"],
