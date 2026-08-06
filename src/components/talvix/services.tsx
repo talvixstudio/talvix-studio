@@ -57,7 +57,16 @@ const services = [
     body: "Estrutura técnica, conteúdo e dados estruturados pensados para busca desde o primeiro rascunho.",
     meta: ["Técnico", "Conteúdo", "Schema"],
   },
+  {
+    id: "07",
+    gain: "Sua marca fica reconhecível em qualquer tela.",
+    icon: Sparkles,
+    title: "Branding Digital",
+    body: "Marca aplicada ao digital: tipografia, cor, tom de voz e um sistema que mantém tudo coerente.",
+    meta: ["Identidade", "Tom de voz", "Guidelines"],
+  },
 ];
+
 
 
 export function Services() {
