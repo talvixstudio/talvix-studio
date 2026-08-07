@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { ArrowRight, Plus } from "lucide-react";
 import { Reveal } from "./reveal";
 import { cn } from "@/lib/utils";
@@ -78,7 +78,7 @@ const cases: CaseStudy[] = [
  * feita com primitivas de layout para ficar nítida em qualquer tamanho
  * e não custar nenhum byte de imagem.
  */
-function Motif({ index }: { index: number }) {
+const Motif = memo(function Motif({ index }: { index: number }) {
   const shell =
     "pointer-events-none absolute inset-x-[8%] top-[14%] bottom-[34%] transition-transform duration-[1.4s] ease-out group-hover:-translate-y-1";
 
@@ -138,7 +138,7 @@ function Motif({ index }: { index: number }) {
 }
 
 /** Moldura de mockup: janela com barra de título e reflexo suave. */
-function Mockup({ index, tone }: { index: number; tone: string }) {
+const Mockup = memo(function Mockup({ index, tone }: { index: number; tone: string }) {
   return (
     <div className="relative overflow-hidden rounded-xl border border-border/80 bg-background/40 shadow-[0_30px_70px_-45px_oklch(0_0_0/0.95)] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand/20 group-hover:shadow-[0_40px_80px_-40px_oklch(0_0_0/0.98)]">
       <div
