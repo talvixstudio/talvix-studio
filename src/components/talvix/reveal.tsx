@@ -1,3 +1,4 @@
+import type React from "react";
 import { cn } from "@/lib/utils";
 import { useReveal } from "@/hooks/use-reveal";
 import type { ReactNode } from "react";
