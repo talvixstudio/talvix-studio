@@ -795,3 +795,88 @@ div[style*="Edit with Lovable"],
   position: absolute !important;
   z-index: -9999 !important;
 }
+/* =========================================================
+   TALVIX STUDIO — MOBILE PERFORMANCE
+   Mantém a experiência premium reduzindo custo de GPU
+   ========================================================= */
+
+@media (max-width: 767px) {
+  /*
+   * Glows gigantes com blur são caros em GPUs móveis.
+   * Mantemos um glow estático mais leve e removemos o segundo.
+   */
+  .talvix-ambient-glow-left {
+    width: 520px !important;
+    height: 420px !important;
+    opacity: 0.1 !important;
+    filter: blur(22px) !important;
+    animation: none !important;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .talvix-ambient-glow-right {
+    display: none !important;
+  }
+
+  /*
+   * Partículas são puramente decorativas.
+   * No mobile o grid + glow já preservam a identidade.
+   */
+  .talvix-ambient-particles {
+    display: none !important;
+  }
+
+  /*
+   * Grid mais leve no mobile.
+   */
+  .talvix-ambient-lines {
+    opacity: 0.22 !important;
+    background-size: 132px 100% !important;
+  }
+
+  /*
+   * Evita manter camadas GPU permanentemente após
+   * as animações iniciais.
+   */
+  .intro,
+  .intro-soft,
+  .intro-rise,
+  .intro-lcp {
+    will-change: auto !important;
+  }
+
+  /*
+   * Hover não é útil em telas touch.
+   */
+  .lift:hover,
+  .btn-premium:hover {
+    transform: none;
+  }
+
+  /*
+   * O browser pode ignorar renderização de conteúdo
+   * distante da viewport até ele ser necessário.
+   */
+  main > section:not(#top) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+  }
+}
+
+/*
+ * Em dispositivos touch não há motivo para preparar
+ * efeitos destinados ao mouse.
+ */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-none-fine {
+    cursor: auto !important;
+  }
+}
+
+/*
+ * Quando a aba deixa de estar visível, animações
+ * decorativas não precisam continuar consumindo recursos.
+ */
+html:not(:focus-within) .particle {
+  animation-play-state: paused;
+}
