@@ -982,3 +982,73 @@ html:not(:focus-within) .particle {
     touch-action: manipulation;
   }
 }
+
+/* =========================================================
+   MOBILE MENU — abertura composta (transform + opacity)
+   ========================================================= */
+
+@utility talvix-sheet {
+  transform: translate3d(0, -8px, 0) scaleY(0.98);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.2s ease-out,
+    visibility 0s linear 0.26s;
+
+  &[data-open="true"] {
+    transform: translate3d(0, 0, 0) scaleY(1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.18s ease-out,
+      visibility 0s;
+  }
+}
+
+@media (max-width: 767px) {
+  /* blur mais barato no header e no menu */
+  header {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  .talvix-sheet {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /*
+   * content-visibility em seções que são alvo de âncora fazia o
+   * navegador renderizá-las durante o scroll suave, gerando travamento.
+   * Mantemos apenas contenção de layout, sem pular renderização.
+   */
+  main > section:not(#top) {
+    content-visibility: visible !important;
+    contain-intrinsic-size: none !important;
+  }
+
+  .cv-auto {
+    content-visibility: visible;
+    contain-intrinsic-size: none;
+  }
+
+  /* expansão de caso mais curta no mobile */
+  #trabalhos [id^="caso-"] {
+    transition-duration: 320ms !important;
+  }
+
+  /* efeitos decorativos de hover não precisam existir no touch */
+  .group:hover .brand-glow {
+    opacity: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .talvix-sheet {
+    transition: opacity 0.01s linear, visibility 0s;
+  }
+}
