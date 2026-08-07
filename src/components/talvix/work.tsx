@@ -135,7 +135,7 @@ const Motif = memo(function Motif({ index }: { index: number }) {
       </div>
     </div>
   );
-}
+});
 
 /** Moldura de mockup: janela com barra de título e reflexo suave. */
 const Mockup = memo(function Mockup({ index, tone }: { index: number; tone: string }) {
@@ -163,7 +163,7 @@ const Mockup = memo(function Mockup({ index, tone }: { index: number; tone: stri
       </div>
     </div>
   );
-}
+});
 
 export function Work() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
