@@ -880,3 +880,105 @@ div[style*="Edit with Lovable"],
 html:not(:focus-within) .particle {
   animation-play-state: paused;
 }
+/* =========================================================
+   TALVIX STUDIO — TOUCH / BUTTON PERFORMANCE
+   Resposta imediata no mobile sem alterar o desktop
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  /*
+   * Remove o atraso de gestos do navegador em elementos clicáveis.
+   */
+  a,
+  button,
+  [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /*
+   * No touch não existe hover real.
+   * Evita manter transições e composição gráfica desnecessárias
+   * depois que o usuário toca no botão.
+   */
+  .btn-premium,
+  .ds-btn {
+    transition:
+      transform 0.08s ease-out,
+      background-color 0.12s ease-out,
+      border-color 0.12s ease-out,
+      color 0.12s ease-out !important;
+
+    will-change: auto !important;
+  }
+
+  /*
+   * Remove estados hover simulados pelo navegador mobile.
+   */
+  .btn-premium:hover,
+  .ds-btn:hover {
+    transform: none !important;
+  }
+
+  .ds-btn-primary:hover {
+    box-shadow: none !important;
+  }
+
+  .ds-btn-ghost:hover {
+    box-shadow: none !important;
+  }
+
+  /*
+   * Mantém feedback visual instantâneo quando o dedo toca.
+   */
+  .btn-premium:active,
+  .ds-btn:active {
+    transform: scale(0.985) !important;
+    transition-duration: 0.06s !important;
+  }
+
+  /*
+   * Sheen é um efeito de mouse.
+   * No celular ele pode gerar composição desnecessária após o toque.
+   */
+  .hover-sheen::after {
+    display: none !important;
+    content: none !important;
+    transition: none !important;
+  }
+
+  /*
+   * Não anima setas como se houvesse mouse.
+   */
+  .ds-btn:hover svg:last-child,
+  .ds-link:hover svg:last-child {
+    transform: none !important;
+  }
+
+  /*
+   * Links respondem imediatamente ao toque.
+   */
+  .ds-link {
+    transition: color 0.12s ease-out !important;
+  }
+
+  .ds-link::after {
+    transition: none !important;
+  }
+}
+
+/*
+ * Evita o atraso histórico de toque/zoom em navegadores móveis,
+ * mantendo o comportamento normal da página.
+ */
+@media (max-width: 767px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+  }
+}
