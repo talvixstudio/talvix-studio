@@ -1070,18 +1070,22 @@ html:not(:focus-within) .particle {
   }
 
   /*
-   * Reveal mais barato no touch: deslocamento menor, duração curta
-   * e sem will-change permanente. Quando várias seções entram na tela
-   * ao mesmo tempo (scroll por âncora), isso evita promoção de camadas
-   * e repaints grandes no meio do scroll.
+   * Reveal no touch: apenas transform + opacity, sem will-change
+   * permanente. Curva premium, duração curta e stagger reduzido
+   * (40% do delay desktop, limitado a 60ms) para manter o motion
+   * sem saturar a main thread durante o scroll por âncora.
    */
   .reveal {
-    transform: translate3d(0, 12px, 0);
+    transform: translate3d(0, 18px, 0);
     transition:
-      opacity 0.4s ease-out,
-      transform 0.4s ease-out;
+      opacity 0.46s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.46s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: auto;
-    transition-delay: 0ms !important;
+    transition-delay: min(calc(var(--reveal-delay, 0ms) * 0.4), 60ms) !important;
+  }
+
+  .reveal.is-visible {
+    transform: translate3d(0, 0, 0);
   }
 }
 
