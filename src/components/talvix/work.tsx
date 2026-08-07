@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { ArrowRight, Plus } from "lucide-react";
 import { Reveal } from "./reveal";
 import { cn } from "@/lib/utils";
