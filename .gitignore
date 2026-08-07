@@ -1,32 +1,100 @@
-# Logs
-logs
+# ==========================================
+# TALVIX STUDIO - .gitignore
+# ==========================================
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# ==========================================
+# ENVIRONMENT VARIABLES / SECRETS
+# Nunca enviar credenciais para o GitHub
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Cloudflare / Wrangler secrets
+.dev.vars
+.dev.vars.*
+.wrangler/
+
+# ==========================================
+# BUILD / GENERATED FILES
+# ==========================================
+
+dist/
+dist-ssr/
+.output/
+.vinxi/
+.tanstack/
+.nitro/
+coverage/
+
+# ==========================================
+# LOGS
+# ==========================================
+
+logs/
 *.log
+*.log.*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-.output
-.vinxi
-.tanstack/**
-.nitro
+# ==========================================
+# LOCAL FILES
+# ==========================================
+
 *.local
 
-# Wrangler / Cloudflare
-.wrangler/
-.dev.vars
+# ==========================================
+# EDITORS / IDE
+# ==========================================
 
-# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
+
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# ==========================================
+# OPERATING SYSTEM
+# ==========================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# TEMPORARY / CACHE FILES
+# ==========================================
+
+*.tmp
+*.temp
+*.cache
+.cache/
+.temp/
+tmp/
+
+# ==========================================
+# LOCAL DATABASE / CREDENTIAL FILES
+# ==========================================
+
+credentials.json
+service-account.json
+serviceAccount.json
+secrets.json
