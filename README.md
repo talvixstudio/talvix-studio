@@ -2,6 +2,9 @@
 
 ### Sites que fazem sua empresa parecer do tamanho que ela é.
 
+<img width="1894" height="821" alt="talvix-studio-preview" src="https://github.com/user-attachments/assets/9ae5d405-14f2-4ce4-97a4-a63e7711d5d6" />
+
+
 A **Talvix Studio** é um estúdio digital especializado na criação de sites modernos, estratégicos e personalizados para empresas que querem elevar sua presença digital.
 
 Unimos **design, estratégia e desenvolvimento** para criar experiências digitais que transmitam profissionalismo, confiança e valor.
