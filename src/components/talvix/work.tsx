@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { ArrowRight, Plus } from "lucide-react";
 import { Reveal } from "./reveal";
 import { cn } from "@/lib/utils";
@@ -165,8 +165,150 @@ const Mockup = memo(function Mockup({ index, tone }: { index: number; tone: stri
   );
 });
 
+/**
+ * Card de caso isolado e memoizado.
+ *
+ * Abrir/fechar um caso só re-renderiza o card tocado — os demais cards
+ * (com mockups, gradientes e sombras) ficam intactos, o que elimina o
+ * trabalho de render/estilo desnecessário no toque em telas móveis.
+ */
+const CaseCard = memo(function CaseCard({
+  p,
+  i,
+  isOpen,
+  onToggle,
+}: {
+  p: CaseStudy;
+  i: number;
+  isOpen: boolean;
+  onToggle: (index: number) => void;
+}) {
+  const isConcept = p.status === "conceito";
+  return (
+    <article
+      className={cn(
+        "lift group relative overflow-hidden rounded-2xl border border-border bg-surface/25 p-5 sm:p-7 lg:p-9",
+        isOpen && "border-brand/30 bg-surface/45",
+      )}
+    >
+      <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+        <div className={cn(i % 2 === 1 && "lg:order-2")}>
+          <Mockup index={i} tone={p.tone} />
+        </div>
+
+        <div className={cn("min-w-0", i % 2 === 1 && "lg:order-1")}>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="ds-label text-brand-soft">{p.scope}</span>
+            <span
+              className={cn(
+                "inline-flex items-center gap-1.5 ds-pill",
+                isConcept ? "text-foreground/55" : "text-brand-soft",
+              )}
+            >
+              <span
+                aria-hidden
+                className={cn(
+                  "h-1.5 w-1.5 rounded-full",
+                  isConcept ? "bg-foreground/35" : "bg-brand",
+                )}
+              />
+              {p.statusLabel}
+            </span>
+          </div>
+
+          <h3 className="mt-4 text-[clamp(1.5rem,2.2vw,2rem)] font-semibold leading-[1.1] tracking-[-0.02em]">
+            {p.client}
+          </h3>
+          <p className="mt-2 ds-body-sm">
+            {p.sector} · {p.year}
+          </p>
+
+          <p className="text-balance-tight mt-5 max-w-[46ch] text-[15.5px] leading-relaxed text-foreground/80">
+            {p.summary}
+          </p>
+
+          {p.outcome.length > 0 && (
+            <ul className="mt-7 flex gap-9 border-t border-border pt-6">
+              {p.outcome.map((o) => (
+                <li key={o.label}>
+                  <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
+                    {o.value}
+                  </p>
+                  <p className="mt-1.5 max-w-[13ch] ds-label">{o.label}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <button
+              type="button"
+              onClick={() => onToggle(i)}
+              aria-expanded={isOpen}
+              aria-controls={`caso-${i}`}
+              className={cn(
+                "relative z-10 ds-btn ds-btn-sm btn-premium",
+                isConcept ? "ds-btn-ghost" : "ds-btn-primary",
+              )}
+            >
+              {isOpen ? "Fechar caso" : p.cta}
+              <ArrowRight
+                className={cn(
+                  "h-3.5 w-3.5 transition-transform duration-500 ease-out",
+                  isOpen ? "-rotate-90" : "group-hover:translate-x-1",
+                )}
+                strokeWidth={1.75}
+              />
+            </button>
+
+            <p className="ds-label">{p.headline}</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id={`caso-${i}`}
+        className={cn(
+          "talvix-collapse grid",
+          isOpen ? "mt-9 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+        )}
+      >
+        <div className="overflow-hidden">
+          <dl className="space-y-5 border-t border-border pt-7">
+            {[
+              ["Objetivo", p.objective],
+              ["Desenvolvimento", p.development],
+              ["Resultado", p.result],
+            ].map(([label, body]) => (
+              <div key={label} className="grid gap-1.5 sm:grid-cols-[132px_1fr] sm:gap-4">
+                <dt className="ds-label text-brand-soft sm:pt-1">{label}</dt>
+                <dd className="max-w-[70ch] ds-body-sm">{body}</dd>
+              </div>
+            ))}
+            <div className="grid gap-2 sm:grid-cols-[132px_1fr] sm:gap-4">
+              <dt className="ds-label text-brand-soft sm:pt-1.5">Stack</dt>
+              <dd className="flex flex-wrap gap-1.5">
+                {p.stack.map((t) => (
+                  <span key={t} className="ds-pill text-foreground/60">
+                    {t}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </article>
+  );
+});
+
 export function Work() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const toggle = useCallback(
+    (index: number) => setOpenIndex((prev) => (prev === index ? null : index)),
+    [],
+  );
+
 
   return (
     <section
@@ -199,131 +341,12 @@ export function Work() {
         </div>
 
         <div className="mt-16 space-y-6 min-h-[800px] md:space-y-8 md:min-h-0">
-          {cases.map((p, i) => {
-            const isOpen = openIndex === i;
-            const isConcept = p.status === "conceito";
-            return (
-              <Reveal key={p.client} delay={i * 120}>
-                <article
-                  className={cn(
-                    "lift group relative overflow-hidden rounded-2xl border border-border bg-surface/25 p-5 sm:p-7 lg:p-9",
-                    isOpen && "border-brand/30 bg-surface/45",
-                  )}
-                >
-                  <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-                    <div className={cn(i % 2 === 1 && "lg:order-2")}>
-                      <Mockup index={i} tone={p.tone} />
-                    </div>
+          {cases.map((p, i) => (
+            <Reveal key={p.client} delay={i * 120}>
+              <CaseCard p={p} i={i} isOpen={openIndex === i} onToggle={toggle} />
+            </Reveal>
+          ))}
 
-                    <div className={cn("min-w-0", i % 2 === 1 && "lg:order-1")}>
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="ds-label text-brand-soft">{p.scope}</span>
-                        <span
-                          className={cn(
-                            "inline-flex items-center gap-1.5 ds-pill",
-                            isConcept ? "text-foreground/55" : "text-brand-soft",
-                          )}
-                        >
-                          <span
-                            aria-hidden
-                            className={cn(
-                              "h-1.5 w-1.5 rounded-full",
-                              isConcept ? "bg-foreground/35" : "bg-brand",
-                            )}
-                          />
-                          {p.statusLabel}
-                        </span>
-                      </div>
-
-                      <h3 className="mt-4 text-[clamp(1.5rem,2.2vw,2rem)] font-semibold leading-[1.1] tracking-[-0.02em]">
-                        {p.client}
-                      </h3>
-                      <p className="mt-2 ds-body-sm">
-                        {p.sector} · {p.year}
-                      </p>
-
-                      <p className="text-balance-tight mt-5 max-w-[46ch] text-[15.5px] leading-relaxed text-foreground/80">
-                        {p.summary}
-                      </p>
-
-                      {p.outcome.length > 0 && (
-                        <ul className="mt-7 flex gap-9 border-t border-border pt-6">
-                          {p.outcome.map((o) => (
-                            <li key={o.label}>
-                              <p className="text-[16px] font-semibold tracking-[-0.02em] text-brand-soft">
-                                {o.value}
-                              </p>
-                              <p className="mt-1.5 max-w-[13ch] ds-label">{o.label}</p>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-                        <button
-                          type="button"
-                          onClick={() => setOpenIndex(isOpen ? null : i)}
-                          aria-expanded={isOpen}
-                          aria-controls={`caso-${i}`}
-                          className={cn(
-                            "ds-btn ds-btn-sm btn-premium",
-                            isConcept ? "ds-btn-ghost" : "ds-btn-primary",
-                          )}
-                        >
-                          {isOpen ? "Fechar caso" : p.cta}
-                          <ArrowRight
-                            className={cn(
-                              "h-3.5 w-3.5 transition-transform duration-500 ease-out",
-                              isOpen ? "-rotate-90" : "group-hover:translate-x-1",
-                            )}
-                            strokeWidth={1.75}
-                          />
-                        </button>
-
-                        <p className="ds-label">{p.headline}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    id={`caso-${i}`}
-                    className={cn(
-                      "grid transition-[grid-template-rows,opacity] duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-                      isOpen ? "mt-9 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                    )}
-                  >
-                    <div className="overflow-hidden">
-                      <dl className="space-y-5 border-t border-border pt-7">
-                        {[
-                          ["Objetivo", p.objective],
-                          ["Desenvolvimento", p.development],
-                          ["Resultado", p.result],
-                        ].map(([label, body]) => (
-                          <div
-                            key={label}
-                            className="grid gap-1.5 sm:grid-cols-[132px_1fr] sm:gap-4"
-                          >
-                            <dt className="ds-label text-brand-soft sm:pt-1">{label}</dt>
-                            <dd className="max-w-[70ch] ds-body-sm">{body}</dd>
-                          </div>
-                        ))}
-                        <div className="grid gap-2 sm:grid-cols-[132px_1fr] sm:gap-4">
-                          <dt className="ds-label text-brand-soft sm:pt-1.5">Stack</dt>
-                          <dd className="flex flex-wrap gap-1.5">
-                            {p.stack.map((t) => (
-                              <span key={t} className="ds-pill text-foreground/60">
-                                {t}
-                              </span>
-                            ))}
-                          </dd>
-                        </div>
-                      </dl>
-                    </div>
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
 
           {/* Slot preparado para o próximo trabalho */}
           <Reveal delay={240}>
