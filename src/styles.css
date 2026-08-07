@@ -930,12 +930,20 @@ html:not(:focus-within) .particle {
   }
 
   /*
-   * Mantém feedback visual instantâneo quando o dedo toca.
+   * Feedback visual instantâneo quando o dedo toca.
+   * Somente transform — o clique/navegação não espera a animação.
    */
   .btn-premium:active,
   .ds-btn:active {
-    transform: scale(0.985) !important;
-    transition-duration: 0.06s !important;
+    transform: scale(0.98) !important;
+    transition-duration: 0.08s !important;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Soltar: retorno curto e suave */
+  .btn-premium,
+  .ds-btn {
+    transition-duration: 0.12s;
   }
 
   /*
