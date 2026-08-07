@@ -17,7 +17,12 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={
+        {
+          transitionDelay: `${delay}ms`,
+          "--reveal-delay": `${delay}ms`,
+        } as React.CSSProperties
+      }
       className={cn("reveal", visible && "is-visible", className)}
     >
       {children}
