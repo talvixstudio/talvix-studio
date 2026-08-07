@@ -1036,16 +1036,47 @@ html:not(:focus-within) .particle {
     contain-intrinsic-size: none;
   }
 
-  /* expansão de caso mais curta no mobile */
-  #trabalhos [id^="caso-"] {
-    transition-duration: 320ms !important;
-  }
-
   /* efeitos decorativos de hover não precisam existir no touch */
   .group:hover .brand-glow {
     opacity: 0 !important;
   }
 }
+
+/* =========================================================
+   EXPANSÃO DE CASO — custo de layout controlado
+   Desktop: animação suave de grid-template-rows.
+   Touch: altura muda em um único frame, só a opacidade anima,
+   evitando reflow contínuo do documento durante 700ms.
+   ========================================================= */
+
+@utility talvix-collapse {
+  transition:
+    grid-template-rows 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-top 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .talvix-collapse {
+    transition: opacity 0.18s ease-out;
+  }
+
+  /*
+   * Reveal mais barato no touch: deslocamento menor, duração curta
+   * e sem will-change permanente. Quando várias seções entram na tela
+   * ao mesmo tempo (scroll por âncora), isso evita promoção de camadas
+   * e repaints grandes no meio do scroll.
+   */
+  .reveal {
+    transform: translate3d(0, 12px, 0);
+    transition:
+      opacity 0.4s ease-out,
+      transform 0.4s ease-out;
+    will-change: auto;
+    transition-delay: 0ms !important;
+  }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .talvix-sheet {
