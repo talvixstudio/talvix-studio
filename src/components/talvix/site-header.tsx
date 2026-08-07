@@ -210,11 +210,10 @@ export function SiteHeader() {
 
       <div
         id="menu-mobile"
-        className={cn(
-          "overflow-hidden border-t bg-background/70 backdrop-blur-2xl backdrop-saturate-150 transition-[max-height,opacity,border-color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden",
-          open ? "max-h-[420px] border-border/60 opacity-100" : "max-h-0 border-transparent opacity-0",
-        )}
+        data-open={open ? "true" : "false"}
+        className="talvix-sheet absolute inset-x-0 top-full origin-top overflow-hidden border-t border-border/60 bg-background/90 backdrop-blur-md md:hidden"
       >
+
         <nav aria-label="Navegação móvel" className="shell flex flex-col py-2">
           {links.map((l, i) => (
             <a
