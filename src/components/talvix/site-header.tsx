@@ -27,7 +27,11 @@ export function SiteHeader() {
       if (progressRef.current) {
         progressRef.current.style.transform = `scaleX(${ratio})`;
       }
-      setScrolled(window.scrollY > 12);
+      const next = window.scrollY > 12;
+      if (next !== scrolledRef.current) {
+        scrolledRef.current = next;
+        setScrolled(next);
+      }
     };
     const onScroll = () => {
       if (frame) return;
