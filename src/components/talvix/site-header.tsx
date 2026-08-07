@@ -16,6 +16,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
   const progressRef = useRef<HTMLSpanElement | null>(null);
+  const scrolledRef = useRef(false);
 
   // Reading progress — written straight to the DOM, no re-render per scroll frame.
   useEffect(() => {
